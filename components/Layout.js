@@ -1,15 +1,32 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { useAccount, useDisconnect } from 'wagmi'
-import Navbar from './Navbar'
+import HeaderNav from './HeaderNav'
+import FooterNav from './FooterNav'
 
 const Layout = ({ children }) => {
   const { data: account } = useAccount()
   const { disconnect } = useDisconnect()
 
   return (
-    <div>
-      <Navbar />
-      <main className='flex-1'>{children}</main>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+        backgroundColor: 'pink',
+      }}
+    >
+      <HeaderNav />
+      <main
+        style={{
+          width: '100%',
+          flex: '1 1 auto',
+          bg: 'inherit',
+        }}
+      >
+        {children}
+      </main>
+      <FooterNav />
     </div>
   )
 }

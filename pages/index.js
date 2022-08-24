@@ -12,50 +12,37 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Welcome!</h1>
+      <main>
+        <h1>Welcome!</h1>
 
         <ul>
-          <li className={styles.description}>
+          <li>
             <Link href='/audio-globe-grey'>
               <a>Audio Globe Grey</a>
             </Link>
           </li>
-          <li className={styles.description}>
+          <li>
             <Link href='/audio-globe-black'>
               <a>Audio Globe Black</a>
             </Link>
           </li>
-          <li className={styles.description}>
+          <li>
             <Link href='/colour-globe'>
               <a>Colour Globe</a>
             </Link>
           </li>
-          <li className={styles.description}>
+          <li>
             <Link href='/rocket'>
               <a>Rocket</a>
             </Link>
           </li>
-          <li className={styles.description}>
+          <li>
             <Link href='/combined'>
               <a>Combined</a>
             </Link>
           </li>
         </ul>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href='https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src='/vercel.svg' alt='Vercel Logo' width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   )
 }
