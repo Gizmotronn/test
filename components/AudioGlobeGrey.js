@@ -5,7 +5,7 @@ import audioGlobeGrey from '../animations/audio-globe-grey.json'
 const AudioGlobeGrey = () => {
   const greyGlobeAnimeContainer = useRef(null)
 
-  console.log('lottie:', lottie)
+  // console.log('lottie:', lottie)
 
   useEffect(() => {
     const instance = lottie.loadAnimation({
@@ -18,7 +18,7 @@ const AudioGlobeGrey = () => {
     // Clean up
     return () => instance.destroy()
   }, [])
-  return <div ref={greyGlobeAnimeContainer} style={{ height: 60, width: 60 }}></div>
+  return <div ref={greyGlobeAnimeContainer} style={{ height: 60, width: 60 }} />
 }
 
 export default AudioGlobeGrey

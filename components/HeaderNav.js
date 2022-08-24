@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ConnectButton, useConnectModal } from '@rainbow-me/rainbowkit'
+import { ConnectButton, useConnectModal, useAccountModal } from '@rainbow-me/rainbowkit'
 import { useAccount, useDisconnect } from 'wagmi'
 import AudioGlobeBlack from '../components/AudioGlobeBlack'
 import AudioGlobeGrey from '../components/AudioGlobeGrey'
+import ConnectWallet from './ConnectWallet'
 
 export default function HeaderNav() {
   const { openConnectModal } = useConnectModal()
-  const { data: account } = useAccount()
+  const { openAccountModal } = useAccountModal()
+  const { isConnected, address } = useAccount()
   const { disconnect } = useDisconnect()
   const [mounted, setMounted] = useState(false)
 
@@ -39,29 +41,38 @@ export default function HeaderNav() {
               padding: 0,
             }}
           >
-            <div style={{ display: 'flex', border: '1px solid blue' }}>
-              <li style={{ listStyle: 'none' }}>
+            {/* <div style={{ display: 'flex' }}>
+              <li style={{ listStyle: 'none', display: 'contents' }}>
                 <ConnectButton />
               </li>
-            </div>
+            </div> */}
 
-            {openConnectModal && (
-              <div style={{ display: 'flex', border: '1px solid blue' }}>
-                <li style={{ listStyle: 'none' }}>
-                  <button onClick={openConnectModal} type='button'>
-                    Open Connect Modal
-                  </button>
-                </li>
-              </div>
-            )}
-
-            <div style={{ display: 'flex', border: '1px solid blue' }}>
-              <li style={{ listStyle: 'none' }}>
-                <AudioGlobeBlack />
+            <div style={{ width: '200px', display: 'flex', alignItems: 'center', border: '1px solid red' }}>
+              <li style={{ listStyle: 'none', display: 'contents' }}>
+                {/* <button
+                  onClick={openConnectModal}
+                  type='button'
+                  style={{ background: 'inherit', padding: 0, border: 'none' }}
+                > */}
+                <ConnectWallet
+                  walletConnected={isConnected}
+                  connect={() => openConnectModal()}
+                  disconnect={() => disconnect()}
+                  account={() => openAccountModal()}
+                />
+                {/* </button> */}
               </li>
+              <div style={{ padding: '0 0 0 10px' }}>
+                <p style={{ color: '#ffffff' }}>
+                  {isConnected
+                    ? String(address).substring(0, 4) + '...' + String(address).substring(38)
+                    : 'Connect Wallet'}
+                </p>
+              </div>
             </div>
+
             <div style={{ display: 'flex', border: '1px solid blue' }}>
-              <li style={{ listStyle: 'none' }}>
+              <li style={{ listStyle: 'none', display: 'contents' }}>
                 <AudioGlobeGrey />
               </li>
             </div>

@@ -5,8 +5,6 @@ import audioGlobeBlack from '../animations/audio-globe-black.json'
 const AudioGlobeBlack = () => {
   const blackGlobeAnimeContainer = useRef(null)
 
-  console.log('lottie:', lottie)
-
   useEffect(() => {
     const instance = lottie.loadAnimation({
       container: blackGlobeAnimeContainer.current,
@@ -18,7 +16,9 @@ const AudioGlobeBlack = () => {
     // Clean up
     return () => instance.destroy()
   }, [])
-  return <div ref={blackGlobeAnimeContainer} style={{ height: 60, width: 60 }}></div>
+  return (
+    <div ref={blackGlobeAnimeContainer} style={{ height: 60, width: 60, background: 'green', borderRadius: '50%' }} />
+  )
 }
 
 export default AudioGlobeBlack

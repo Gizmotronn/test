@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
         display: 'flex',
         flexDirection: 'column',
         minHeight: '100vh',
-        backgroundColor: 'pink',
+        backgroundColor: 'black',
       }}
     >
       <HeaderNav />

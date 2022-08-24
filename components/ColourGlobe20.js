@@ -5,7 +5,7 @@ import colourGlobe20 from '../animations/colour-globe-20.json'
 const GlobeColour20 = () => {
   const colourGlobeAnimeContainer = useRef(null)
 
-  console.log('Colour Globe-20 lottie:', lottie)
+  // console.log('Colour Globe-20 lottie:', lottie)
 
   useEffect(() => {
     // const instance = lottie.loadAnimation({
