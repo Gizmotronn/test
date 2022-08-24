@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { useAccount, useDisconnect } from 'wagmi'
+import ColourGlobe from '../components/ColourGlobe'
 
 export default function FooterNav() {
   const { data: account } = useAccount()
@@ -30,7 +31,7 @@ export default function FooterNav() {
           <ul style={{ border: '1px solid blue', display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
             <div style={{ display: 'flex', border: '1px solid blue' }}>
               <li style={{ listStyle: 'none' }}>
-                <p>Forge Button</p>
+                <ColourGlobe />
               </li>
             </div>
           </ul>

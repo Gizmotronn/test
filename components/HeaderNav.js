@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { useAccount, useDisconnect } from 'wagmi'
+import AudioGlobeGrey from '../components/AudioGlobeGrey'
 
 export default function HeaderNav() {
   const { data: account } = useAccount()
@@ -43,7 +44,7 @@ export default function HeaderNav() {
             </div>
             <div style={{ display: 'flex', border: '1px solid blue' }}>
               <li style={{ listStyle: 'none' }}>
-                <p>Audio Button</p>
+                <AudioGlobeGrey />
               </li>
             </div>
           </ul>
