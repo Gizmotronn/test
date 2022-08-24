@@ -1,24 +1,25 @@
 import React, { useEffect, useRef } from 'react'
 import lottie from 'lottie-web'
-import colourGlobe from '../animations/colour-globe.json'
+import colourGlobe20 from '../animations/colour-globe-20.json'
 
-const ColourGlobe = () => {
+const GlobeColour20 = () => {
   const colourGlobeAnimeContainer = useRef(null)
 
-  console.log('lottie:', lottie)
+  console.log('Colour Globe-20 lottie:', lottie)
 
   useEffect(() => {
-    const instance = lottie.loadAnimation({
+    // const instance = lottie.loadAnimation({
+    lottie.loadAnimation({
       container: colourGlobeAnimeContainer.current,
       renderer: 'svg',
       autoplay: true,
       loop: true,
-      animationData: colourGlobe,
+      animationData: colourGlobe20,
     })
     // Clean up
-    return () => instance.destroy()
+    // return () => instance.destroy()
   }, [])
   return <div ref={colourGlobeAnimeContainer} style={{ height: 60, width: 60, borderRadius: '50%' }}></div>
 }
 
-export default ColourGlobe
+export default GlobeColour20
