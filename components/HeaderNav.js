@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ConnectButton } from '@rainbow-me/rainbowkit'
+import { ConnectButton, useConnectModal } from '@rainbow-me/rainbowkit'
 import { useAccount, useDisconnect } from 'wagmi'
+import AudioGlobeBlack from '../components/AudioGlobeBlack'
 import AudioGlobeGrey from '../components/AudioGlobeGrey'
 
 export default function HeaderNav() {
+  const { openConnectModal } = useConnectModal()
   const { data: account } = useAccount()
   const { disconnect } = useDisconnect()
   const [mounted, setMounted] = useState(false)
@@ -40,6 +42,22 @@ export default function HeaderNav() {
             <div style={{ display: 'flex', border: '1px solid blue' }}>
               <li style={{ listStyle: 'none' }}>
                 <ConnectButton />
+              </li>
+            </div>
+
+            {openConnectModal && (
+              <div style={{ display: 'flex', border: '1px solid blue' }}>
+                <li style={{ listStyle: 'none' }}>
+                  <button onClick={openConnectModal} type='button'>
+                    Open Connect Modal
+                  </button>
+                </li>
+              </div>
+            )}
+
+            <div style={{ display: 'flex', border: '1px solid blue' }}>
+              <li style={{ listStyle: 'none' }}>
+                <AudioGlobeBlack />
               </li>
             </div>
             <div style={{ display: 'flex', border: '1px solid blue' }}>
