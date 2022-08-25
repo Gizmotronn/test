@@ -13,30 +13,30 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>Welcome!</h1>
+        <h1 style={{ color: '#ffffff' }}>Welcome!</h1>
 
         <ul>
-          <li>
+          <li style={{ color: '#ffffff' }}>
             <Link href='/audio-globe-grey'>
               <a>Audio Globe Grey</a>
             </Link>
           </li>
-          <li>
+          <li style={{ color: '#ffffff' }}>
             <Link href='/audio-globe-black'>
               <a>Audio Globe Black</a>
             </Link>
           </li>
-          <li>
+          <li style={{ color: '#ffffff' }}>
             <Link href='/colour-globe'>
               <a>Colour Globe</a>
             </Link>
           </li>
-          <li>
+          <li style={{ color: '#ffffff' }}>
             <Link href='/rocket'>
               <a>Rocket</a>
             </Link>
           </li>
-          <li>
+          <li style={{ color: '#ffffff' }}>
             <Link href='/combined'>
               <a>Combined</a>
             </Link>

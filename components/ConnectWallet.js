@@ -25,7 +25,7 @@ const ConnectWallet = (props) => {
         onClick={walletConnected ? account : connect}
         // onClick={walletConnected ? disconnect : connect}
         type='button'
-        style={{ background: 'inherit', padding: 0, border: 'none' }}
+        style={{ background: 'inherit', padding: 0, border: 'none', cursor: 'pointer' }}
       >
         <div
           ref={walletGlobeAnimeContainer}

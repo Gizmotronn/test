@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { ConnectButton, useConnectModal, useAccountModal } from '@rainbow-me/rainbowkit'
+import { useConnectModal, useAccountModal } from '@rainbow-me/rainbowkit'
 import { useAccount, useDisconnect } from 'wagmi'
-import AudioGlobeBlack from '../components/AudioGlobeBlack'
-import AudioGlobeGrey from '../components/AudioGlobeGrey'
 import ConnectWallet from './ConnectWallet'
 import AudioButton from './AudioButton'
 
@@ -13,7 +10,6 @@ export default function HeaderNav() {
   const { isConnected, address } = useAccount()
   const { disconnect } = useDisconnect()
   const [mounted, setMounted] = useState(false)
-  // const [isPlaying, setIsPlaying] = useState(false)
 
   useEffect(() => {
     setMounted(true)

@@ -18,7 +18,11 @@ const AudioButton = (props) => {
 
   return (
     <>
-      <button onClick={handleClick} type='button' style={{ background: 'inherit', padding: 0, border: 'none' }}>
+      <button
+        onClick={handleClick}
+        type='button'
+        style={{ background: 'inherit', padding: 0, border: 'none', cursor: 'pointer' }}
+      >
         <AudioGlobe isPlaying={isPlaying} />
       </button>
     </>

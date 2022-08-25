@@ -1,13 +1,9 @@
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { useAccount, useDisconnect } from 'wagmi'
-import ColourGlobe from '../components/ColourGlobe'
+import ForgeButton from './ForgeButton'
 
 export default function FooterNav() {
-  const { data: account } = useAccount()
-  const { disconnect } = useDisconnect()
   const [mounted, setMounted] = useState(false)
+  const [forge, setForge] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -21,17 +17,14 @@ export default function FooterNav() {
           contain: 'content',
           mx: 'auto',
           padding: '20px',
-          // display: 'flex',
-          // justifyContent: 'center',
-          // flexDirection: 'row',
           border: '1px solid blue',
         }}
       >
         <nav>
           <ul style={{ border: '1px solid blue', display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
             <div style={{ display: 'flex', border: '1px solid blue' }}>
-              <li style={{ listStyle: 'none' }}>
-                <ColourGlobe />
+              <li style={{ listStyle: 'none', display: 'contents' }}>
+                <ForgeButton forge={forge} />
               </li>
             </div>
           </ul>
