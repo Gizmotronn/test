@@ -5,6 +5,7 @@ import { useAccount, useDisconnect } from 'wagmi'
 import AudioGlobeBlack from '../components/AudioGlobeBlack'
 import AudioGlobeGrey from '../components/AudioGlobeGrey'
 import ConnectWallet from './ConnectWallet'
+import AudioButton from './AudioButton'
 
 export default function HeaderNav() {
   const { openConnectModal } = useConnectModal()
@@ -12,6 +13,7 @@ export default function HeaderNav() {
   const { isConnected, address } = useAccount()
   const { disconnect } = useDisconnect()
   const [mounted, setMounted] = useState(false)
+  // const [isPlaying, setIsPlaying] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -25,9 +27,6 @@ export default function HeaderNav() {
           contain: 'content',
           mx: 'auto',
           padding: '20px',
-          // display: 'flex',
-          // justifyContent: 'center',
-          // flexDirection: 'row',
           border: '1px solid blue',
         }}
       >
@@ -41,26 +40,14 @@ export default function HeaderNav() {
               padding: 0,
             }}
           >
-            {/* <div style={{ display: 'flex' }}>
-              <li style={{ listStyle: 'none', display: 'contents' }}>
-                <ConnectButton />
-              </li>
-            </div> */}
-
             <div style={{ width: '200px', display: 'flex', alignItems: 'center', border: '1px solid red' }}>
               <li style={{ listStyle: 'none', display: 'contents' }}>
-                {/* <button
-                  onClick={openConnectModal}
-                  type='button'
-                  style={{ background: 'inherit', padding: 0, border: 'none' }}
-                > */}
                 <ConnectWallet
                   walletConnected={isConnected}
                   connect={() => openConnectModal()}
                   disconnect={() => disconnect()}
                   account={() => openAccountModal()}
                 />
-                {/* </button> */}
               </li>
               <div style={{ padding: '0 0 0 10px' }}>
                 <p style={{ color: '#ffffff' }}>
@@ -73,7 +60,7 @@ export default function HeaderNav() {
 
             <div style={{ display: 'flex', border: '1px solid blue' }}>
               <li style={{ listStyle: 'none', display: 'contents' }}>
-                <AudioGlobeGrey />
+                <AudioButton />
               </li>
             </div>
           </ul>
