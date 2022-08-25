@@ -3,10 +3,8 @@ import lottie from 'lottie-web'
 import audioGlobeBlack from '../animations/audio-globe-black.json'
 import colourGlobe from '../animations/colour-globe.json'
 
-const IntroGlobe = (props) => {
+const IntroGlobe = () => {
   const introGlobeAnimeContainer = useRef(null)
-
-  const { walletConnected, connect, disconnect, account } = props
 
   useEffect(() => {
     const instance = lottie.loadAnimation({
@@ -18,12 +16,12 @@ const IntroGlobe = (props) => {
     })
     // Clean up
     return () => instance.destroy()
-  }, [walletConnected])
+  }, [])
   return (
     <div>
       <div
         ref={introGlobeAnimeContainer}
-        style={{ height: 100, width: 100, background: 'green', borderRadius: '50%' }}
+        style={{ height: 160, width: 160, background: 'green', borderRadius: '50%' }}
       />
     </div>
   )

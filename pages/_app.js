@@ -4,6 +4,7 @@ import { chain, configureChains, createClient, WagmiConfig } from 'wagmi'
 // import { infuraProvider } from 'wagmi/providers/infura'
 import { publicProvider } from 'wagmi/providers/public'
 import { useRouter } from 'next/router'
+import AudioProvider from '../contexts/AudioContext'
 import Modal from '../components/Modal'
 import Layout from '../components/Layout'
 import '../styles/globals.css'
@@ -33,10 +34,12 @@ function MyApp({ Component, pageProps }) {
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
-        <Modal showModal={true} route={appRoute} />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <AudioProvider>
+          <Modal showModal={true} route={appRoute} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </AudioProvider>
       </RainbowKitProvider>
     </WagmiConfig>
   )

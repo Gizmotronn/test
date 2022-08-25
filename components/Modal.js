@@ -1,14 +1,20 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Portal from './Portal'
+import { AudioContext } from '../contexts/AudioContext'
 import IntroGlobe from './IntroGlobe'
 
 export default function Modal(props) {
   const [open, setOpen] = useState(props.showModal)
+
   const { route } = props
+
+  const [, setAudioActive] = useContext(AudioContext)
 
   const handleClick = () => {
     setOpen((current) => !current)
+    setAudioActive(true)
   }
+
   return (
     <>
       {route === '/' && open && (
@@ -21,7 +27,6 @@ export default function Modal(props) {
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
-              // backgroundColor: 'pink',
               backgroundColor: 'rgba(0, 0, 0, 1)',
             }}
           >

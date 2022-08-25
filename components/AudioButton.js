@@ -1,12 +1,15 @@
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import useSound from 'use-sound'
+import { AudioContext } from '../contexts/AudioContext'
 import AudioGlobe from './AudioGlobe'
 
 const soundURL = `/audio-demo.mp3`
 
-const AudioButton = (props) => {
+const AudioButton = () => {
   const [play, { pause }] = useSound(soundURL)
   const [isPlaying, setIsPlaying] = useState(false)
+
+  const [audioActive] = useContext(AudioContext)
 
   const handleClick = () => {
     setIsPlaying((current) => !current)
@@ -15,6 +18,13 @@ const AudioButton = (props) => {
       pause()
     } else play()
   }
+
+  useEffect(() => {
+    if (audioActive) {
+      setIsPlaying(audioActive)
+      play()
+    } else pause()
+  }, [audioActive, play, pause])
 
   return (
     <>
