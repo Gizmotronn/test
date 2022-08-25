@@ -3,6 +3,8 @@ import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { chain, configureChains, createClient, WagmiConfig } from 'wagmi'
 // import { infuraProvider } from 'wagmi/providers/infura'
 import { publicProvider } from 'wagmi/providers/public'
+import { useRouter } from 'next/router'
+import Modal from '../components/Modal'
 import Layout from '../components/Layout'
 import '../styles/globals.css'
 
@@ -26,9 +28,12 @@ const wagmiClient = createClient({
 })
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter()
+  const appRoute = router.route
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
+        <Modal showModal={true} route={appRoute} />
         <Layout>
           <Component {...pageProps} />
         </Layout>

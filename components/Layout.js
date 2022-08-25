@@ -1,33 +1,41 @@
-import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { useAccount, useDisconnect } from 'wagmi'
+import { useState, useEffect } from 'react'
 import HeaderNav from './HeaderNav'
 import FooterNav from './FooterNav'
 
 const Layout = ({ children }) => {
-  const { data: account } = useAccount()
-  const { disconnect } = useDisconnect()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-        backgroundColor: 'black',
-      }}
-    >
-      <HeaderNav />
-      <main
+    mounted && (
+      <div
         style={{
-          width: '100%',
-          flex: '1 1 auto',
-          bg: 'inherit',
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100vh',
+          backgroundColor: 'black',
         }}
       >
-        {children}
-      </main>
-      <FooterNav />
-    </div>
+        <HeaderNav />
+        <main
+          style={{
+            width: '100%',
+            flex: '1 1 auto',
+            bg: 'inherit',
+          }}
+        >
+          {children}
+        </main>
+        <FooterNav />
+      </div>
+    )
   )
 }
 
