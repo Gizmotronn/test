@@ -1,36 +1,55 @@
 import { useState } from 'react'
 import Portal from './Portal'
+import IntroGlobe from './IntroGlobe'
 
 export default function Modal(props) {
   const [open, setOpen] = useState(props.showModal)
   const { route } = props
 
+  const handleClick = () => {
+    setOpen((current) => !current)
+  }
   return (
     <>
       {route === '/' && open && (
         <Portal selector='#modal'>
           <div
             style={{
-              position: 'fixed',
-              backgroundColor: 'rgba(0, 0, 0, 0.7)',
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0,
+              position: 'absolute',
+              width: '100vw',
+              height: '100vh',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              // backgroundColor: 'pink',
+              backgroundColor: 'rgba(0, 0, 0, 1)',
             }}
           >
             <div
               style={{
-                width: '30%',
-                backgroundColor: '#ffffff',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100%',
               }}
             >
-              <p style={{ color: '#ffffff' }}>This modal is rendered using portals .</p>
-              <button type='button' onClick={() => setOpen(false)}>
-                Close Modal
+              {/* <div
+                style={{
+                  width: '30%',
+                  backgroundColor: '#ffffff',
+                }}
+              > */}
+              <button
+                onClick={handleClick}
+                type='button'
+                style={{ background: 'inherit', padding: 0, border: 'none', cursor: 'pointer' }}
+              >
+                <IntroGlobe />
               </button>
             </div>
           </div>
+          {/* </div> */}
         </Portal>
       )}
     </>
