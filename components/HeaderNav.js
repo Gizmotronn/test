@@ -23,21 +23,20 @@ export default function HeaderNav() {
             width: '100%',
             contain: 'content',
             mx: 'auto',
-            padding: '20px',
-            border: '1px solid blue',
+            padding: '15px',
           }}
         >
           <nav>
             <ul
               style={{
-                border: '1px solid blue',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
+                margin: 0,
                 padding: 0,
               }}
             >
-              <div style={{ width: '200px', display: 'flex', alignItems: 'center', border: '1px solid red' }}>
+              <div style={{ width: '200px', display: 'flex', alignItems: 'center' }}>
                 <li style={{ listStyle: 'none', display: 'contents' }}>
                   <ConnectWallet
                     walletConnected={isConnected}
@@ -55,7 +54,7 @@ export default function HeaderNav() {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', border: '1px solid blue' }}>
+              <div style={{ display: 'flex' }}>
                 <li style={{ listStyle: 'none', display: 'contents' }}>
                   <AudioButton />
                 </li>

@@ -16,13 +16,12 @@ export default function FooterNav() {
           width: '100%',
           contain: 'content',
           mx: 'auto',
-          padding: '20px',
-          border: '1px solid blue',
+          padding: '15px',
         }}
       >
         <nav>
-          <ul style={{ border: '1px solid blue', display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
-            <div style={{ display: 'flex', border: '1px solid blue' }}>
+          <ul style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', margin: 0, padding: 0 }}>
+            <div style={{ display: 'flex' }}>
               <li style={{ listStyle: 'none', display: 'contents' }}>
                 <ForgeButton forge={forge} />
               </li>
