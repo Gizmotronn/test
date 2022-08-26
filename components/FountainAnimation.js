@@ -3,12 +3,12 @@ import lottie from 'lottie-web'
 import audioGlobeBlack from '../animations/audio-globe-black.json'
 import colourGlobe from '../animations/colour-globe.json'
 
-const IntroGlobe = () => {
-  const introGlobeAnimeContainer = useRef(null)
+const FountainAnimation = () => {
+  const fountainContainer = useRef(null)
 
   useEffect(() => {
     const instance = lottie.loadAnimation({
-      container: introGlobeAnimeContainer.current,
+      container: fountainContainer.current,
       renderer: 'svg',
       autoplay: true,
       loop: true,
@@ -17,9 +17,7 @@ const IntroGlobe = () => {
     // Clean up
     return () => instance.destroy()
   }, [])
-  return (
-    <div ref={introGlobeAnimeContainer} style={{ height: 160, width: 160, background: 'green', borderRadius: '50%' }} />
-  )
+  return <div ref={fountainContainer} style={{ height: 160, width: 160, background: 'green', borderRadius: '50%' }} />
 }
 
-export default IntroGlobe
+export default FountainAnimation
