@@ -1,12 +1,13 @@
 import React from 'react'
 import FountainAnimation from './FountainAnimation'
 
-const Fountain = () => {
+const Fountain = (props) => {
+  const { width, height } = props
   return (
     <div
       style={{
-        width: '200px',
-        height: '200px',
+        width: width,
+        height: height,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -14,7 +15,7 @@ const Fountain = () => {
         margin: '10px',
       }}
     >
-      <FountainAnimation />
+      <FountainAnimation width={width} height={height} />
     </div>
   )
 }

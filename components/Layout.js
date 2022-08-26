@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
           style={{
             // width: '100%',
             // flex: '1 1 auto',
-            background: 'pink',
+            background: 'inherit',
             flex: '1',
             display: 'flex',
             flexDirection: 'column',

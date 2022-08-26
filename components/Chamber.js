@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Chamber = () => {
+const Chamber = (props) => {
+  const { width, height } = props
   return (
     <div
       style={{
-        width: '200px',
-        height: '200px',
+        width: width,
+        height: height,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import lottie from 'lottie-web'
-import audioGlobeBlack from '../animations/audio-globe-black.json'
 import colourGlobe from '../animations/colour-globe.json'
 
-const FountainAnimation = () => {
+const FountainAnimation = (props) => {
   const fountainContainer = useRef(null)
+
+  const { width, height } = props
 
   useEffect(() => {
     const instance = lottie.loadAnimation({
@@ -17,7 +18,9 @@ const FountainAnimation = () => {
     // Clean up
     return () => instance.destroy()
   }, [])
-  return <div ref={fountainContainer} style={{ height: 160, width: 160, background: 'green', borderRadius: '50%' }} />
+  return (
+    <div ref={fountainContainer} style={{ height: height, width: width, background: 'green', borderRadius: '50%' }} />
+  )
 }
 
 export default FountainAnimation

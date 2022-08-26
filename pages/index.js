@@ -3,7 +3,9 @@ import Chamber from '../components/Chamber'
 import Fountain from '../components/Fountain'
 
 export default function Home() {
-  const [showModal, setShowModal] = useState(true)
+  const width = '460px'
+  const height = '460px'
+
   return (
     <div
       style={{
@@ -14,8 +16,8 @@ export default function Home() {
         border: '1px solid yellow',
       }}
     >
-      <Chamber />
-      <Fountain />
+      <Chamber width={width} height={height} />
+      <Fountain width={width} height={height} />
     </div>
   )
 }

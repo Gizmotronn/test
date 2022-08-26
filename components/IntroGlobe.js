@@ -18,7 +18,7 @@ const IntroGlobe = () => {
     return () => instance.destroy()
   }, [])
   return (
-    <div ref={introGlobeAnimeContainer} style={{ height: 160, width: 160, background: 'green', borderRadius: '50%' }} />
+    <div ref={introGlobeAnimeContainer} style={{ height: 160, width: 160, background: 'black', borderRadius: '50%' }} />
   )
 }
 
