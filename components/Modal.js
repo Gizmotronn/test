@@ -24,8 +24,9 @@ export default function Modal(props) {
     closed: {
       opacity: 0,
       transition: {
+        delay: 1,
         ease: 'easeOut',
-        duration: 2,
+        duration: 1,
       },
     },
   }
