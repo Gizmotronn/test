@@ -1,10 +1,12 @@
 import { useContext, useState } from 'react'
+import { motion } from 'framer-motion'
 import Portal from './Portal'
 import { AudioContext } from '../contexts/AudioContext'
 import IntroGlobe from './IntroGlobe'
 
 export default function Modal(props) {
   const [open, setOpen] = useState(props.showModal)
+  const [removeModal, setRemoveModal] = useState(false)
 
   const { route } = props
 
@@ -15,11 +17,45 @@ export default function Modal(props) {
     setAudioActive(true)
   }
 
+  const overlayAnimation = {
+    isOpen: {
+      opacity: 1,
+    },
+    closed: {
+      opacity: 0,
+      transition: {
+        ease: 'easeOut',
+        duration: 2,
+      },
+    },
+  }
+  const globeAnimation = {
+    isOpen: {
+      opacity: 1,
+      scale: 1,
+    },
+    closed: {
+      opacity: 0,
+      scale: 0,
+      transition: {
+        delay: 0,
+        ease: 'easeOut',
+        duration: 2,
+      },
+    },
+  }
+
   return (
     <>
-      {route === '/' && open && (
+      {route === '/' && !removeModal && (
         <Portal selector='#modal'>
-          <div
+          <motion.div
+            variants={overlayAnimation}
+            initial='isOpen'
+            animate={open ? 'isOpen' : 'closed'}
+            // initial={{ opacity: 1 }}
+            // animate={{ opacity: 0 }}
+            // transition={{ ease: 'easeOut', duration: 2 }}
             style={{
               position: 'absolute',
               width: '100vw',
@@ -30,7 +66,15 @@ export default function Modal(props) {
               backgroundColor: 'rgba(0, 0, 0, 1)',
             }}
           >
-            <div
+            <motion.div
+              variants={globeAnimation}
+              initial='isOpen'
+              animate={open ? 'isOpen' : 'closed'}
+              onAnimationComplete={(definition) => {
+                if (definition === 'closed') {
+                  setRemoveModal(true)
+                } else return
+              }}
               style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -39,12 +83,6 @@ export default function Modal(props) {
                 height: '100%',
               }}
             >
-              {/* <div
-                style={{
-                  width: '30%',
-                  backgroundColor: '#ffffff',
-                }}
-              > */}
               <button
                 onClick={handleClick}
                 type='button'
@@ -52,9 +90,8 @@ export default function Modal(props) {
               >
                 <IntroGlobe />
               </button>
-            </div>
-          </div>
-          {/* </div> */}
+            </motion.div>
+          </motion.div>
         </Portal>
       )}
     </>
