@@ -3,7 +3,7 @@ import useSound from 'use-sound'
 import { AudioContext } from '../contexts/AudioContext'
 import AudioGlobe from './AudioGlobe'
 
-const soundURL = `/audio-demo.mp3`
+const soundURL = `/bricktOrigins-audio.mp3`
 
 const AudioButton = () => {
   const [play, { pause }] = useSound(soundURL)
