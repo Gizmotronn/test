@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import lottie from 'lottie-web'
-import colourGlobe from '../animations/colour-globe.json'
+import audioGlobeGrey from '../animations/audio-globe-grey.json'
 
 const FountainAnimation = (props) => {
   const fountainContainer = useRef(null)
@@ -13,13 +13,13 @@ const FountainAnimation = (props) => {
       renderer: 'svg',
       autoplay: true,
       loop: true,
-      animationData: colourGlobe,
+      animationData: audioGlobeGrey,
     })
     // Clean up
     return () => instance.destroy()
   }, [])
   return (
-    <div ref={fountainContainer} style={{ height: height, width: width, background: 'green', borderRadius: '50%' }} />
+    <div ref={fountainContainer} style={{ height: height, width: width, background: 'inherit', borderRadius: '50%' }} />
   )
 }
 

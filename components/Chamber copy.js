@@ -1,7 +1,7 @@
 import React from 'react'
-import FountainAnimation from './FountainAnimation'
+import styles from '../styles/Chamber.module.css'
 
-const Fountain = (props) => {
+const Chamber = (props) => {
   const { width, height } = props
   return (
     <div
@@ -11,13 +11,13 @@ const Fountain = (props) => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        // border: '1px solid green',
+        // border: '1px solid blue',
         margin: '10px',
       }}
     >
-      <FountainAnimation width={width} height={height} />
+      <p style={{ color: '#fff' }}>Chamber</p>
     </div>
   )
 }
 
-export default Fountain
+export default Chamber

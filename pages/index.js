@@ -13,7 +13,7 @@ export default function Home() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        border: '1px solid yellow',
+        // border: '1px solid yellow',
       }}
     >
       <Chamber width={width} height={height} />

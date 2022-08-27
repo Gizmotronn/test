@@ -1,0 +1,29 @@
+.circleContainer {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  margin: calc(100px / 2 + 0px);
+  background: pink;
+}
+
+/* .circleContainer:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid teal;
+  width: calc(100% - 2px * 2);
+  height: calc(100% - 2px * 2);
+  border-radius: 50%;
+} */
+
+.circleContainer .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  margin: calc(-300px / 2);
+  border-radius: 50%;
+  background: yellow;
+}
