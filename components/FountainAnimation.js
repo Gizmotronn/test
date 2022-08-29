@@ -19,17 +19,27 @@ const FountainAnimation = (props) => {
     // Clean up
     return () => instance.destroy()
   }, [])
-  return <Container ref={fountainContainer} height={height} width={width} />
+  return <Container ref={fountainContainer} />
 }
 
 export default FountainAnimation
 
 const Container = styled.div`
-  flex-grow: 1;
-  flex-shrink: 1;
-  height: ${(props) => props.height};
-  width: ${(props) => props.width};
   background: inherit;
   border-radius: 50%;
-  border: 1px solid green;
+  margin: 0 0 0 15px;
 `
+
+// const Container = styled.div`
+//   flex-grow: 1;
+//   flex-shrink: 1;
+//   height: ${(props) => props.height};
+//   width: ${(props) => props.width};
+//   background: inherit;
+//   border-radius: 50%;
+//   border: 1px solid green;
+// `
+
+{
+  /* <Container ref={fountainContainer} height={height} width={width} /> */
+}

@@ -5,21 +5,22 @@ import FountainAnimation from './FountainAnimation'
 const Fountain = (props) => {
   const { minWidthContainer, minHeightContainer } = props
   return (
-    <Container minWidthContainer={minWidthContainer} minHeightContainer={minHeightContainer}>
-      {/* <FountainAnimation width={width} height={height} /> */}
-    </Container>
+    <FountainAnimation />
+    // <Container minWidthContainer={minWidthContainer} minHeightContainer={minHeightContainer}>
+    //   <FountainAnimation width={width} height={height} />
+    // </Container>
   )
 }
 
 export default Fountain
 
-const Container = styled.div`
-  min-width: ${(props) => props.minWidthContainer};
-  min-height: ${(props) => props.minHeightContainer};
-  background: inherit;
-  border: 1px solid red;
-  margin: 10px 10px 10px 5px;
-  @media (max-width: 1023px) {
-    margin: 5px 10px 10px 10px;
-  }
-`
+// const Container = styled.div`
+//   min-width: ${(props) => props.minWidthContainer};
+//   min-height: ${(props) => props.minHeightContainer};
+//   background: inherit;
+//   border: 1px solid red;
+//   margin: 10px 10px 10px 5px;
+//   @media (max-width: 1023px) {
+//     margin: 5px 10px 10px 10px;
+//   }
+// `
