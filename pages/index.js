@@ -21,6 +21,5 @@ const Container = styled.div`
   border: 1px solid yellow;
   @media (max-width: 1023px) {
     flex-direction: column;
-    border: 1px solid blue;
   }
 `

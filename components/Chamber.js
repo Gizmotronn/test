@@ -54,6 +54,9 @@ const Container = styled.div`
   background: inherit;
   border: 1px solid blue;
   margin: 10px 5px 10px 10px;
+  @media (max-width: 1023px) {
+    margin: 10px 10px 5px 10px;
+  }
 `
 
 const CircleContainer = styled.div`
