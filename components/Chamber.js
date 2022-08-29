@@ -6,14 +6,14 @@ import PreRevealGlobe from './PreRevealGlobe'
 const Chamber = (props) => {
   const ref = useRef(null)
 
-  const { chamberSize, globeSize } = props
+  const { chamberSize, globeSize, nftData } = props
 
   useEffect(() => {
     const circleContainer = ref.current
 
     const circleElements = circleContainer.childNodes
 
-    let angle = 360 - 90 // = 270
+    let angle = 360 - 162 // 162 to align 1st NFT at top of pentagon
     let dangle = 360 / circleElements.length // = 72 with 5 circles
 
     for (let i = 0; i < circleElements.length; i++) {
@@ -29,15 +29,19 @@ const Chamber = (props) => {
 
   return (
     <CircleContainer ref={ref} chamberSize={chamberSize}>
-      <Globe globeSize={globeSize}>
-        <MintButton eligibleToMint={true}>
-          <PreRevealGlobe />
-        </MintButton>
-      </Globe>
+      {nftData.map((nft) => {
+        console.log('Nft data: ', nft)
+        const { id, name, mint } = nft
+        return (
+          <Globe key={nft.id} globeSize={globeSize}>
+            <MintButton eligibleToMint={mint} />
+          </Globe>
+        )
+      })}
+      {/* <Globe globeSize={globeSize} />
       <Globe globeSize={globeSize} />
       <Globe globeSize={globeSize} />
-      <Globe globeSize={globeSize} />
-      <Globe globeSize={globeSize} />
+      <Globe globeSize={globeSize} /> */}
     </CircleContainer>
   )
 }
@@ -47,7 +51,6 @@ export default Chamber
 const CircleContainer = styled.div`
   position: relative;
   top: 15px;
-  left: 5px;
   width: ${(props) => props.chamberSize};
   height: ${(props) => props.chamberSize};
   margin: auto;
@@ -62,5 +65,5 @@ const Globe = styled.div`
   height: ${(props) => props.globeSize};
   margin: calc(-${(props) => props.globeSize} / 2);
   border-radius: 50%;
-  background: yellow;
+  background: black;
 `

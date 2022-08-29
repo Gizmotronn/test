@@ -9,10 +9,38 @@ export default function Home() {
   const chamberSize = '328px' // 328px
   const globeSize = '182px' // 182px
 
+  const nftData = [
+    {
+      nft: 1,
+      name: 'BricktoPunks',
+      mint: true,
+    },
+    {
+      nft: 2,
+      name: 'Beers',
+      mint: false,
+    },
+    {
+      nft: 3,
+      name: 'Super Computer',
+      mint: false,
+    },
+    {
+      nft: 4,
+      name: 'The Forge',
+      mint: false,
+    },
+    {
+      nft: 5,
+      name: 'Brain',
+      mint: false,
+    },
+  ]
+
   return (
     <LandingContainer>
       <ChamberContainer>
-        <Chamber chamberSize={chamberSize} globeSize={globeSize} />
+        <Chamber chamberSize={chamberSize} globeSize={globeSize} nftData={nftData} />
       </ChamberContainer>
       <FountainContainer>
         {/* <div style={{ position: 'absolute', right: '15px' }}>
@@ -27,7 +55,7 @@ export default function Home() {
 }
 
 const LandingContainer = styled.div`
-  border: 1px solid yellow;
+  ${'' /* border: 1px solid yellow; */}
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -40,13 +68,13 @@ const LandingContainer = styled.div`
 `
 
 const ChamberContainer = styled.div`
-  border: 1px solid blue;
+  ${'' /* border: 1px solid blue; */}
   width: 50%;
   background: inherit;
 `
 
 const FountainContainer = styled.div`
-  border: 1px solid red;
+  ${'' /* border: 1px solid red; */}
   width: 50%;
   background: inherit;
   ${'' /* margin: 0 0 0 15px; */}

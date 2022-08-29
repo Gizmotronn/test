@@ -2,11 +2,12 @@ import React, { useEffect, useRef } from 'react'
 import styled from '@emotion/styled'
 import lottie from 'lottie-web'
 import colourGlobe from '../animations/colour-globe.json'
+import audioGlobeGrey from '../animations/audio-globe-grey.json'
 
 const PreRevealGlobe = (props) => {
   const preRevealGlobeContainer = useRef(null)
 
-  const { eligibleToMint } = props
+  const { mint } = props
 
   useEffect(() => {
     const instance = lottie.loadAnimation({
@@ -14,18 +15,19 @@ const PreRevealGlobe = (props) => {
       renderer: 'svg',
       autoplay: true,
       loop: true,
-      animationData: colourGlobe,
+      animationData: mint ? colourGlobe : audioGlobeGrey,
     })
     // Clean up
     return () => instance.destroy()
-  }, [])
-  return <div ref={preRevealGlobeContainer} style={{ width: '100%', height: '100%', borderRadius: '50%' }} />
+  }, [mint])
+  return <Globe ref={preRevealGlobeContainer} />
 }
 
 export default PreRevealGlobe
 
 const Globe = styled.div`
-  width: ${(props) => props.globeSize};
-  height: ${(props) => props.globeSize};
-  disabled: ;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: inherit;
 `
