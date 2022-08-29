@@ -27,7 +27,10 @@ const ConnectWallet = (props) => {
         type='button'
         style={{ background: 'inherit', padding: 0, border: 'none', cursor: 'pointer' }}
       >
-        <div ref={walletGlobeAnimeContainer} style={{ height: size, width: size, borderRadius: '50%' }} />
+        <div
+          ref={walletGlobeAnimeContainer}
+          style={{ height: size, width: size, borderRadius: '50%', background: 'black' }}
+        />
       </button>
     </div>
   )

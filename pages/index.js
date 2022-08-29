@@ -43,13 +43,11 @@ const ChamberContainer = styled.div`
   border: 1px solid blue;
   width: 50%;
   background: inherit;
-  ${'' /* margin: 10px 5px 10px 10px; */}
-  ${'' /* margin: auto; */}
 `
 
 const FountainContainer = styled.div`
   border: 1px solid red;
   width: 50%;
   background: inherit;
-  margin: 0 0 0 15px;
+  ${'' /* margin: 0 0 0 15px; */}
 `

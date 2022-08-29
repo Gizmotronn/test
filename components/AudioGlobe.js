@@ -19,7 +19,12 @@ const AudioGlobe = (props) => {
     // Clean up
     return () => instance.destroy()
   }, [isPlaying])
-  return <div ref={walletGlobeAnimeContainer} style={{ width: size, height: size, borderRadius: '50%' }} />
+  return (
+    <div
+      ref={walletGlobeAnimeContainer}
+      style={{ width: size, height: size, borderRadius: '50%', background: 'black' }}
+    />
+  )
 }
 
 export default AudioGlobe
