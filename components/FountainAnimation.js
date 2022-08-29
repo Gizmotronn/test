@@ -6,7 +6,7 @@ import audioGlobeGrey from '../animations/audio-globe-grey.json'
 const FountainAnimation = (props) => {
   const fountainContainer = useRef(null)
 
-  const { width, height } = props
+  const { fountainSize } = props
 
   useEffect(() => {
     const instance = lottie.loadAnimation({
@@ -19,7 +19,7 @@ const FountainAnimation = (props) => {
     // Clean up
     return () => instance.destroy()
   }, [])
-  return <Container ref={fountainContainer} />
+  return <Container ref={fountainContainer} fountainSize={fountainSize} />
 }
 
 export default FountainAnimation
@@ -27,7 +27,9 @@ export default FountainAnimation
 const Container = styled.div`
   background: inherit;
   border-radius: 50%;
-  margin: 0 0 0 15px;
+  margin: auto;
+  width: ${(props) => props.fountainSize};
+  height: ${(props) => props.fountainSize};
 `
 
 // const Container = styled.div`

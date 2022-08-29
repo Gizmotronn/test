@@ -22,6 +22,7 @@ const Layout = ({ children }) => {
           flexDirection: 'column',
           minHeight: '100vh',
           backgroundColor: 'black',
+          padding: '15px',
         }}
       >
         <Head>
@@ -32,8 +33,6 @@ const Layout = ({ children }) => {
         <HeaderNav />
         <main
           style={{
-            // width: '100%',
-            // flex: '1 1 auto',
             background: 'inherit',
             flex: '1',
             display: 'flex',

@@ -3,38 +3,48 @@ import Chamber from '../components/Chamber'
 import Fountain from '../components/Fountain'
 
 export default function Home() {
-  // const minWidthContainer = '360px'
-  // const minHeightContainer = '360px'
+  // 👇 min size @ 1024px
+  const fountainSize = '486px' // 486px
+  const chamberSize = '328px' // 328px
+  const globeSize = '182px' // 182px
 
   return (
     <LandingContainer>
-      <Container>
-        <Chamber />
-      </Container>
-      <Container>
-        <Fountain />
-      </Container>
+      <ChamberContainer>
+        <Chamber chamberSize={chamberSize} globeSize={globeSize} />
+      </ChamberContainer>
+      <FountainContainer>
+        <Fountain fountainSize={fountainSize} />
+      </FountainContainer>
     </LandingContainer>
   )
 }
 
 const LandingContainer = styled.div`
+  border: 1px solid yellow;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border: 1px solid yellow;
   width: 100%;
   margin: auto;
+  content: contain;
   @media (max-width: 1023px) {
     display: none;
   }
 `
 
-const Container = styled.div`
+const ChamberContainer = styled.div`
+  border: 1px solid blue;
   width: 50%;
   background: inherit;
-  border: 1px solid blue;
   ${'' /* margin: 10px 5px 10px 10px; */}
   ${'' /* margin: auto; */}
+`
+
+const FountainContainer = styled.div`
+  border: 1px solid red;
+  width: 50%;
+  background: inherit;
+  margin: 0 0 0 15px;
 `

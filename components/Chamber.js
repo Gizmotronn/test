@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 const Chamber = (props) => {
   const ref = useRef(null)
 
-  const { minWidthContainer, minHeightContainer } = props
+  const { chamberSize, globeSize } = props
 
   useEffect(() => {
     const circleContainer = ref.current
@@ -36,12 +36,12 @@ const Chamber = (props) => {
   return (
     // <Container minWidthContainer={minWidthContainer} minHeightContainer={minHeightContainer}>
     // <div>
-    <CircleContainer ref={ref}>
-      <Item />
-      <Item />
-      <Item />
-      <Item />
-      <Item />
+    <CircleContainer ref={ref} chamberSize={chamberSize}>
+      <Globe globeSize={globeSize} />
+      <Globe globeSize={globeSize} />
+      <Globe globeSize={globeSize} />
+      <Globe globeSize={globeSize} />
+      <Globe globeSize={globeSize} />
     </CircleContainer>
     // </div>
     // </Container>
@@ -53,20 +53,20 @@ export default Chamber
 const CircleContainer = styled.div`
   position: relative;
   top: 15px;
-  width: 340px;
-  height: 340px;
+  left: 5px;
+  width: ${(props) => props.chamberSize};
+  height: ${(props) => props.chamberSize};
   margin: auto;
-  ${'' /* margin: calc(240px / 2 + 0px); */}
   background: pink;
 `
 
-const Item = styled.div`
+const Globe = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 180px;
-  height: 180px;
-  margin: calc(-180px / 2);
+  width: ${(props) => props.globeSize};
+  height: ${(props) => props.globeSize};
+  margin: calc(-${(props) => props.globeSize} / 2);
   border-radius: 50%;
   background: yellow;
 `

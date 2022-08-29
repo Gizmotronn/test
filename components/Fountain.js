@@ -3,11 +3,10 @@ import styled from '@emotion/styled'
 import FountainAnimation from './FountainAnimation'
 
 const Fountain = (props) => {
-  const { minWidthContainer, minHeightContainer } = props
+  const { fountainSize } = props
   return (
-    <FountainAnimation />
     // <Container minWidthContainer={minWidthContainer} minHeightContainer={minHeightContainer}>
-    //   <FountainAnimation width={width} height={height} />
+    <FountainAnimation fountainSize={fountainSize} />
     // </Container>
   )
 }
