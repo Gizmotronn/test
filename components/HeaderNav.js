@@ -4,12 +4,14 @@ import { useAccount, useDisconnect } from 'wagmi'
 import ConnectWallet from './ConnectWallet'
 import AudioButton from './AudioButton'
 
-export default function HeaderNav() {
+export default function HeaderNav(props) {
   const { openConnectModal } = useConnectModal()
   const { openAccountModal } = useAccountModal()
   const { isConnected, address } = useAccount()
   const { disconnect } = useDisconnect()
   const [mounted, setMounted] = useState(false)
+
+  const { globeSize } = props
 
   useEffect(() => {
     setMounted(true)
@@ -23,7 +25,6 @@ export default function HeaderNav() {
             width: '100%',
             contain: 'content',
             mx: 'auto',
-            padding: '15px',
           }}
         >
           <nav>
@@ -36,13 +37,14 @@ export default function HeaderNav() {
                 padding: 0,
               }}
             >
-              <div style={{ width: '200px', display: 'flex', alignItems: 'center' }}>
+              <div style={{ width: '260px', display: 'flex', alignItems: 'center' }}>
                 <li style={{ listStyle: 'none', display: 'contents' }}>
                   <ConnectWallet
                     walletConnected={isConnected}
                     connect={() => openConnectModal()}
                     disconnect={() => disconnect()}
                     account={() => openAccountModal()}
+                    size={globeSize}
                   />
                 </li>
                 <div style={{ padding: '0 0 0 10px' }}>
@@ -56,7 +58,7 @@ export default function HeaderNav() {
 
               <div style={{ display: 'flex' }}>
                 <li style={{ listStyle: 'none', display: 'contents' }}>
-                  <AudioButton />
+                  <AudioButton size={globeSize} />
                 </li>
               </div>
             </ul>

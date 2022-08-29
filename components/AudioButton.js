@@ -5,11 +5,13 @@ import AudioGlobe from './AudioGlobe'
 
 const soundURL = `/bricktOrigins-audio.mp3`
 
-const AudioButton = () => {
+const AudioButton = (props) => {
   const [play, { pause }] = useSound(soundURL)
   const [isPlaying, setIsPlaying] = useState(false)
 
   const [audioActive] = useContext(AudioContext)
+
+  const { size } = props
 
   const handleClick = () => {
     setIsPlaying((current) => !current)
@@ -33,7 +35,7 @@ const AudioButton = () => {
         type='button'
         style={{ background: 'inherit', padding: 0, border: 'none', cursor: 'pointer' }}
       >
-        <AudioGlobe isPlaying={isPlaying} />
+        <AudioGlobe isPlaying={isPlaying} size={size} />
       </button>
     </>
   )

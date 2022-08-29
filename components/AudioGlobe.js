@@ -6,7 +6,7 @@ import audioGlobeGrey from '../animations/audio-globe-grey.json'
 const AudioGlobe = (props) => {
   const walletGlobeAnimeContainer = useRef(null)
 
-  const { isPlaying } = props
+  const { isPlaying, size } = props
 
   useEffect(() => {
     const instance = lottie.loadAnimation({
@@ -19,9 +19,7 @@ const AudioGlobe = (props) => {
     // Clean up
     return () => instance.destroy()
   }, [isPlaying])
-  return (
-    <div ref={walletGlobeAnimeContainer} style={{ height: 60, width: 60, background: 'green', borderRadius: '50%' }} />
-  )
+  return <div ref={walletGlobeAnimeContainer} style={{ width: size, height: size, borderRadius: '50%' }} />
 }
 
 export default AudioGlobe

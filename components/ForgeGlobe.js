@@ -6,7 +6,7 @@ import audioGlobeGrey from '../animations/audio-globe-grey.json'
 const ForgeGlobe = (props) => {
   const walletGlobeAnimeContainer = useRef(null)
 
-  const { forge } = props
+  const { forge, size } = props
 
   useEffect(() => {
     const instance = lottie.loadAnimation({
@@ -20,7 +20,10 @@ const ForgeGlobe = (props) => {
     return () => instance.destroy()
   }, [forge])
   return (
-    <div ref={walletGlobeAnimeContainer} style={{ height: 60, width: 60, background: 'green', borderRadius: '50%' }} />
+    <div
+      ref={walletGlobeAnimeContainer}
+      style={{ height: size, width: size, background: 'green', borderRadius: '50%' }}
+    />
   )
 }
 

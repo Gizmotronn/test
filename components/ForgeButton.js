@@ -6,7 +6,7 @@ const ForgeButton = (props) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const router = useRouter()
 
-  const { forge } = props
+  const { forge, size } = props
 
   return (
     <>
@@ -15,7 +15,7 @@ const ForgeButton = (props) => {
         type='button'
         style={{ background: 'inherit', padding: 0, border: 'none', cursor: forge ? 'pointer' : 'not-allowed' }}
       >
-        <ForgeGlobe forge={forge} />
+        <ForgeGlobe forge={forge} size={size} />
       </button>
     </>
   )

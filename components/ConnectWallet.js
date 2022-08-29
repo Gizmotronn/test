@@ -6,7 +6,7 @@ import colourGlobe from '../animations/colour-globe.json'
 const ConnectWallet = (props) => {
   const walletGlobeAnimeContainer = useRef(null)
 
-  const { walletConnected, connect, disconnect, account } = props
+  const { walletConnected, connect, disconnect, account, size } = props
 
   useEffect(() => {
     const instance = lottie.loadAnimation({
@@ -27,10 +27,7 @@ const ConnectWallet = (props) => {
         type='button'
         style={{ background: 'inherit', padding: 0, border: 'none', cursor: 'pointer' }}
       >
-        <div
-          ref={walletGlobeAnimeContainer}
-          style={{ height: 60, width: 60, background: 'green', borderRadius: '50%' }}
-        />
+        <div ref={walletGlobeAnimeContainer} style={{ height: size, width: size, borderRadius: '50%' }} />
       </button>
     </div>
   )

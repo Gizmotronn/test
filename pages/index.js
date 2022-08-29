@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import Chamber from '../components/Chamber'
 import Fountain from '../components/Fountain'
+import AudioButton from '../components/AudioButton'
 
 export default function Home() {
   // 👇 min size @ 1024px
@@ -14,6 +15,11 @@ export default function Home() {
         <Chamber chamberSize={chamberSize} globeSize={globeSize} />
       </ChamberContainer>
       <FountainContainer>
+        {/* <div style={{ position: 'absolute', right: '15px' }}>
+          <li style={{ listStyle: 'none', display: 'contents' }}>
+            <AudioButton />
+          </li>
+        </div> */}
         <Fountain fountainSize={fountainSize} />
       </FountainContainer>
     </LandingContainer>
@@ -27,8 +33,7 @@ const LandingContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin: auto;
-  content: contain;
+  margin: 0 auto;
   @media (max-width: 1023px) {
     display: none;
   }
