@@ -1,23 +1,26 @@
-import { useState } from 'react'
+import styled from '@emotion/styled'
 import Chamber from '../components/Chamber'
 import Fountain from '../components/Fountain'
 
 export default function Home() {
-  const width = '460px'
-  const height = '460px'
+  const minWidthContainer = '360px'
+  const minHeightContainer = '360px'
 
   return (
-    <div
-      style={{
-        // minWidth: '80%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        // border: '1px solid yellow',
-      }}
-    >
-      <Chamber width={width} height={height} />
-      <Fountain width={width} height={height} />
-    </div>
+    <Container>
+      <Chamber minWidthContainer={minWidthContainer} minHeightContainer={minHeightContainer} />
+      <Fountain minWidthContainer={minWidthContainer} minHeightContainer={minHeightContainer} />
+    </Container>
   )
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid yellow;
+  @media (max-width: 1023px) {
+    flex-direction: column;
+    border: 1px solid blue;
+  }
+`
