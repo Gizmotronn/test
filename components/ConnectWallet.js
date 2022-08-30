@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import lottie from 'lottie-web'
+import styled from '@emotion/styled'
 import audioGlobeBlack from '../animations/audio-globe-black.json'
 import colourGlobe from '../animations/colour-globe.json'
 
@@ -20,20 +21,30 @@ const ConnectWallet = (props) => {
     return () => instance.destroy()
   }, [walletConnected])
   return (
-    <div>
-      <button
+    <>
+      <Button
         onClick={walletConnected ? account : connect}
         // onClick={walletConnected ? disconnect : connect}
         type='button'
-        style={{ background: 'inherit', padding: 0, border: 'none', cursor: 'pointer' }}
       >
-        <div
-          ref={walletGlobeAnimeContainer}
-          style={{ height: size, width: size, borderRadius: '50%', background: 'black' }}
-        />
-      </button>
-    </div>
+        <WalletGlobe ref={walletGlobeAnimeContainer} />
+      </Button>
+    </>
   )
 }
 
 export default ConnectWallet
+
+const Button = styled.div`
+  background: inherit;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+`
+
+const WalletGlobe = styled.div`
+  height: size;
+  width: size;
+  border-radius: 50%;
+  background: black;
+`
