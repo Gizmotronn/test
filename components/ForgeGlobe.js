@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import lottie from 'lottie-web'
+import styled from '@emotion/styled'
 import audioGlobeBlack from '../animations/audio-globe-black.json'
 import audioGlobeGrey from '../animations/audio-globe-grey.json'
 
@@ -19,12 +20,14 @@ const ForgeGlobe = (props) => {
     // Clean up
     return () => instance.destroy()
   }, [forge])
-  return (
-    <div
-      ref={walletGlobeAnimeContainer}
-      style={{ height: size, width: size, background: 'green', borderRadius: '50%' }}
-    />
-  )
+  return <Globe ref={walletGlobeAnimeContainer} size={size} />
 }
 
 export default ForgeGlobe
+
+const Globe = styled.div`
+  height: ${(props) => props.size};
+  width: ${(props) => props.size};
+  background: inherit;
+  border-radius: 50%;
+`
