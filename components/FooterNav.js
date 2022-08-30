@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import styled from '@emotion/styled'
 import ForgeButton from './ForgeButton'
 
 export default function FooterNav(props) {
@@ -13,23 +14,40 @@ export default function FooterNav(props) {
 
   return (
     mounted && (
-      <div
-        style={{
-          width: '100%',
-          contain: 'content',
-          mx: 'auto',
-        }}
-      >
+      <FooterContainer>
         <nav>
-          <ul style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', margin: 0, padding: 0 }}>
-            <div style={{ display: 'flex' }}>
-              <li style={{ listStyle: 'none', display: 'contents' }}>
+          <List>
+            <ForgeContainer>
+              <ListItem>
                 <ForgeButton forge={forge} size={globeSize} />
-              </li>
-            </div>
-          </ul>
+              </ListItem>
+            </ForgeContainer>
+          </List>
         </nav>
-      </div>
+      </FooterContainer>
     )
   )
 }
+
+const FooterContainer = styled.div`
+  width: 100%;
+  contain: content;
+  mx: auto;
+`
+
+const List = styled.ul`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+`
+
+const ForgeContainer = styled.div`
+  display: flex;
+`
+
+const ListItem = styled.li`
+  list-style: none;
+  display: contents;
+`

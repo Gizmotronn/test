@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import useSound from 'use-sound'
+import styled from '@emotion/styled'
 import { AudioContext } from '../contexts/AudioContext'
 import AudioGlobe from './AudioGlobe'
 
@@ -30,15 +31,18 @@ const AudioButton = (props) => {
 
   return (
     <>
-      <button
-        onClick={handleClick}
-        type='button'
-        style={{ background: 'inherit', padding: 0, border: 'none', cursor: 'pointer' }}
-      >
+      <Button onClick={handleClick} type='button'>
         <AudioGlobe isPlaying={isPlaying} size={size} />
-      </button>
+      </Button>
     </>
   )
 }
 
 export default AudioButton
+
+const Button = styled.button`
+  background: inherit;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+`
