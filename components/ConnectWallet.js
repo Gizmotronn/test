@@ -5,13 +5,13 @@ import audioGlobeBlack from '../animations/audio-globe-black.json'
 import colourGlobe from '../animations/colour-globe.json'
 
 const ConnectWallet = (props) => {
-  const walletGlobeAnimeContainer = useRef(null)
+  const walletGlobeRef = useRef(null)
 
   const { walletConnected, connect, disconnect, account, size } = props
 
   useEffect(() => {
     const instance = lottie.loadAnimation({
-      container: walletGlobeAnimeContainer.current,
+      container: walletGlobeRef.current,
       renderer: 'svg',
       autoplay: true,
       loop: true,
@@ -24,10 +24,11 @@ const ConnectWallet = (props) => {
     <>
       <Button
         onClick={walletConnected ? account : connect}
-        // onClick={walletConnected ? disconnect : connect}
         type='button'
+        size={size}
+        // onClick={walletConnected ? disconnect : connect}
       >
-        <WalletGlobe ref={walletGlobeAnimeContainer} size={size} />
+        <WalletGlobe ref={walletGlobeRef} size={size} />
       </Button>
     </>
   )
@@ -35,16 +36,19 @@ const ConnectWallet = (props) => {
 
 export default ConnectWallet
 
-const Button = styled.div`
-  background: inherit;
-  padding: 0;
-  border: none;
+const Button = styled.button`
   cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background: pink;
+  padding: 0;
+  height: ${(props) => props.size};
+  width: ${(props) => props.size};
 `
 
 const WalletGlobe = styled.div`
   height: ${(props) => props.size};
   width: ${(props) => props.size};
   border-radius: 50%;
-  background: inherit;
+  background: green;
 `
