@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useRouter } from 'next/router'
 import styled from '@emotion/styled'
 import ForgeGlobe from './ForgeGlobe'
