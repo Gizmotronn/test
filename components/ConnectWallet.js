@@ -27,7 +27,7 @@ const ConnectWallet = (props) => {
         // onClick={walletConnected ? disconnect : connect}
         type='button'
       >
-        <WalletGlobe ref={walletGlobeAnimeContainer} />
+        <WalletGlobe ref={walletGlobeAnimeContainer} size={size} />
       </Button>
     </>
   )
@@ -43,8 +43,8 @@ const Button = styled.div`
 `
 
 const WalletGlobe = styled.div`
-  height: size;
-  width: size;
+  height: ${(props) => props.size};
+  width: ${(props) => props.size};
   border-radius: 50%;
-  background: black;
+  background: inherit;
 `
