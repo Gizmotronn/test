@@ -30,7 +30,6 @@ const Chamber = (props) => {
   return (
     <CircleContainer ref={ref} chamberSize={chamberSize}>
       {nftData.map((nft) => {
-        console.log('Nft data: ', nft)
         const { id, name, mint } = nft
         return (
           <Globe key={nft.id} globeSize={globeSize}>
