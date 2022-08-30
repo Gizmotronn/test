@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useConnectModal, useAccountModal } from '@rainbow-me/rainbowkit'
 import { useAccount, useDisconnect } from 'wagmi'
 import ConnectWallet from './ConnectWallet'
+import styled from '@emotion/styled'
 import AudioButton from './AudioButton'
 
 export default function HeaderNav(props) {
@@ -20,25 +21,11 @@ export default function HeaderNav(props) {
   return (
     mounted && (
       <>
-        <header
-          style={{
-            width: '100%',
-            contain: 'content',
-            mx: 'auto',
-          }}
-        >
+        <Header>
           <nav>
-            <ul
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                margin: 0,
-                padding: 0,
-              }}
-            >
-              <div style={{ width: '260px', display: 'flex', alignItems: 'center' }}>
-                <li style={{ listStyle: 'none', display: 'contents' }}>
+            <List>
+              <WalletContainer>
+                <ListItem>
                   <ConnectWallet
                     walletConnected={isConnected}
                     connect={() => openConnectModal()}
@@ -46,25 +33,62 @@ export default function HeaderNav(props) {
                     account={() => openAccountModal()}
                     size={globeSize}
                   />
-                </li>
-                <div style={{ padding: '0 0 0 10px' }}>
-                  <p style={{ color: '#ffffff' }}>
+                </ListItem>
+                <AddressContainer>
+                  <Address>
                     {isConnected
                       ? String(address).substring(0, 4) + '...' + String(address).substring(38)
                       : 'Connect Wallet'}
-                  </p>
-                </div>
-              </div>
+                  </Address>
+                </AddressContainer>
+              </WalletContainer>
 
-              <div style={{ display: 'flex' }}>
-                <li style={{ listStyle: 'none', display: 'contents' }}>
+              <AudioContainer>
+                <ListItem>
                   <AudioButton size={globeSize} />
-                </li>
-              </div>
-            </ul>
+                </ListItem>
+              </AudioContainer>
+            </List>
           </nav>
-        </header>
+        </Header>
       </>
     )
   )
 }
+
+const Header = styled.header`
+  width: 100%;
+  contain: content;
+  mx: auto;
+`
+
+const List = styled.ul`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+`
+
+const ListItem = styled.li`
+  list-style: none;
+  display: contents;
+`
+
+const WalletContainer = styled.div`
+  width: 260px;
+  display: flex;
+  align-items: center;
+`
+
+const AddressContainer = styled.div`
+  padding: 0 0 0 10px;
+`
+
+const Address = styled.p`
+  color: #ffffff;
+`
+
+const AudioContainer = styled.div`
+  display: flex;
+`
