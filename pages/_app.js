@@ -5,7 +5,7 @@ import { chain, configureChains, createClient, WagmiConfig } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
 import { useRouter } from 'next/router'
 import AudioProvider from '../contexts/AudioContext'
-import Modal from '../components/Modal'
+import IntroModal from '../components/IntroModal'
 import Layout from '../components/Layout'
 import '../styles/globals.css'
 
@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }) {
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
         <AudioProvider>
-          <Modal showModal={true} route={appRoute} />
+          <IntroModal showModal={true} route={appRoute} />
           <Layout>
             <Component {...pageProps} />
           </Layout>
