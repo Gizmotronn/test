@@ -1,6 +1,4 @@
 import React from 'react'
-import styled from '@emotion/styled'
-import FountainAnimation from './FountainAnimation'
 import PreRevealAnimation from './PreRevealAnimation'
 
 const PreReveal = (props) => {

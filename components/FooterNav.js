@@ -9,10 +9,9 @@ export default function FooterNav(props) {
   const [forge, setForge] = useState(true)
   const [showForgeWarning, setShowForgeWarning] = useState(false)
 
-  const { globeSize } = props
+  const { globeSize, route } = props
 
   const router = useRouter()
-  const { route } = router
 
   const handleClick = () => {
     if (route === '/forge') {
@@ -30,24 +29,26 @@ export default function FooterNav(props) {
 
   return (
     mounted && (
-      <FooterContainer>
-        <nav>
-          <List>
-            {showForgeWarning && <ForgeMessageModal showModal={showForgeWarning} modalOpen={handleCloseModal} />}
-            <ForgeContainer>
-              {route === '/forge' && (
-                <LabelContainer>
-                  <Label>Forge</Label>
-                </LabelContainer>
-              )}
-              <ListItem>
-                <Button onClick={handleClick} type='button' forge={forge}>
-                  <ForgeButton forge={forge} size={globeSize} />
-                </Button>
-              </ListItem>
-            </ForgeContainer>
-          </List>
-        </nav>
+      <FooterContainer size={globeSize}>
+        {route !== '/mint' && (
+          <nav>
+            <List>
+              {showForgeWarning && <ForgeMessageModal showModal={showForgeWarning} modalOpen={handleCloseModal} />}
+              <ForgeContainer>
+                {route === '/forge' && (
+                  <LabelContainer>
+                    <Label>Forge</Label>
+                  </LabelContainer>
+                )}
+                <ListItem>
+                  <Button onClick={handleClick} type='button' forge={forge}>
+                    <ForgeButton forge={forge} size={globeSize} />
+                  </Button>
+                </ListItem>
+              </ForgeContainer>
+            </List>
+          </nav>
+        )}
       </FooterContainer>
     )
   )
@@ -55,6 +56,7 @@ export default function FooterNav(props) {
 
 const FooterContainer = styled.div`
   width: 100%;
+  min-height: ${(props) => props.size};
   contain: content;
   mx: auto;
 `

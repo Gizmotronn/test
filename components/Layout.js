@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import styled from '@emotion/styled'
 import HeaderNav from './HeaderNav'
 import FooterNav from './FooterNav'
 
 const Layout = ({ children }) => {
   const [mounted, setMounted] = useState(false)
+
+  const router = useRouter()
+  const { route } = router
 
   // 👇 min size @ 1024px
   const navGlobeSize = '88px' // 88px
@@ -26,9 +30,9 @@ const Layout = ({ children }) => {
           <meta name='description' content='BricktOrigins' />
           <link rel='icon' href='/favicon.ico' />
         </Head>
-        <HeaderNav globeSize={navGlobeSize} />
+        <HeaderNav globeSize={navGlobeSize} route={route} />
         <LayoutMain>{children}</LayoutMain>
-        <FooterNav globeSize={navGlobeSize} />
+        <FooterNav globeSize={navGlobeSize} route={route} />
       </LayoutContainer>
     )
   )
