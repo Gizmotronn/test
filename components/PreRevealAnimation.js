@@ -1,16 +1,16 @@
 import React, { useEffect, useRef } from 'react'
-import lottie from 'lottie-web'
 import styled from '@emotion/styled'
+import lottie from 'lottie-web'
 import audioGlobeGrey from '../animations/audio-globe-grey.json'
 
-const FountainAnimation = (props) => {
-  const fountainContainer = useRef(null)
+const PreRevealGlobe = (props) => {
+  const preRevealGlobeContainer = useRef(null)
 
-  const { fountainSize } = props
+  const { baseFountainSize } = props
 
   useEffect(() => {
     const instance = lottie.loadAnimation({
-      container: fountainContainer.current,
+      container: preRevealGlobeContainer.current,
       renderer: 'svg',
       autoplay: true,
       loop: true,
@@ -19,14 +19,14 @@ const FountainAnimation = (props) => {
     // Clean up
     return () => instance.destroy()
   }, [])
-  return <Container ref={fountainContainer} fountainSize={fountainSize} />
+  return <Globe ref={preRevealGlobeContainer} baseFountainSize={baseFountainSize} />
 }
 
-export default FountainAnimation
+export default PreRevealGlobe
 
-const Container = styled.div`
-  width: ${(props) => props.fountainSize};
-  height: ${(props) => props.fountainSize};
+const Globe = styled.div`
+  width: ${(props) => props.baseFountainSize};
+  height: ${(props) => props.baseFountainSize};
   border-radius: 50%;
   background: inherit;
   margin: auto;

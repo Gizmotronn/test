@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import styled from '@emotion/styled'
 import PreRevealGlobe from './PreRevealGlobe'
 
-const MintButton = (props) => {
+const GoToMintButton = (props) => {
   const router = useRouter()
 
   const { eligibleToMint } = props
@@ -17,7 +17,7 @@ const MintButton = (props) => {
   )
 }
 
-export default MintButton
+export default GoToMintButton
 
 const Button = styled.button`
   ${'' /* background: red; */}

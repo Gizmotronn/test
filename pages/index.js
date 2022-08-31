@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import Chamber from '../components/Chamber'
 import Fountain from '../components/Fountain'
-import AudioButton from '../components/AudioButton'
 
 export default function Home() {
   // 👇 min size @ 1024px
@@ -18,7 +17,7 @@ export default function Home() {
     {
       nft: 2,
       name: 'Beers',
-      mint: false,
+      mint: true,
     },
     {
       nft: 3,
@@ -55,7 +54,6 @@ export default function Home() {
 }
 
 const LandingContainer = styled.div`
-  ${'' /* border: 1px solid yellow; */}
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -68,14 +66,11 @@ const LandingContainer = styled.div`
 `
 
 const ChamberContainer = styled.div`
-  ${'' /* border: 1px solid blue; */}
   width: 50%;
   background: inherit;
 `
 
 const FountainContainer = styled.div`
-  ${'' /* border: 1px solid red; */}
   width: 50%;
   background: inherit;
-  ${'' /* margin: 0 0 0 15px; */}
 `

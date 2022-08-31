@@ -17,20 +17,15 @@ export default function FooterNav(props) {
   const handleClick = () => {
     if (route === '/forge') {
       setShowForgeWarning(true)
-      console.log('Clicked forge button on Forge route')
     } else router.push('/forge')
   }
 
   const handleCloseModal = (props) => {
-    console.log('🚀 ~ file: FooterNav.js ~ line 25 ~ handleCloseModal ~ props', props)
     setShowForgeWarning(props)
-    console.log('Clicked handle close modal')
-    console.log('🚀 ~ file: FooterNav.js ~ line 11 ~ FooterNav ~ showForgeWarning', showForgeWarning)
   }
 
   useEffect(() => {
     setMounted(true)
-    console.log('useEffect')
   }, [showForgeWarning])
 
   return (

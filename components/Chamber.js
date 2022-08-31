@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import styled from '@emotion/styled'
-import MintButton from './MintButton'
-import PreRevealGlobe from './PreRevealGlobe'
+import GoToMintButton from './GoToMintButton'
 
 const Chamber = (props) => {
   const ref = useRef(null)
@@ -33,14 +32,10 @@ const Chamber = (props) => {
         const { id, name, mint } = nft
         return (
           <Globe key={nft.id} globeSize={globeSize}>
-            <MintButton eligibleToMint={mint} />
+            <GoToMintButton eligibleToMint={mint} />
           </Globe>
         )
       })}
-      {/* <Globe globeSize={globeSize} />
-      <Globe globeSize={globeSize} />
-      <Globe globeSize={globeSize} />
-      <Globe globeSize={globeSize} /> */}
     </CircleContainer>
   )
 }
