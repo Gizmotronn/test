@@ -3,15 +3,26 @@ import styled from '@emotion/styled'
 import ForgeGlobe from './ForgeGlobe'
 
 const ForgeButton = (props) => {
-  const router = useRouter()
-
   const { forge, size } = props
+
+  const router = useRouter()
+  const { route } = router
+
+  function handleClick() {
+    alert('poop')
+  }
 
   return (
     <>
-      <Button onClick={() => router.push('/forge')} type='button' forge={forge}>
-        <ForgeGlobe forge={forge} size={size} />
-      </Button>
+      {route === '/forge' ? (
+        <Button onClick={handleClick} type='button' forge={forge}>
+          <ForgeGlobe forge={forge} size={size} />
+        </Button>
+      ) : (
+        <Button onClick={() => router.push('/forge')} type='button' forge={forge}>
+          <ForgeGlobe forge={forge} size={size} />
+        </Button>
+      )}
     </>
   )
 }
