@@ -5,36 +5,6 @@ import PreReveal from '../components/PreReveal'
 export default function Mint() {
   // 👇 min size @ 1024px
   const baseFountainSize = '486px' // 486px
-  const chamberSize = '328px' // 328px
-  const globeSize = '182px' // 182px
-
-  const nftData = [
-    {
-      nft: 1,
-      name: 'BricktoPunks',
-      mint: true,
-    },
-    {
-      nft: 2,
-      name: 'Beers',
-      mint: true,
-    },
-    {
-      nft: 3,
-      name: 'Super Computer',
-      mint: false,
-    },
-    {
-      nft: 4,
-      name: 'The Forge',
-      mint: false,
-    },
-    {
-      nft: 5,
-      name: 'Brain',
-      mint: false,
-    },
-  ]
 
   return (
     <LandingContainer>
