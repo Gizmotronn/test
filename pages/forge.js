@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Text } from '../shared/styles'
 import Fountain from '../components/Fountain'
 
 export default function Forge() {
@@ -12,7 +13,7 @@ export default function Forge() {
       <FountainContainer>
         <RelativeContainer>
           <AvailabilityContainer>
-            <Availability>{nftAvailability}</Availability>
+            <Text size='32px'>{nftAvailability}</Text>
           </AvailabilityContainer>
           <Fountain fountainSize={fountainSize} />
         </RelativeContainer>
@@ -49,10 +50,5 @@ const AvailabilityContainer = styled.div`
   right: -55%;
   transform: translate(-50%, -50%);
   background: inherit;
-`
-
-const Availability = styled.p`
-  color: #ffffff;
-  font-size: 32px;
-  text-align: left;
+  border: 1px solid red;
 `
