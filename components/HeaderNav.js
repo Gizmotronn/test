@@ -42,7 +42,7 @@ export default function HeaderNav(props) {
                   </Address>
                 </AddressContainer>
               </WalletContainer>
-              {route !== '/mint' && (
+              {route === '/' && (
                 <AudioContainer>
                   <ListItem>
                     <AudioButton size={globeSize} />

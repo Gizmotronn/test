@@ -1,18 +1,19 @@
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 import styled from '@emotion/styled'
 import PreRevealGlobe from './PreRevealGlobe'
 
 const GoToMintButton = (props) => {
-  const router = useRouter()
-
   const { eligibleToMint } = props
 
   return (
     <>
-      <Button onClick={() => router.push('/mint')} type='button' mint={eligibleToMint}>
-        <PreRevealGlobe mint={eligibleToMint} />
-      </Button>
+      <Link href='/mint' passHref>
+        <a target='_blank' rel='noopener noreferrer'>
+          <Button type='button' mint={eligibleToMint}>
+            <PreRevealGlobe mint={eligibleToMint} />
+          </Button>
+        </a>
+      </Link>
     </>
   )
 }

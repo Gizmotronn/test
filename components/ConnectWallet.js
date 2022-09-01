@@ -50,5 +50,5 @@ const WalletGlobe = styled.div`
   height: ${(props) => props.size};
   width: ${(props) => props.size};
   border-radius: 50%;
-  background: green;
+  background: inherit;
 `

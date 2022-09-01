@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 import styled from '@emotion/styled'
 import ForgeMessageModal from './ForgeMessageModal'
 import ForgeButton from './ForgeButton'
@@ -16,7 +17,7 @@ export default function FooterNav(props) {
   const handleClick = () => {
     if (route === '/forge') {
       setShowForgeWarning(true)
-    } else router.push('/forge')
+    } else return
   }
 
   const handleCloseModal = (props) => {
@@ -35,16 +36,28 @@ export default function FooterNav(props) {
             <List>
               {showForgeWarning && <ForgeMessageModal showModal={showForgeWarning} modalOpen={handleCloseModal} />}
               <ForgeContainer>
-                {route === '/forge' && (
-                  <LabelContainer>
-                    <Label>Forge</Label>
-                  </LabelContainer>
+                {route === '/forge' ? (
+                  <>
+                    <LabelContainer>
+                      <Label>Forge</Label>
+                    </LabelContainer>
+                    <ListItem>
+                      <Button onClick={handleClick} type='button' forge={forge}>
+                        <ForgeButton forge={forge} size={globeSize} />
+                      </Button>
+                    </ListItem>
+                  </>
+                ) : (
+                  <Link href='/forge' passHref>
+                    <a target='_blank' rel='noopener noreferrer'>
+                      <ListItem>
+                        <Button type='button' forge={forge}>
+                          <ForgeButton forge={forge} size={globeSize} />
+                        </Button>
+                      </ListItem>
+                    </a>
+                  </Link>
                 )}
-                <ListItem>
-                  <Button onClick={handleClick} type='button' forge={forge}>
-                    <ForgeButton forge={forge} size={globeSize} />
-                  </Button>
-                </ListItem>
               </ForgeContainer>
             </List>
           </nav>

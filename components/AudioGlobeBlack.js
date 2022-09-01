@@ -17,7 +17,7 @@ const AudioGlobeBlack = () => {
     return () => instance.destroy()
   }, [])
   return (
-    <div ref={blackGlobeAnimeContainer} style={{ height: 60, width: 60, background: 'green', borderRadius: '50%' }} />
+    <div ref={blackGlobeAnimeContainer} style={{ height: 60, width: 60, background: 'inherit', borderRadius: '50%' }} />
   )
 }
 
