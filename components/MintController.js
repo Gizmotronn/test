@@ -37,10 +37,10 @@ const Availability = styled.div`
 `
 
 const Counter = styled.div`
-  width: 70%;
+  width: 60%;
   height: 20%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background: inherit;
   margin: 5px 5px 5px 5px;
