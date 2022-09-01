@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import styled from '@emotion/styled'
 import { Text } from '../shared/styles'
+import MintCounter from './MintCounter'
 
 const MintController = (props) => {
   const { baseFountainSize } = props
@@ -12,7 +13,9 @@ const MintController = (props) => {
       <Availability>
         <Text size='32px'>{nftAvailability}</Text>
       </Availability>
-      <Counter />
+      <Counter>
+        <MintCounter />
+      </Counter>
       <Button />
     </>
   )
@@ -31,12 +34,15 @@ const Availability = styled.div`
 `
 
 const Counter = styled.div`
-  width: 80%;
+  width: 50%;
   height: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   background: red;
   margin: 5px;
 `
-const Button = styled.div`
+const Button = styled.button`
   width: 60%;
   height: 20%;
   background: blue;
