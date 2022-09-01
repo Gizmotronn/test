@@ -50,5 +50,5 @@ const AvailabilityContainer = styled.div`
   right: -55%;
   transform: translate(-50%, -50%);
   background: inherit;
-  border: 1px solid red;
+  border: none;
 `
