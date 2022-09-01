@@ -21,7 +21,7 @@ const CircleContainer = styled.div`
   width: ${(props) => props.baseFountainSize};
   height: ${(props) => props.baseFountainSize};
   border-radius: 50%;
-  border: 1px solid yellow;
+  border: 2px solid #fff;
   background: inherit;
   margin: auto;
 `

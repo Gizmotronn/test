@@ -1,15 +1,14 @@
-import React, { useEffect, useRef } from 'react'
 import styled from '@emotion/styled'
 import { Text } from '../shared/styles'
 
 const MintCounter = () => {
   return (
     <>
-      <Button fontSize='40px' paddingBottom='4px'>
+      <Button fontSize='56px' paddingBottom='11px'>
         -
       </Button>
-      <Text size='32px'>1</Text>
-      <Button fontSize='34px'>+</Button>
+      <Text size='56px'>1</Text>
+      <Button fontSize='56px'>+</Button>
     </>
   )
 }
@@ -17,13 +16,13 @@ const MintCounter = () => {
 export default MintCounter
 
 const Button = styled.button`
-  width: 66px;
-  height: 66px;
+  width: 95px;
+  height: 95px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: inherit;
-  border: 1px solid black;
+  border: 2px solid #fff;
   border-radius: 50%;
   font-size: ${(props) => props.fontSize || '34px'};
   color: #fff;
