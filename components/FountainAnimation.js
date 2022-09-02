@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import lottie from 'lottie-web'
 import styled from '@emotion/styled'
+import { FountainAnimationContainer } from '../shared/styles'
 import audioGlobeGrey from '../animations/audio-globe-grey.json'
 
 const FountainAnimation = (props) => {
@@ -23,6 +24,10 @@ const FountainAnimation = (props) => {
 }
 
 export default FountainAnimation
+
+{
+  /* <FountainAnimationContainer ref={fountainContainer} /> */
+}
 
 const Container = styled.div`
   width: ${(props) => props.fountainSize};

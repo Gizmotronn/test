@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import styled from '@emotion/styled'
+import { ChamberCircleContainer, ChamberGlobe } from '../shared/styles'
 import GoToMintButton from './GoToMintButton'
 
 const Chamber = (props) => {
@@ -37,6 +38,17 @@ const Chamber = (props) => {
         )
       })}
     </CircleContainer>
+
+    // <ChamberCircleContainer ref={ref}>
+    //   {nftData.map((nft) => {
+    //     const { id, name, mint } = nft
+    //     return (
+    //       <ChamberGlobe key={nft.id}>
+    //         <GoToMintButton eligibleToMint={mint} />
+    //       </ChamberGlobe>
+    //     )
+    //   })}
+    // </ChamberCircleContainer>
   )
 }
 
@@ -48,7 +60,6 @@ const CircleContainer = styled.div`
   width: ${(props) => props.chamberSize};
   height: ${(props) => props.chamberSize};
   margin: auto;
-  ${'' /* background: pink; */}
 `
 
 const Globe = styled.div`
@@ -61,3 +72,14 @@ const Globe = styled.div`
   border-radius: 50%;
   background: black;
 `
+
+// <CircleContainer ref={ref} chamberSize={chamberSize}>
+//       {nftData.map((nft) => {
+//         const { id, name, mint } = nft
+//         return (
+//           <Globe key={nft.id} globeSize={globeSize}>
+//             <GoToMintButton eligibleToMint={mint} />
+//           </Globe>
+//         )
+//       })}
+//     </CircleContainer>

@@ -55,7 +55,7 @@ export default function Home() {
 }
 
 const LandingContainer = styled.div`
-  ${mq({ display: ['none', 'flex', 'none', 'flex'] })};
+  ${mq({ display: ['none', 'flex'] })};
   flex-direction: row;
   align-items: center;
   justify-content: center;
