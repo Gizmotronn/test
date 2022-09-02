@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import Chamber from '../components/Chamber'
 import Fountain from '../components/Fountain'
+import { mq } from '../shared/styles'
 
 export default function Home() {
   // 👇 min size @ 1024px
@@ -54,15 +55,12 @@ export default function Home() {
 }
 
 const LandingContainer = styled.div`
-  display: flex;
+  ${mq({ display: ['none', 'flex', 'none', 'flex'] })};
   flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 100%;
   margin: 0 auto;
-  @media (max-width: 1023px) {
-    display: none;
-  }
 `
 
 const ChamberContainer = styled.div`
