@@ -43,10 +43,10 @@ export const globeMargin = mq({
   margin: [0, -91, -100, -114, -121, -128, -137, -142, -149, -159, -171, -228],
 })
 
-// export const navGlobeSize = mq({
-//   width: [0, 88, 96, 110, 117, 124, 132, 138, 144, 154, 165, 220],
-//   height: [0, 88, 96, 110, 117, 124, 132, 138, 144, 154, 165, 220],
-// })
+export const navGlobeSize = mq({
+  width: [0, 88, 96, 110, 117, 124, 132, 138, 144, 154, 165, 220],
+  height: [0, 88, 96, 110, 117, 124, 132, 138, 144, 154, 165, 220],
+})
 
 export const FountainAnimationContainer = styled.div`
   ${fountainSize};

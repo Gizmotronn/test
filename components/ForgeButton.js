@@ -13,16 +13,9 @@ const ForgeButton = (props) => {
 
   return (
     <>
-      <ForgeGlobe forge={forge} size={size} />
+      <ForgeGlobe forge={forge} />
     </>
   )
 }
 
 export default ForgeButton
-
-const Button = styled.button`
-  background: inherit;
-  padding: 0;
-  border: none;
-  cursor: ${(props) => (props.forge ? 'pointer' : 'not-allowed')};
-`
