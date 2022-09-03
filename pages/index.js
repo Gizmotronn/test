@@ -1,14 +1,9 @@
 import styled from '@emotion/styled'
-import Chamber from '../components/Chamber'
+import ChamberController from '../components/ChamberController'
 import Fountain from '../components/Fountain'
 import { mq } from '../shared/styles'
 
 export default function Home() {
-  // 👇 min size @ 1024px
-  const fountainSize = '486px' // 486px
-  const chamberSize = '328px' // 328px
-  const globeSize = '182px' // 182px
-
   const nftData = [
     {
       nft: 1,
@@ -39,16 +34,14 @@ export default function Home() {
 
   return (
     <LandingContainer>
-      <ChamberContainer>
-        <Chamber chamberSize={chamberSize} globeSize={globeSize} nftData={nftData} />
-      </ChamberContainer>
+      <ChamberController nftData={nftData} />
       <FountainContainer>
         {/* <div style={{ position: 'absolute', right: '15px' }}>
           <li style={{ listStyle: 'none', display: 'contents' }}>
             <AudioButton />
           </li>
         </div> */}
-        <Fountain fountainSize={fountainSize} />
+        <Fountain />
       </FountainContainer>
     </LandingContainer>
   )
@@ -62,11 +55,6 @@ const LandingContainer = styled.div`
   width: 100%;
   margin: 0 auto;
   border: 1px solid pink;
-`
-
-const ChamberContainer = styled.div`
-  width: 50%;
-  background: inherit;
 `
 
 const FountainContainer = styled.div`

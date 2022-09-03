@@ -4,6 +4,12 @@ import facepaint from 'facepaint'
 
 export const breakpoints = [1024, 1120, 1280, 1366, 1440, 1536, 1600, 1680, 1792, 1920, 2560]
 
+export const chamberS = [0, 328, 359, 410, 438, 461, 492, 513, 538, 574, 615, 820]
+
+export const globeS = [0, 182, 199, 228, 243, 256, 273, 284, 299, 319, 341, 455]
+
+export const globeM = [0, -91, -100, -114, -121, -128, -137, -142, -149, -159, -171, -228]
+
 export const mq = facepaint([
   '@media(min-width: 1024px)',
   '@media(min-width: 1120px)',
@@ -54,18 +60,17 @@ export const ChamberCircleContainer = styled.div`
   position: relative;
   top: 15px;
   margin: auto;
-  border: 1px solid red;
 `
 
 export const ChamberGlobe = styled.div`
   ${globeSize};
-  margin: ${globeMargin};
-  ${'' /* margin: calc(-${globeMargin} / 2); */}
+  ${globeMargin};
   position: absolute;
   top: 50%;
   left: 50%;
   border-radius: 50%;
   background: black;
+  ${'' /* margin: calc(-${globeMargin} / 2); */}
 `
 
 export const Text = styled.p`
