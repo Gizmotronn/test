@@ -40,7 +40,7 @@ const FountainAnimationContainer = styled.div`
   border-radius: 50%;
   background: inherit;
   margin: auto;
-  border: 1px solid green;
+  ${'' /* border: 1px solid green; */}
 `
 
 // const Container = styled.div`

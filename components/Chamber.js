@@ -33,7 +33,6 @@ const Chamber = (props) => {
     ${'' /* ${mq({ height: [0, 328, 359, 410, 438, 461, 492, 513, 538, 574, 615, 820] })}; */}
     ${chamberSize};
     margin: auto;
-    border: 1px solid yellow;
   `
 
   const ChamberGlobe = styled.div`
@@ -47,7 +46,6 @@ const Chamber = (props) => {
     ${'' /* ${mq({ margin: [0, -91, -100, -114, -121, -128, -137, -142, -149, -159, -171, -228] })}; */}
     border-radius: 50%;
     background: black;
-    border: 4px solid pink;
   `
 
   function getWindowSize() {
@@ -61,7 +59,6 @@ const Chamber = (props) => {
     // const currentSize = windowSize
     const breakpoints = [1024, 1120, 1280, 1366, 1440, 1536, 1600, 1680, 1792, 1920, 2560]
     const match = breakpoints.includes(windowSize)
-    console.log('🚀 ~ file: Chamber.js ~ line 56 ~ getWindowSize ~ match', match)
     if (match) {
       setMatch((current) => !current)
     } else return
