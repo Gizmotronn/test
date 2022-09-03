@@ -32,7 +32,7 @@ const AudioButton = (props) => {
   return (
     <>
       <Button onClick={handleClick} type='button'>
-        <AudioGlobe isPlaying={isPlaying} size={size} />
+        <AudioGlobe isPlaying={isPlaying} />
       </Button>
     </>
   )

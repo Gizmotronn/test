@@ -1,13 +1,14 @@
 import React, { useEffect, useRef } from 'react'
 import lottie from 'lottie-web'
 import styled from '@emotion/styled'
+import { navGlobeSize } from '../shared/styles'
 import audioGlobeBlack from '../animations/audio-globe-black.json'
 import audioGlobeGrey from '../animations/audio-globe-grey.json'
 
 const AudioGlobe = (props) => {
   const walletGlobeAnimeContainer = useRef(null)
 
-  const { isPlaying, size } = props
+  const { isPlaying } = props
 
   useEffect(() => {
     const instance = lottie.loadAnimation({
@@ -20,14 +21,13 @@ const AudioGlobe = (props) => {
     // Clean up
     return () => instance.destroy()
   }, [isPlaying])
-  return <Globe ref={walletGlobeAnimeContainer} size={size} />
+  return <Globe ref={walletGlobeAnimeContainer} />
 }
 
 export default AudioGlobe
 
 const Globe = styled.div`
-  width: ${(props) => props.size};
-  height: ${(props) => props.size};
+  ${navGlobeSize}
   border-radius: 50%;
   background: inherit;
 `

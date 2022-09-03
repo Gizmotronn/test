@@ -12,7 +12,7 @@ export default function HeaderNav(props) {
   const { disconnect } = useDisconnect()
   const [mounted, setMounted] = useState(false)
 
-  const { globeSize, route } = props
+  const { route } = props
 
   useEffect(() => {
     setMounted(true)
@@ -31,7 +31,6 @@ export default function HeaderNav(props) {
                     connect={() => openConnectModal()}
                     disconnect={() => disconnect()}
                     account={() => openAccountModal()}
-                    size={globeSize}
                   />
                 </ListItem>
                 <AddressContainer>
@@ -45,7 +44,7 @@ export default function HeaderNav(props) {
               {route === '/' && (
                 <AudioContainer>
                   <ListItem>
-                    <AudioButton size={globeSize} />
+                    <AudioButton />
                   </ListItem>
                 </AudioContainer>
               )}

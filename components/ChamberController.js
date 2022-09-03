@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
-import { mq, breakpoints } from '../shared/styles'
+import { breakpoints } from '../shared/styles'
 import useWindowSize from '../hooks/useWindowSize'
 import Chamber from './Chamber'
 
