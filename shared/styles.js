@@ -54,6 +54,7 @@ export const ChamberCircleContainer = styled.div`
   position: relative;
   top: 15px;
   margin: auto;
+  border: 1px solid red;
 `
 
 export const ChamberGlobe = styled.div`

@@ -61,6 +61,7 @@ const LandingContainer = styled.div`
   justify-content: center;
   width: 100%;
   margin: 0 auto;
+  border: 1px solid pink;
 `
 
 const ChamberContainer = styled.div`
