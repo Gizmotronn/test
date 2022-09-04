@@ -36,11 +36,6 @@ export default function Home() {
     <LandingContainer>
       <ChamberController nftData={nftData} />
       <FountainContainer>
-        {/* <div style={{ position: 'absolute', right: '15px' }}>
-          <li style={{ listStyle: 'none', display: 'contents' }}>
-            <AudioButton />
-          </li>
-        </div> */}
         <Fountain />
       </FountainContainer>
     </LandingContainer>
