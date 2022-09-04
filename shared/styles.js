@@ -1,6 +1,19 @@
-import { css } from '@emotion/react'
+import { css, Global } from '@emotion/react'
 import styled from '@emotion/styled'
 import facepaint from 'facepaint'
+
+// export const globalStyles = (
+//   <Global
+//     styles={css`
+//       @font-face {
+//         font-family: 'WhyteInktrap';
+//         src: url('/fonts/ABCWhyteInktrapVariable.ttf') format('truetype');
+//         font-style: normal;
+//         font-weight: 400;
+//       }
+//     `}
+//   />
+// )
 
 export const breakpoints = [1024, 1120, 1280, 1366, 1440, 1536, 1600, 1680, 1792, 1920, 2560]
 
@@ -75,7 +88,9 @@ export const ChamberGlobe = styled.div`
 
 export const Text = styled.p`
   color: ${(props) => props.color || '#fff'};
-  font-size: ${(props) => props.size || '24px'};
+  font-size: ${(props) => props.size || '22px'};
+  font-family: 'ABCWhyteInktrapVariable';
+  font-weight: ${(props) => props.weight || '400'};
 `
 
 export const StandardButton = styled.button`
@@ -85,4 +100,6 @@ export const StandardButton = styled.button`
   border-radius: 12px;
   cursor: ${(props) => props.cursor || 'pointer'};
   font-size: ${(props) => props.size || '22px'};
+  font-family: 'ABCWhyteInktrapVariable';
+  font-weight: ${(props) => props.weight || '400'};
 `

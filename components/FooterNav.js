@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import styled from '@emotion/styled'
+import { Text } from '../shared/styles'
 import ForgeMessageModal from './ForgeMessageModal'
 import ForgeButton from './ForgeButton'
 
@@ -36,7 +37,7 @@ export default function FooterNav(props) {
                 {route === '/forge' ? (
                   <>
                     <LabelContainer>
-                      <Label>Forge</Label>
+                      <Text>Forge</Text>
                     </LabelContainer>
                     <ListItem>
                       <Button onClick={handleClick} type='button' forge={forge}>
@@ -86,16 +87,12 @@ const ListItem = styled.li`
 const ForgeContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  width: 180px;
+  width: 35%;
   align-items: center;
 `
 
 const LabelContainer = styled.div`
-  padding: 0 10px 0 0;
-`
-
-const Label = styled.p`
-  color: #ffffff;
+  padding: 0 20px 0 0;
 `
 
 const Button = styled.button`

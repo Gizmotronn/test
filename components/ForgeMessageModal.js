@@ -81,13 +81,21 @@ export default function ForgeMessageModal(props) {
             >
               <WarningContainer>
                 <WarningCopy>
-                  <Text color='#000'>You are now about to Forge a Monument.</Text>
-                  <Text color='#000'>Monumental moments require a monumental sacrifice.</Text>
-                  <Text color='#000'>
+                  <Text size='24px' color='#000'>
+                    You are now about to Forge a Monument.
+                  </Text>
+                  <Text size='24px' color='#000'>
+                    Monumental moments require a monumental sacrifice.
+                  </Text>
+                  <Text size='24px' color='#000'>
                     Continuing will combine the essence of all 5 Artifact NFTs, rebirthing them as a Monument.
                   </Text>
-                  <Text color='#000'>This will permanently remove one of each artifact NFT from your wallet.</Text>
-                  <Text color='#000'>Are you ready?</Text>
+                  <Text size='24px' color='#000'>
+                    This will permanently remove one of each artifact NFT from your wallet.
+                  </Text>
+                  <Text size='24px' color='#000'>
+                    Are you ready?
+                  </Text>
                 </WarningCopy>
                 <ButtonsContainer>
                   <ButtonContainer>
@@ -131,28 +139,26 @@ const WarningCopy = styled.div`
 const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  ${'' /* justify-content: space-evenly; */}
   align-items: center;
   margin: auto;
-  ${'' /* width: 100%; */}
 `
 
 const ButtonContainer = styled.div`
   margin: 20px;
 `
 
-const CancelButton = styled.button`
-  background: #fff;
-  padding: 20px;
-  border: 1px solid black;
-  border-radius: 12px;
-  cursor: pointer;
-`
+// const CancelButton = styled.button`
+//   background: #fff;
+//   padding: 20px;
+//   border: 1px solid black;
+//   border-radius: 12px;
+//   cursor: pointer;
+// `
 
-const ProceedButton = styled.button`
-  background: #fff;
-  padding: 20px;
-  border: 1px solid black;
-  border-radius: 12px;
-  cursor: not-allowed;
-`
+// const ProceedButton = styled.button`
+//   background: #fff;
+//   padding: 20px;
+//   border: 1px solid black;
+//   border-radius: 12px;
+//   cursor: not-allowed;
+// `

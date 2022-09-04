@@ -3,6 +3,7 @@ import { useConnectModal, useAccountModal } from '@rainbow-me/rainbowkit'
 import { useAccount, useDisconnect } from 'wagmi'
 import ConnectWallet from './ConnectWallet'
 import styled from '@emotion/styled'
+import { Text } from '../shared/styles'
 import AudioButton from './AudioButton'
 
 export default function HeaderNav(props) {
@@ -34,11 +35,11 @@ export default function HeaderNav(props) {
                   />
                 </ListItem>
                 <AddressContainer>
-                  <Address>
+                  <Text>
                     {isConnected
                       ? String(address).substring(0, 4) + '...' + String(address).substring(38)
                       : 'Connect Wallet'}
-                  </Address>
+                  </Text>
                 </AddressContainer>
               </WalletContainer>
               {route === '/' && (
@@ -76,17 +77,13 @@ const ListItem = styled.li`
 `
 
 const WalletContainer = styled.div`
-  width: 260px;
+  width: 35%;
   display: flex;
   align-items: center;
 `
 
 const AddressContainer = styled.div`
-  padding: 0 0 0 10px;
-`
-
-const Address = styled.p`
-  color: #ffffff;
+  padding: 0 0 0 20px;
 `
 
 const AudioContainer = styled.div`

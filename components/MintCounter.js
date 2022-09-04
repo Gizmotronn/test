@@ -19,7 +19,7 @@ const MintCounter = () => {
 
   return (
     <>
-      <Button fontSize='56px' paddingBottom='11px' onClick={handleDecrease} disabled={count === 1}>
+      <Button fontSize='56px' paddingBottom='4px' onClick={handleDecrease} disabled={count === 1}>
         -
       </Button>
       <Text size='56px'>{count}</Text>
@@ -42,6 +42,8 @@ const Button = styled.button`
   border: 2px solid #fff;
   border-radius: 50%;
   font-size: ${(props) => props.fontSize || '34px'};
+  font-family: 'ABCWhyteInktrapVariable';
+  font-weight: ${(props) => props.weight || '400'};
   color: #fff;
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
   padding-bottom: ${(props) => props.paddingBottom || '0px'};

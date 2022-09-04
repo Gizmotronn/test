@@ -20,6 +20,8 @@ const Button = styled.button`
   background: inherit;
   border: none;
   font-size: ${(props) => props.fontSize || '56px'};
+  font-family: 'ABCWhyteInktrapVariable';
+  font-weight: ${(props) => props.weight || '400'};
   color: #fff;
   cursor: pointer;
   margin-top: 25px;

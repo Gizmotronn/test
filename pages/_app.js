@@ -8,6 +8,7 @@ import AudioProvider from '../contexts/AudioContext'
 import IntroModal from '../components/IntroModal'
 import Layout from '../components/Layout'
 import '../styles/globals.css'
+import '../styles/fonts.css'
 
 // const infuraId = process.env.NEXT_PUBLIC_INFURA_ID;
 
