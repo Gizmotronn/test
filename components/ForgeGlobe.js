@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import lottie from 'lottie-web'
 import { useRouter } from 'next/router'
 import styled from '@emotion/styled'
+import { navGlobeSize } from '../shared/styles'
 import colourGlobe from '../animations/colour-globe.json'
 import audioGlobeGrey from '../animations/audio-globe-grey.json'
 
@@ -11,7 +12,7 @@ const ForgeGlobe = (props) => {
   const router = useRouter()
   const { route } = router
 
-  const { forge, size } = props
+  // const { forge } = props
 
   useEffect(() => {
     const instance = lottie.loadAnimation({
@@ -25,14 +26,13 @@ const ForgeGlobe = (props) => {
     // Clean up
     return () => instance.destroy()
   }, [route])
-  return <Globe ref={walletGlobeAnimeContainer} size={size} />
+  return <Globe ref={walletGlobeAnimeContainer} />
 }
 
 export default ForgeGlobe
 
 const Globe = styled.div`
-  height: ${(props) => props.size};
-  width: ${(props) => props.size};
+  ${navGlobeSize}
   background: inherit;
   border-radius: 50%;
 `

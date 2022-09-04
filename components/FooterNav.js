@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
 import styled from '@emotion/styled'
 import ForgeMessageModal from './ForgeMessageModal'
@@ -10,9 +9,7 @@ export default function FooterNav(props) {
   const [forge, setForge] = useState(true)
   const [showForgeWarning, setShowForgeWarning] = useState(false)
 
-  const { globeSize, route } = props
-
-  const router = useRouter()
+  const { route } = props
 
   const handleClick = () => {
     if (route === '/forge') {
@@ -30,7 +27,7 @@ export default function FooterNav(props) {
 
   return (
     mounted && (
-      <FooterContainer size={globeSize}>
+      <FooterContainer>
         {route !== '/mint' && (
           <nav>
             <List>
@@ -43,7 +40,7 @@ export default function FooterNav(props) {
                     </LabelContainer>
                     <ListItem>
                       <Button onClick={handleClick} type='button' forge={forge}>
-                        <ForgeButton forge={forge} size={globeSize} />
+                        <ForgeButton forge={forge} />
                       </Button>
                     </ListItem>
                   </>
@@ -52,7 +49,7 @@ export default function FooterNav(props) {
                     <a target='_blank' rel='noopener noreferrer'>
                       <ListItem>
                         <Button type='button' forge={forge}>
-                          <ForgeButton forge={forge} size={globeSize} />
+                          <ForgeButton forge={forge} />
                         </Button>
                       </ListItem>
                     </a>
@@ -69,7 +66,6 @@ export default function FooterNav(props) {
 
 const FooterContainer = styled.div`
   width: 100%;
-  min-height: ${(props) => props.size};
   contain: content;
   mx: auto;
 `

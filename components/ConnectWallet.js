@@ -1,13 +1,14 @@
 import React, { useEffect, useRef } from 'react'
 import lottie from 'lottie-web'
 import styled from '@emotion/styled'
+import { navGlobeSize } from '../shared/styles'
 import audioGlobeBlack from '../animations/audio-globe-black.json'
 import colourGlobe from '../animations/colour-globe.json'
 
 const ConnectWallet = (props) => {
   const walletGlobeRef = useRef(null)
 
-  const { walletConnected, connect, disconnect, account, size } = props
+  const { walletConnected, connect, disconnect, account } = props
 
   useEffect(() => {
     const instance = lottie.loadAnimation({
@@ -25,10 +26,9 @@ const ConnectWallet = (props) => {
       <Button
         onClick={walletConnected ? account : connect}
         type='button'
-        size={size}
         // onClick={walletConnected ? disconnect : connect}
       >
-        <WalletGlobe ref={walletGlobeRef} size={size} />
+        <WalletGlobe ref={walletGlobeRef} />
       </Button>
     </>
   )
@@ -40,15 +40,13 @@ const Button = styled.button`
   cursor: pointer;
   border: none;
   border-radius: 50%;
-  background: pink;
+  background: inherit;
   padding: 0;
-  height: ${(props) => props.size};
-  width: ${(props) => props.size};
+  ${navGlobeSize}
 `
 
 const WalletGlobe = styled.div`
-  height: ${(props) => props.size};
-  width: ${(props) => props.size};
+  ${navGlobeSize}
   border-radius: 50%;
   background: inherit;
 `

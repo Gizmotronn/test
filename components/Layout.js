@@ -11,9 +11,6 @@ const Layout = ({ children }) => {
   const router = useRouter()
   const { route } = router
 
-  // 👇 min size @ 1024px
-  const navGlobeSize = '88px' // 88px
-
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -30,9 +27,9 @@ const Layout = ({ children }) => {
           <meta name='description' content='BricktOrigins' />
           <link rel='icon' href='/favicon.ico' />
         </Head>
-        <HeaderNav globeSize={navGlobeSize} route={route} />
+        <HeaderNav route={route} />
         <LayoutMain>{children}</LayoutMain>
-        <FooterNav globeSize={navGlobeSize} route={route} />
+        <FooterNav route={route} />
       </LayoutContainer>
     )
   )
