@@ -77,3 +77,12 @@ export const Text = styled.p`
   color: ${(props) => props.color || '#fff'};
   font-size: ${(props) => props.size || '24px'};
 `
+
+export const StandardButton = styled.button`
+  background: ${(props) => props.color || '#fff'};
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 12px;
+  cursor: ${(props) => props.cursor || 'pointer'};
+  font-size: ${(props) => props.size || '22px'};
+`
