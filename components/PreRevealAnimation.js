@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import styled from '@emotion/styled'
 import lottie from 'lottie-web'
-import audioGlobeGrey from '../animations/audio-globe-grey.json'
+import audioGlobeGrey from '../assets/audio-globe-grey.json'
 
 const PreRevealGlobe = (props) => {
   const preRevealGlobeContainer = useRef(null)

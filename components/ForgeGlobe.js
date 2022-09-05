@@ -3,8 +3,8 @@ import lottie from 'lottie-web'
 import { useRouter } from 'next/router'
 import styled from '@emotion/styled'
 import { navGlobeSize } from '../shared/styles'
-import colourGlobe from '../animations/colour-globe.json'
-import audioGlobeGrey from '../animations/audio-globe-grey.json'
+import colourGlobe from '../assets/colour-globe.json'
+import audioGlobeGrey from '../assets/audio-globe-grey.json'
 
 const ForgeGlobe = (props) => {
   const walletGlobeAnimeContainer = useRef(null)

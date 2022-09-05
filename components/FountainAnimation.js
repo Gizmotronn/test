@@ -1,13 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import lottie from 'lottie-web'
 import styled from '@emotion/styled'
-import { mq } from '../shared/styles'
-import audioGlobeGrey from '../animations/audio-globe-grey.json'
+import { fountainSize } from '../shared/styles'
+import audioGlobeGrey from '../assets/audio-globe-grey.json'
 
-const FountainAnimation = (props) => {
+const FountainAnimation = () => {
   const fountainContainer = useRef(null)
-
-  // const { fountainSize } = props
 
   useEffect(() => {
     const instance = lottie.loadAnimation({
@@ -30,17 +28,11 @@ const FountainAnimation = (props) => {
 
 export default FountainAnimation
 
-const fountainSize = mq({
-  width: [0, 486, 532, 608, 648, 683, 729, 759, 797, 851, 911, 1215],
-  height: [0, 486, 532, 608, 648, 683, 729, 759, 797, 851, 911, 1215],
-})
-
 const FountainAnimationContainer = styled.div`
   ${fountainSize};
   border-radius: 50%;
   background: inherit;
   margin: auto;
-  ${'' /* border: 1px solid green; */}
 `
 
 // const Container = styled.div`

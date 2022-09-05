@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import lottie from 'lottie-web'
-import data from '../animations/data.json'
+import data from '../assets/data.json'
 
 const AudioGlobeGrey = () => {
   const dataAnimeContainer = useRef(null)

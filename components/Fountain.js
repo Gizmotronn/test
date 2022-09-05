@@ -1,10 +1,14 @@
 import React from 'react'
-import styled from '@emotion/styled'
 import FountainAnimation from './FountainAnimation'
+import FountainAnimationMP4 from './FountainAnimationMP4'
 
-const Fountain = (props) => {
-  const { fountainSize } = props
-  return <FountainAnimation fountainSize={fountainSize} />
+const Fountain = () => {
+  return (
+    <>
+      <FountainAnimationMP4 />
+      {/* <FountainAnimation /> */}
+    </>
+  )
 }
 
 export default Fountain

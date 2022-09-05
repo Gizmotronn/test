@@ -68,6 +68,13 @@ export const FountainAnimationContainer = styled.div`
   margin: auto;
 `
 
+export const FountainAnimationContainerMP4 = styled.video`
+  ${fountainSize};
+  border-radius: 50%;
+  background: inherit;
+  margin: auto;
+`
+
 export const ChamberCircleContainer = styled.div`
   ${chamberSize};
   position: relative;
