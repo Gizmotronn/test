@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import lottie from 'lottie-web'
 import styled from '@emotion/styled'
-import { mq, fountainSize } from '../shared/styles'
+import { fountainSize } from '../shared/styles'
 import audioGlobeGrey from '../animations/audio-globe-grey.json'
 
 const FountainAnimation = (props) => {

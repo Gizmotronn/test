@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from '@emotion/styled'
 import FountainAnimation from './FountainAnimation'
 
 const Fountain = (props) => {
