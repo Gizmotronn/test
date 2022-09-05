@@ -49,10 +49,11 @@ const LandingContainer = styled.div`
   justify-content: center;
   width: 100%;
   margin: 0 auto;
-  border: 1px solid pink;
 `
 
 const FountainContainer = styled.div`
   width: 50%;
   background: inherit;
+  display: flex;
+  justify-content: end;
 `
