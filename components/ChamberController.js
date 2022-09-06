@@ -4,7 +4,7 @@ import { breakpoints } from '../shared/styles'
 import useWindowSize from '../hooks/useWindowSize'
 import Chamber from './Chamber'
 
-export default function ChamberController({ nftData, chamberSize, globeSize, globeMargin }) {
+export default function ChamberController({ nftData }) {
   const [toggle, setToggle] = useState(false)
 
   const size = useWindowSize()

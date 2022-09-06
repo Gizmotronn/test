@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react'
 import styled from '@emotion/styled'
-import facepaint from 'facepaint'
+// import facepaint from 'facepaint'
 import { mq, breakpoints } from '../shared/styles'
 import GoToMintButton from './GoToMintButton'
 
@@ -8,7 +8,7 @@ const Chamber = (props) => {
   const [windowSize, setWindowSize] = useState(getWindowSize())
   const [updateChamber, setUpdateChamber] = useState(undefined)
 
-  const mQuery = facepaint(breakpoints.map((bp) => `@media (min-width: ${bp}px)`))
+  // const mQuery = facepaint(breakpoints.map((bp) => `@media (min-width: ${bp}px)`))
 
   const ref = useRef(null)
 
