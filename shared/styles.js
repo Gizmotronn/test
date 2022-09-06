@@ -119,9 +119,11 @@ export const chamberCircleTop = mq({
 
 export const FountainAnimationContainerMP4 = styled.video`
   ${fountainSize};
-  border-radius: 50%;
-  background: inherit;
-  margin: auto;
+  width: 100%;
+  height: 100%;
+  clip-path: circle(50%);
+  background: yellow;
+  cursor: pointer;
 `
 
 export const ChamberCircleContainer = styled.div`

@@ -5,29 +5,10 @@ import { FountainAnimationContainerMP4 } from '../shared/styles'
 
 const FountainAnimation = () => {
   return (
-    <>
-      {/* <FountainAnimationContainerMP4 autoPlay loop>
-        <source src='/videos/Colour_Globe.mp4' type='video/mp4' />
-        Sorry, your browser does not support embedded videos.
-      </FountainAnimationContainerMP4> */}
-      {
-        <video
-          autoPlay
-          loop
-          style={{
-            width: 486,
-            height: 486,
-            border: '1px solid red',
-            borderRadius: '50%',
-            background: 'yellow',
-            cursor: 'pointer',
-          }}
-        >
-          <source src='/videos/Colour_Globe.mp4' type='video/mp4' />
-          Sorry, your browser does not support embedded videos.
-        </video>
-      }
-    </>
+    <FountainAnimationContainerMP4 autoPlay loop>
+      <source src='/videos/Colour_Globe.mp4' type='video/mp4' />
+      Sorry, your browser does not support embedded videos.
+    </FountainAnimationContainerMP4>
   )
 }
 
@@ -39,3 +20,55 @@ export default FountainAnimation
 //   background: yellow;
 //   margin: auto;
 // `
+
+{
+  /* <a href=''>
+        <video
+          autoPlay
+          loop
+          style={{
+            width: '200px',
+          height: '200px',
+          borderRadius: '50%',
+          overflow: 'hidden',
+          cursor: 'pointer',
+            background: 'yellow', // to show on load
+          }}
+        >
+          <source src='/videos/Colour_Globe.mp4' type='video/mp4' />
+          Sorry, your browser does not support embedded videos.
+        </video>
+      </a> */
+}
+
+{
+  /* <div
+style={{
+  width: '200px',
+  height: '200px',
+  borderRadius: '50%',
+  background: 'yellow',
+  overflow: 'hidden',
+  cursor: 'pointer',
+}}
+>
+poop
+</div> */
+}
+
+{
+  /* <video
+      autoPlay
+      loop
+      style={{
+        width: '100%',
+        height: '100%',
+        clipPath: 'circle(50%)',
+        background: 'yellow',
+        cursor: 'pointer',
+      }}
+    >
+      <source src='/videos/Colour_Globe.mp4' type='video/mp4' />
+      Sorry, your browser does not support embedded videos.
+    </video> */
+}

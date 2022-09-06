@@ -56,4 +56,5 @@ const FountainContainer = styled.div`
   background: inherit;
   display: flex;
   justify-content: end;
+  border: 1px solid green;
 `
