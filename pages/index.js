@@ -49,6 +49,7 @@ const LandingContainer = styled.div`
   justify-content: center;
   width: 100%;
   margin: 0 auto;
+  overflow: hidden;
 `
 
 const FountainContainer = styled.div`
@@ -56,5 +57,4 @@ const FountainContainer = styled.div`
   background: inherit;
   display: flex;
   justify-content: end;
-  border: 1px solid green;
 `

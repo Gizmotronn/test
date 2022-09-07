@@ -124,7 +124,7 @@ export const FountainAnimationContainerMP4 = styled.video`
   width: 100%;
   height: 100%;
   clip-path: circle(50%);
-  background: yellow;
+  background: inherit;
   cursor: pointer;
 `
 
