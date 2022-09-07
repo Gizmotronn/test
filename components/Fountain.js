@@ -1,12 +1,12 @@
 import React from 'react'
-import FountainAnimation from './FountainAnimation'
-import FountainAnimationMP4 from './FountainAnimationMP4'
+// import FountainAnimationLottie from './FountainAnimation_Lottie'
+import FountainGlobe from './FountainGlobe'
 
 const Fountain = () => {
   return (
     <>
-      <FountainAnimationMP4 />
-      {/* <FountainAnimation /> */}
+      <FountainGlobe />
+      {/* <FountainAnimationLottie /> */}
     </>
   )
 }

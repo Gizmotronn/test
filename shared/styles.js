@@ -109,17 +109,24 @@ export const navGlobeSize = mq({
 
 // Shareable Elements
 
-export const FountainAnimationContainer = styled.div`
+// ============ INTRO GLOBE ============
+export const IntroAnimation = styled.video`
+  width: 182px;
+  height: 182px;
+  clip-path: circle(50%);
+  background: inherit;
+  cursor: pointer;
+`
+
+// ============ FOUNTAIN ============
+export const FountainAnimationContainerLottie = styled.div`
   ${fountainSize};
   border-radius: 50%;
   background: inherit;
   margin: auto;
 `
-export const chamberCircleTop = mq({
-  top: [0, 15, 15, 15, 15, 15, 17, 18, 20, 20, 20, 22, 22, 22, 23, 25, 28, 28, 29, 31, 33, 33],
-})
 
-export const FountainAnimationContainerMP4 = styled.video`
+export const FountainAnimation = styled.video`
   ${fountainSize};
   width: 100%;
   height: 100%;
@@ -127,6 +134,11 @@ export const FountainAnimationContainerMP4 = styled.video`
   background: inherit;
   cursor: pointer;
 `
+
+// ============ CHAMBER ============
+export const chamberCircleTop = mq({
+  top: [0, 15, 15, 15, 15, 15, 17, 18, 20, 20, 20, 22, 22, 22, 23, 25, 28, 28, 29, 31, 33, 33],
+})
 
 export const ChamberCircleContainer = styled.div`
   ${chamberSize};
@@ -147,6 +159,7 @@ export const ChamberGlobe = styled.div`
   ${'' /* margin: calc(-${globeMargin} / 2); */}
 `
 
+// ============ TEXT ============
 export const Text = styled.p`
   color: ${(props) => props.color || '#fff'};
   font-size: ${(props) => props.size || '22px'};
@@ -154,6 +167,7 @@ export const Text = styled.p`
   font-weight: ${(props) => props.weight || '400'};
 `
 
+// ============ BUTTONS ============
 export const StandardButton = styled.button`
   background: ${(props) => props.color || '#fff'};
   padding: 20px;
