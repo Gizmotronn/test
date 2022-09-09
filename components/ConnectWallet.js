@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react'
 import lottie from 'lottie-web'
 import styled from '@emotion/styled'
 import { navGlobeSize } from '../shared/styles'
-import audioGlobeBlack from '../animations/audio-globe-black.json'
-import colourGlobe from '../animations/colour-globe.json'
+import audioGlobeBlack from '../assets/audio-globe-black.json'
+import colourGlobe from '../assets/colour-globe.json'
 
 const ConnectWallet = (props) => {
   const walletGlobeRef = useRef(null)

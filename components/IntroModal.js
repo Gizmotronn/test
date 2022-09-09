@@ -87,7 +87,7 @@ export default function Modal(props) {
               <button
                 onClick={handleClick}
                 type='button'
-                style={{ background: 'inherit', padding: 0, border: 'none', cursor: 'pointer' }}
+                style={{ background: 'inherit', padding: 0, border: 'none', borderRadius: '50%' }}
               >
                 <IntroGlobe />
               </button>

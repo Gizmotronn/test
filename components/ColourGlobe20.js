@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import lottie from 'lottie-web'
-import colourGlobe20 from '../animations/colour-globe-20.json'
+import colourGlobe20 from '../assets/colour-globe-20.json'
 
 const GlobeColour20 = () => {
   const colourGlobeAnimeContainer = useRef(null)

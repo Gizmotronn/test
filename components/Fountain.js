@@ -1,9 +1,14 @@
 import React from 'react'
-import FountainAnimation from './FountainAnimation'
+// import FountainAnimationLottie from './FountainAnimation_Lottie'
+import FountainGlobe from './FountainGlobe'
 
-const Fountain = (props) => {
-  const { fountainSize } = props
-  return <FountainAnimation fountainSize={fountainSize} />
+const Fountain = () => {
+  return (
+    <>
+      <FountainGlobe />
+      {/* <FountainAnimationLottie /> */}
+    </>
+  )
 }
 
 export default Fountain

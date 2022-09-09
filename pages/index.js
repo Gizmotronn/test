@@ -43,12 +43,13 @@ export default function Home() {
 }
 
 const LandingContainer = styled.div`
-  ${mq({ display: ['none', 'flex'] })};
+  ${mq({ display: ['flex', 'flex'] })};
   flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 100%;
   margin: 0 auto;
+  overflow: hidden;
 `
 
 const FountainContainer = styled.div`

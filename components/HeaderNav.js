@@ -77,7 +77,7 @@ const ListItem = styled.li`
 `
 
 const WalletContainer = styled.div`
-  width: 35%;
+  width: 65%;
   display: flex;
   align-items: center;
 `

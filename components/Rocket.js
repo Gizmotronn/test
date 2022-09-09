@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import lottie from 'lottie-web'
-import rocket from '../animations/rocket.json'
+import rocket from '../assets/rocket.json'
 
 const AudioGlobeGrey = () => {
   const rocketAnimeContainer = useRef(null)

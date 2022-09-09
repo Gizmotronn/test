@@ -39,7 +39,7 @@ const Chamber = (props) => {
       {nftData.map((nft) => {
         const { id, name, mint } = nft
         return (
-          <ChamberGlobe key={nft.id}>
+          <ChamberGlobe key={id}>
             <GoToMintButton eligibleToMint={mint} />
           </ChamberGlobe>
         )

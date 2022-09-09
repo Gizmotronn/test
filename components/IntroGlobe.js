@@ -1,24 +1,12 @@
-import React, { useEffect, useRef } from 'react'
-import lottie from 'lottie-web'
-import audioGlobeBlack from '../animations/audio-globe-black.json'
-import colourGlobe from '../animations/colour-globe.json'
+import React from 'react'
+import { IntroAnimation } from '../shared/styles'
 
 const IntroGlobe = () => {
-  const introGlobeAnimeContainer = useRef(null)
-
-  useEffect(() => {
-    const instance = lottie.loadAnimation({
-      container: introGlobeAnimeContainer.current,
-      renderer: 'svg',
-      autoplay: true,
-      loop: true,
-      animationData: colourGlobe,
-    })
-    // Clean up
-    return () => instance.destroy()
-  }, [])
   return (
-    <div ref={introGlobeAnimeContainer} style={{ height: 182, width: 182, background: 'black', borderRadius: '50%' }} />
+    <IntroAnimation autoPlay loop>
+      <source src='/videos/Colour_Globe.mp4' type='video/mp4' />
+      Sorry, your browser does not support embedded videos.
+    </IntroAnimation>
   )
 }
 

@@ -99,20 +99,43 @@ export const globeMargin = mq({
 })
 
 export const navGlobeSize = mq({
-  width: [0, 88, 93, 96, 103, 110, 117, 124, 132, 138, 144, 150, 154, 160, 165, 173, 180, 187, 194, 201, 208, 214, 220],
+  width: [
+    88, 88, 93, 96, 103, 110, 117, 124, 132, 138, 144, 150, 154, 160, 165, 173, 180, 187, 194, 201, 208, 214, 220,
+  ],
   height: [
-    0, 88, 93, 96, 103, 110, 117, 124, 132, 138, 144, 150, 154, 160, 165, 173, 180, 187, 194, 201, 208, 214, 220,
+    88, 88, 93, 96, 103, 110, 117, 124, 132, 138, 144, 150, 154, 160, 165, 173, 180, 187, 194, 201, 208, 214, 220,
   ],
 })
 
 // Shareable Elements
 
-export const FountainAnimationContainer = styled.div`
+// ============ INTRO GLOBE ============
+export const IntroAnimation = styled.video`
+  width: 182px;
+  height: 182px;
+  clip-path: circle(50%);
+  background: inherit;
+  cursor: pointer;
+`
+
+// ============ FOUNTAIN ============
+export const FountainAnimationContainerLottie = styled.div`
   ${fountainSize};
   border-radius: 50%;
   background: inherit;
   margin: auto;
 `
+
+export const FountainAnimation = styled.video`
+  ${fountainSize};
+  width: 100%;
+  height: 100%;
+  clip-path: circle(50%);
+  background: inherit;
+  cursor: pointer;
+`
+
+// ============ CHAMBER ============
 export const chamberCircleTop = mq({
   top: [0, 15, 15, 15, 15, 15, 17, 18, 20, 20, 20, 22, 22, 22, 23, 25, 28, 28, 29, 31, 33, 33],
 })
@@ -136,6 +159,7 @@ export const ChamberGlobe = styled.div`
   ${'' /* margin: calc(-${globeMargin} / 2); */}
 `
 
+// ============ TEXT ============
 export const Text = styled.p`
   color: ${(props) => props.color || '#fff'};
   font-size: ${(props) => props.size || '22px'};
@@ -143,6 +167,7 @@ export const Text = styled.p`
   font-weight: ${(props) => props.weight || '400'};
 `
 
+// ============ BUTTONS ============
 export const StandardButton = styled.button`
   background: ${(props) => props.color || '#fff'};
   padding: 20px;
