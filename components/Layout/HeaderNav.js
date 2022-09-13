@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useConnectModal, useAccountModal } from '@rainbow-me/rainbowkit'
 import { useAccount, useDisconnect } from 'wagmi'
-import ConnectWallet from './ConnectWallet'
 import styled from '@emotion/styled'
-import { Text } from '../shared/styles'
-import AudioButton from './AudioButton'
+import ConnectWallet from '../ConnectWallet'
+import WalletConnect from './WalletConnect'
+import AudioButton from '../AudioButton'
+import Audio from './Audio'
+// import { Text } from '../../shared/styles'
+import Text from '../Shared/Text'
 
 export default function HeaderNav(props) {
   const { openConnectModal } = useConnectModal()
@@ -22,9 +25,10 @@ export default function HeaderNav(props) {
   return (
     mounted && (
       <>
-        <Header>
-          <nav>
-            <List>
+        {/* <header> */}
+        {/* <nav> */}
+        <WalletConnect />
+        {/* <List>
               <WalletContainer>
                 <ListItem>
                   <ConnectWallet
@@ -49,9 +53,10 @@ export default function HeaderNav(props) {
                   </ListItem>
                 </AudioContainer>
               )}
-            </List>
-          </nav>
-        </Header>
+            </List> */}
+        <Audio route={route} />
+        {/* </nav> */}
+        {/* </header> */}
       </>
     )
   )
@@ -64,28 +69,9 @@ const Header = styled.header`
 `
 
 const List = styled.ul`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+ position: 'fixed';
+  top: '15px',
+  left: '15px',
   margin: 0;
   padding: 0;
-`
-
-const ListItem = styled.li`
-  list-style: none;
-  display: contents;
-`
-
-const WalletContainer = styled.div`
-  width: 65%;
-  display: flex;
-  align-items: center;
-`
-
-const AddressContainer = styled.div`
-  padding: 0 0 0 20px;
-`
-
-const AudioContainer = styled.div`
-  display: flex;
 `

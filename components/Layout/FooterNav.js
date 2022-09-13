@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import styled from '@emotion/styled'
-import { Text } from '../shared/styles'
-import ForgeMessageModal from './ForgeMessageModal'
-import ForgeButton from './ForgeButton'
+import Text from '../Shared/Text'
+import ForgeMessageModal from '../ForgeMessageModal'
+import ForgeButton from '../ForgeButton'
 
 export default function FooterNav(props) {
   const [mounted, setMounted] = useState(false)
@@ -28,11 +28,13 @@ export default function FooterNav(props) {
 
   return (
     mounted && (
-      <FooterContainer>
+      <>
+        {/* <FooterContainer> */}
         {route !== '/mint' && (
           <nav>
-            <List>
-              {showForgeWarning && <ForgeMessageModal showModal={showForgeWarning} modalOpen={handleCloseModal} />}
+            {/* <List> */}
+            {showForgeWarning && <ForgeMessageModal showModal={showForgeWarning} modalOpen={handleCloseModal} />}
+            <Wrapper>
               <ForgeContainer>
                 {route === '/forge' ? (
                   <>
@@ -57,38 +59,48 @@ export default function FooterNav(props) {
                   </Link>
                 )}
               </ForgeContainer>
-            </List>
+            </Wrapper>
+            {/* </List> */}
           </nav>
         )}
-      </FooterContainer>
+        {/* </FooterContainer> */}
+      </>
     )
   )
 }
 
-const FooterContainer = styled.div`
-  width: 100%;
-  contain: content;
-  mx: auto;
-`
+// const FooterContainer = styled.div`
+//   width: 100%;
+//   contain: content;
+//   mx: auto;
+// `
 
-const List = styled.ul`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin: 0;
-  padding: 0;
-`
+// const List = styled.ul`
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-end;
+//   margin: 0;
+//   padding: 0;
+// `
 
 const ListItem = styled.li`
   list-style: none;
   display: contents;
 `
 
+const Wrapper = styled.div`
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+`
+
 const ForgeContainer = styled.div`
-  display: flex;
+  ${
+    '' /* display: flex;
   justify-content: flex-end;
   width: 35%;
-  align-items: center;
+  align-items: center; */
+  }
 `
 
 const LabelContainer = styled.div`
