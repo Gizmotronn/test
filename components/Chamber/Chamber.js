@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { ChamberCircleContainer, ChamberGlobe } from '../shared/styles'
-import GoToMintButton from './GoToMintButton'
+import { ChamberCircleContainer, ChamberGlobe } from '../../shared/styles'
+import GoToMintButton from '../GoToMintButton'
 
 const Chamber = (props) => {
   const ref = useRef(null)

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
-import { breakpoints } from '../shared/styles'
-import useWindowSize from '../hooks/useWindowSize'
+import { breakpoints } from '../../shared/styles'
+import useWindowSize from '../../hooks/useWindowSize'
 import Chamber from './Chamber'
 
 export default function ChamberController({ nftData }) {

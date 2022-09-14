@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import ChamberController from '../components/ChamberController'
+import ChamberController from '../components/Chamber/ChamberController'
 import Fountain from '../components/Fountain'
 import { mq } from '../shared/styles'
 
