@@ -42,7 +42,8 @@ const Button = styled.button`
   border-radius: 50%;
   background: inherit;
   padding: 0;
-  ${navGlobeSize}
+  ${navGlobeSize};
+  z-index: 999;
 `
 
 const WalletGlobe = styled.div`

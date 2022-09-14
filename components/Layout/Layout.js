@@ -42,7 +42,6 @@ const LayoutContainer = styled.div`
   flex-direction: column;
   min-height: 100vh;
   background-color: black;
-  ${'' /* padding: 15px; */}
 `
 
 const LayoutMain = styled.main`

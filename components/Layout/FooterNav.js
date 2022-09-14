@@ -6,7 +6,7 @@ import ForgeMessageModal from '../ForgeMessageModal'
 import ForgeButton from '../ForgeButton'
 
 export default function FooterNav(props) {
-  const [mounted, setMounted] = useState(false)
+  const [hasMounted, setHasMounted] = useState(false)
   const [forge, setForge] = useState(true)
   const [showForgeWarning, setShowForgeWarning] = useState(false)
 
@@ -23,84 +23,56 @@ export default function FooterNav(props) {
   }
 
   useEffect(() => {
-    setMounted(true)
+    setHasMounted(true)
   }, [showForgeWarning])
 
   return (
-    mounted && (
+    hasMounted && (
       <>
-        {/* <FooterContainer> */}
         {route !== '/mint' && (
           <nav>
-            {/* <List> */}
             {showForgeWarning && <ForgeMessageModal showModal={showForgeWarning} modalOpen={handleCloseModal} />}
-            <Wrapper>
-              <ForgeContainer>
-                {route === '/forge' ? (
-                  <>
+            <ForgeContainer>
+              {route === '/forge' ? (
+                <>
+                  <InnerContainer>
                     <LabelContainer>
                       <Text>Forge</Text>
                     </LabelContainer>
-                    <ListItem>
-                      <Button onClick={handleClick} type='button' forge={forge}>
-                        <ForgeButton forge={forge} />
-                      </Button>
-                    </ListItem>
-                  </>
-                ) : (
-                  <Link href='/forge' passHref>
-                    <a target='_blank' rel='noopener noreferrer'>
-                      <ListItem>
-                        <Button type='button' forge={forge}>
-                          <ForgeButton forge={forge} />
-                        </Button>
-                      </ListItem>
-                    </a>
-                  </Link>
-                )}
-              </ForgeContainer>
-            </Wrapper>
-            {/* </List> */}
+
+                    <Button onClick={handleClick} type='button' forge={forge}>
+                      <ForgeButton forge={forge} />
+                    </Button>
+                  </InnerContainer>
+                </>
+              ) : (
+                <Link href='/forge' passHref>
+                  <a target='_blank' rel='noopener noreferrer'>
+                    <Button type='button' forge={forge}>
+                      <ForgeButton forge={forge} />
+                    </Button>
+                  </a>
+                </Link>
+              )}
+            </ForgeContainer>
           </nav>
         )}
-        {/* </FooterContainer> */}
       </>
     )
   )
 }
 
-// const FooterContainer = styled.div`
-//   width: 100%;
-//   contain: content;
-//   mx: auto;
-// `
-
-// const List = styled.ul`
-//   display: flex;
-//   align-items: center;
-//   justify-content: flex-end;
-//   margin: 0;
-//   padding: 0;
-// `
-
-const ListItem = styled.li`
-  list-style: none;
-  display: contents;
-`
-
-const Wrapper = styled.div`
+const ForgeContainer = styled.div`
   position: fixed;
   bottom: 15px;
   right: 15px;
+  z-index: 999;
 `
 
-const ForgeContainer = styled.div`
-  ${
-    '' /* display: flex;
-  justify-content: flex-end;
-  width: 35%;
-  align-items: center; */
-  }
+const InnerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  border: 1px solid red;
 `
 
 const LabelContainer = styled.div`
