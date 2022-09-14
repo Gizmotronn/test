@@ -43,7 +43,7 @@ const Button = styled.button`
   background: inherit;
   padding: 0;
   ${navGlobeSize};
-  z-index: 999;
+  z-index: 500;
 `
 
 const WalletGlobe = styled.div`

@@ -1,5 +1,5 @@
 import React from 'react'
-import { FountainAnimation } from '../shared/styles'
+import { FountainAnimation } from '../../shared/styles'
 
 const FountainGlobe = () => {
   return (

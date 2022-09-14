@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import ChamberController from '../components/Chamber/ChamberController'
-import Fountain from '../components/Fountain'
+import Fountain from '../components/Fountain/Fountain'
 import { mq } from '../shared/styles'
 
 export default function Home() {

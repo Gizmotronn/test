@@ -66,7 +66,7 @@ const ForgeContainer = styled.div`
   position: fixed;
   bottom: 15px;
   right: 15px;
-  z-index: 999;
+  z-index: 500;
 `
 
 const InnerContainer = styled.div`
