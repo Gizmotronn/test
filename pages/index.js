@@ -36,9 +36,7 @@ export default function Home() {
     <>
       {/* <LandingContainer> */}
       <ChamberContainer>
-        <TestDiv color='pink'></TestDiv>
-        <TestDiv color='yellow'></TestDiv>
-        <TestDiv color='white'></TestDiv>
+        <Chamber />
       </ChamberContainer>
       <FountainContainer>
         <FountainGlobe />
@@ -68,16 +66,7 @@ const ChamberContainer = styled.div`
   background: inherit;
 `
 
-const FountainContainer = styled.div`
-  display: flex;
-  flex: 1 1 50%;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background: inherit;
-`
-
-const TestDiv = styled.div`
+const NFTContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -86,9 +75,11 @@ const TestDiv = styled.div`
   background: ${(props) => props.color};
 `
 
-const Circle = styled.div`
-  width: 30%;
+const FountainContainer = styled.div`
+  display: flex;
+  flex: 1 1 50%;
+  justify-content: center;
+  align-items: center;
   height: 100%;
-  background: ${(props) => props.color};
-  border-radius: 50%;
+  background: inherit;
 `

@@ -6,30 +6,41 @@ import GoToMintButton from '../GoToMintButton'
 const Chamber = () => {
   return (
     <>
-      <GlobeContainer>
+      <NFTContainer>
+        {/* <TestCon> */}
         <ChamberGlobe />
-      </GlobeContainer>
-      <GlobeContainer>
+        {/* </TestCon> */}
+      </NFTContainer>
+      <NFTContainer>
+        <TestCon>
+          <ChamberGlobe />
+          <ChamberGlobe />
+          <ChamberGlobe />
+        </TestCon>
+      </NFTContainer>
+      <NFTContainer>
+        {/* <TestCon> */}
         <ChamberGlobe />
-        <ChamberGlobe />
-        <ChamberGlobe />
-      </GlobeContainer>
-      <GlobeContainer>
-        <ChamberGlobe />
-      </GlobeContainer>
+        {/* </TestCon> */}
+      </NFTContainer>
     </>
   )
 }
 
 export default Chamber
 
-const GlobeContainer = styled.div`
+const NFTContainer = styled.div`
+  height: 100vh;
+  width: 100%;
   display: flex;
-  flex: 1;
   justify-content: space-around;
   align-items: center;
+  background: yellow;
+`
+
+const TestCon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: pink;
-  ${'' /* width: 100%; */}
-  ${'' /* height: 33%; */}
-  content: contain;
 `
