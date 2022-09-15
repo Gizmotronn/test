@@ -1,46 +1,46 @@
-import React, { useRef, useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import ChamberGlobe from './ChamberGlobe'
 import GoToMintButton from '../GoToMintButton'
 
 const Chamber = () => {
   return (
-    <>
-      <NFTContainer>
-        {/* <TestCon> */}
+    <Container>
+      <ChamberRow color='inherit'>
         <ChamberGlobe />
-        {/* </TestCon> */}
-      </NFTContainer>
-      <NFTContainer>
-        <TestCon>
+      </ChamberRow>
+      <ChamberRow color='inherit'>
+        <GlobeContainer>
           <ChamberGlobe />
           <ChamberGlobe />
           <ChamberGlobe />
-        </TestCon>
-      </NFTContainer>
-      <NFTContainer>
-        {/* <TestCon> */}
+        </GlobeContainer>
+      </ChamberRow>
+      <ChamberRow color='inherit'>
         <ChamberGlobe />
-        {/* </TestCon> */}
-      </NFTContainer>
-    </>
+      </ChamberRow>
+    </Container>
   )
 }
 
 export default Chamber
 
-const NFTContainer = styled.div`
-  height: 100vh;
+const Container = styled.div`
+  ${'' /* height: 100vh; */}
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+`
+
+const ChamberRow = styled.div`
+  ${'' /* height: 33%; */}
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: yellow;
+  background: ${(props) => props.color || 'inherit'};
 `
 
-const TestCon = styled.div`
+const GlobeContainer = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background: pink;
+  justify-content: space-around;
 `

@@ -34,45 +34,24 @@ export default function Home() {
 
   return (
     <>
-      {/* <LandingContainer> */}
       <ChamberContainer>
         <Chamber />
       </ChamberContainer>
       <FountainContainer>
         <FountainGlobe />
       </FountainContainer>
-      {/* </LandingContainer> */}
     </>
   )
 }
-
-const LandingContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
-  ${'' /* overflow: auto; */}
-`
 
 const ChamberContainer = styled.div`
   display: flex;
   flex: 1 1 50%;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  height: 100%;
+  align-items: flex-end;
   background: inherit;
-`
-
-const NFTContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background: ${(props) => props.color};
+  ${'' /* padding: 7.5px 0 7.5px 7.5px; */}
 `
 
 const FountainContainer = styled.div`

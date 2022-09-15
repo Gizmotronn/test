@@ -28,9 +28,9 @@ const Layout = ({ children }) => {
           <meta name='description' content='BricktOrigins' />
           <link rel='icon' href='/favicon.ico' />
         </Head>
-        {/* <HeaderNav route={route} /> */}
+        <HeaderNav route={route} />
         <Main>{children}</Main>
-        {/* <FooterNav route={route} /> */}
+        <FooterNav route={route} />
       </LayoutContainer>
     )
   )
@@ -48,11 +48,12 @@ const LayoutContainer = styled.div`
 `
 
 const Main = styled.div`
-  width: 100vw;
-  height: 100vh;
+  ${'' /* width: 100vw; */}
+  ${'' /* height: 100vh; */}
   display: flex;
   justify-content: center;
   align-items: center;
   background: inherit;
-  ${'' /* overflow: hidden; */}
+  overflow: hidden;
+  ${'' /* padding: 10px; */}
 `
