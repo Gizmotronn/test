@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-const FountainPlayer = ({ children }) => {
+const ChamberPlayer = ({ children }) => {
   return (
     <Wrapper autoPlay loop>
       {children}
@@ -8,7 +8,7 @@ const FountainPlayer = ({ children }) => {
   )
 }
 
-export default FountainPlayer
+export default ChamberPlayer
 
 const Wrapper = styled.video`
   height: 100vh;

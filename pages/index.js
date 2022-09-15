@@ -42,7 +42,6 @@ export default function Home() {
       </ChamberContainer>
       <FountainContainer>
         <FountainGlobe />
-        {/* <TestDiv color='orange'></TestDiv> */}
       </FountainContainer>
       {/* </LandingContainer> */}
     </>
@@ -75,8 +74,7 @@ const FountainContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  ${'' /* width: 50%; */}
-  background: green;
+  background: inherit;
 `
 
 const TestDiv = styled.div`

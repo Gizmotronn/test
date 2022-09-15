@@ -1,19 +1,12 @@
-import styled from '@emotion/styled'
 import FountainPlayer from './FountainPlayer'
 
 const FountainGlobe = () => {
   return (
-    <PlayerContainer>
-      <FountainPlayer>
-        <source src='/videos/Colour_Globe.mp4' type='video/mp4' />
-        Sorry, your browser does not support embedded videos.
-      </FountainPlayer>
-    </PlayerContainer>
+    <FountainPlayer>
+      <source src='/videos/Shared/Black_INACTIVEGLOBE_400px.mp4' type='video/mp4' />
+      Sorry, your browser does not support embedded videos.
+    </FountainPlayer>
   )
 }
 
 export default FountainGlobe
-
-const PlayerContainer = styled.div`
-  border-radius: 50%;
-`

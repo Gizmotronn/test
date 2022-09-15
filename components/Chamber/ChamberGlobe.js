@@ -1,12 +1,12 @@
 import React from 'react'
-import { GlobeAnimation } from '../../shared/styles'
+import ChamberPlayer from './ChamberPlayer'
 
 const ChamberGlobe = () => {
   return (
-    <GlobeAnimation autoPlay loop>
-      <source src='/videos/Colour_Globe.mp4' type='video/mp4' />
+    <ChamberPlayer>
+      <source src='/videos/Shared/Black_INACTIVEGLOBE_400px.mp4' type='video/mp4' />
       Sorry, your browser does not support embedded videos.
-    </GlobeAnimation>
+    </ChamberPlayer>
   )
 }
 
