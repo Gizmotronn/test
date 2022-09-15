@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import Chamber from '../components/Chamber'
-import Fountain from '../components/Fountain'
+import FountainGlobe from '../components/Fountain/FountainGlobe'
 import { mq } from '../shared/styles'
 
 export default function Home() {
@@ -34,17 +34,17 @@ export default function Home() {
 
   return (
     <>
-      <LandingContainer>
-        <ChamberContainer>
-          <TestDiv color='pink'></TestDiv>
-          <TestDiv color='yellow'></TestDiv>
-          <TestDiv color='white'></TestDiv>
-        </ChamberContainer>
-        <FountainContainer>
-          {/* <Fountain /> */}
-          <TestDiv color='orange'></TestDiv>
-        </FountainContainer>
-      </LandingContainer>
+      {/* <LandingContainer> */}
+      <ChamberContainer>
+        <TestDiv color='pink'></TestDiv>
+        <TestDiv color='yellow'></TestDiv>
+        <TestDiv color='white'></TestDiv>
+      </ChamberContainer>
+      <FountainContainer>
+        <FountainGlobe />
+        {/* <TestDiv color='orange'></TestDiv> */}
+      </FountainContainer>
+      {/* </LandingContainer> */}
     </>
   )
 }
@@ -56,30 +56,27 @@ const LandingContainer = styled.div`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  overflow: auto;
+  ${'' /* overflow: auto; */}
 `
 
 const ChamberContainer = styled.div`
-  width: 50%;
-  height: 100%;
-  background: inherit;
   display: flex;
+  flex: 1 1 50%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid yellow;
-  overflow: hidden;
+  height: 100%;
+  background: inherit;
 `
 
 const FountainContainer = styled.div`
-  width: 50%;
-  height: 100%;
-  background: inherit;
   display: flex;
+  flex: 1 1 50%;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  border: 1px solid green;
+  height: 100%;
+  ${'' /* width: 50%; */}
+  background: green;
 `
 
 const TestDiv = styled.div`
