@@ -44,7 +44,6 @@ const WalletContainer = styled.div`
 const InnerContainer = styled.div`
   display: flex;
   align-items: center;
-  border: 1px solid red;
 `
 
 const AddressContainer = styled.div`

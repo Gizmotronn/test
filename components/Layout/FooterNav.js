@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import Text from '../Shared/Text'
 import ForgeMessageModal from '../ForgeMessageModal'
 import ForgeButton from '../ForgeButton'
+import ForgeGlobe from '../ForgeGlobe'
 
 export default function FooterNav(props) {
   const [hasMounted, setHasMounted] = useState(false)
@@ -46,13 +47,13 @@ export default function FooterNav(props) {
                   </InnerContainer>
                 </>
               ) : (
-                <Link href='/forge' passHref>
-                  <a target='_blank' rel='noopener noreferrer'>
-                    <Button type='button' forge={forge}>
-                      <ForgeButton forge={forge} />
-                    </Button>
-                  </a>
-                </Link>
+                <ForgeLinkContainer>
+                  <Link href='/forge' passHref>
+                    <a target='_blank' rel='noopener noreferrer'>
+                      <ForgeGlobe forge={forge} />
+                    </a>
+                  </Link>
+                </ForgeLinkContainer>
               )}
             </ForgeContainer>
           </nav>
@@ -72,7 +73,6 @@ const ForgeContainer = styled.div`
 const InnerContainer = styled.div`
   display: flex;
   align-items: center;
-  border: 1px solid red;
 `
 
 const LabelContainer = styled.div`
@@ -84,4 +84,8 @@ const Button = styled.button`
   padding: 0;
   border: none;
   cursor: ${(props) => (props.forge ? 'pointer' : 'not-allowed')};
+`
+
+const ForgeLinkContainer = styled.div`
+  clip-path: circle(50%);
 `

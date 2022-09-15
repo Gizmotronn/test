@@ -1,13 +1,71 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: 'ABCWhyteInktrapVariable', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+/* Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+/* Remove default margin */
+* {
+  margin: 0;
+}
+
+/* Allow percentage-based heights in the application
+  '#__next' for Nextjs
+*/
+html,
+body,
 #__next {
   height: 100%;
+  font-family: 'ABCWhyteInktrapVariable', Helvetica Neue, Helvetica, Arial, -apple-system, BlinkMacSystemFont,
+    sans-serif;
 }
-* {
-  box-sizing: border-box;
+
+/*
+  Typographic tweaks
+  1. Add accessible line-height
+  2. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Remove built-in FORM typography styles */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Create a root stacking context
+  '#root' for Create React App
+  '#__next' for Nextjs
+*/
+#root,
+#__next {
+  isolation: isolate;
 }

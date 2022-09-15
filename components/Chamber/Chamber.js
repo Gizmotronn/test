@@ -1,51 +1,35 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { ChamberCircleContainer, ChamberGlobe } from '../../shared/styles'
+import styled from '@emotion/styled'
+import ChamberGlobe from './ChamberGlobe'
 import GoToMintButton from '../GoToMintButton'
 
-const Chamber = (props) => {
-  const ref = useRef(null)
-  const [updateChamber, setUpdateChamber] = useState(undefined)
-
-  const { nftData, toggle } = props
-
-  useEffect(() => {
-    function handleChamberUpdate() {
-      setUpdateChamber(toggle)
-    }
-
-    handleChamberUpdate()
-
-    const circleContainer = ref.current
-
-    const circleElements = circleContainer.childNodes
-
-    let angle = 360 - 162 // 162 to align 1st NFT at top of pentagon
-    let dangle = 360 / circleElements.length // = 72 with 5 circles
-
-    for (let i = 0; i < circleElements.length; i++) {
-      let circle = circleElements[i]
-
-      angle += dangle // = 342
-
-      // position each node
-      circle.style.transform = `rotate(${angle}deg) translate(${
-        circleContainer.clientWidth / 2
-      }px) rotate(-${angle}deg)`
-    }
-  }, [toggle])
-
+const Chamber = () => {
   return (
-    <ChamberCircleContainer ref={ref}>
-      {nftData.map((nft) => {
-        const { id, name, mint } = nft
-        return (
-          <ChamberGlobe key={id}>
-            <GoToMintButton eligibleToMint={mint} />
-          </ChamberGlobe>
-        )
-      })}
-    </ChamberCircleContainer>
+    <>
+      <GlobeContainer>
+        <ChamberGlobe />
+      </GlobeContainer>
+      <GlobeContainer>
+        <ChamberGlobe />
+        <ChamberGlobe />
+        <ChamberGlobe />
+      </GlobeContainer>
+      <GlobeContainer>
+        <ChamberGlobe />
+      </GlobeContainer>
+    </>
   )
 }
 
 export default Chamber
+
+const GlobeContainer = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
+  background: pink;
+  ${'' /* width: 100%; */}
+  ${'' /* height: 33%; */}
+  content: contain;
+`

@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import styled from '@emotion/styled'
 import HeaderNav from './HeaderNav'
 import FooterNav from './FooterNav'
+import { COLORS } from '../../constants'
 
 const Layout = ({ children }) => {
   const [mounted, setMounted] = useState(false)
@@ -28,7 +29,7 @@ const Layout = ({ children }) => {
           <link rel='icon' href='/favicon.ico' />
         </Head>
         <HeaderNav route={route} />
-        <LayoutMain>{children}</LayoutMain>
+        <Main>{children}</Main>
         <FooterNav route={route} />
       </LayoutContainer>
     )
@@ -39,17 +40,15 @@ export default Layout
 
 const LayoutContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: black;
-  padding: 15px;
-`
-
-const LayoutMain = styled.main`
-  background: inherit;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  background-color: ${COLORS.background};
+`
+
+const Main = styled.div`
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+  background: inherit;
 `
