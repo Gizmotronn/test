@@ -32,8 +32,8 @@ const Container = styled.div`
 `
 
 const ChamberRow = styled.div`
-  ${'' /* height: 33%; */}
-  width: 100%;
+  ${'' /* height: 33vh; */}
+  ${'' /* width: 100%; */}
   display: flex;
   justify-content: space-around;
   align-items: center;

@@ -50,6 +50,7 @@ const ChamberContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  ${'' /* height: 80vh; */}
   background: inherit;
   ${'' /* padding: 7.5px 0 7.5px 7.5px; */}
 `
