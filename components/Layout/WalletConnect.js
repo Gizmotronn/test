@@ -12,7 +12,7 @@ export default function WalletConnect(props) {
 
   return (
     <>
-      <nav>
+      <NavContainer>
         <WalletContainer>
           <InnerContainer>
             <ConnectWallet
@@ -30,10 +30,19 @@ export default function WalletConnect(props) {
             </AddressContainer>
           </InnerContainer>
         </WalletContainer>
-      </nav>
+      </NavContainer>
     </>
   )
 }
+
+const NavContainer = styled.nav`
+  @media (max-width: 767px) {
+    display: none;
+  }
+  @media (max-height: 551px) {
+    display: none;
+  }
+`
 
 const WalletContainer = styled.div`
   position: fixed;

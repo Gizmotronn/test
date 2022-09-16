@@ -31,7 +31,7 @@ export default function FooterNav(props) {
     hasMounted && (
       <>
         {route !== '/mint' && (
-          <nav>
+          <NavContainer>
             {showForgeWarning && <ForgeMessageModal showModal={showForgeWarning} modalOpen={handleCloseModal} />}
             <ForgeContainer>
               {route === '/forge' ? (
@@ -56,12 +56,21 @@ export default function FooterNav(props) {
                 </ForgeLinkContainer>
               )}
             </ForgeContainer>
-          </nav>
+          </NavContainer>
         )}
       </>
     )
   )
 }
+
+const NavContainer = styled.nav`
+  @media (max-width: 767px) {
+    display: none;
+  }
+  @media (max-height: 551px) {
+    display: none;
+  }
+`
 
 const ForgeContainer = styled.div`
   position: fixed;

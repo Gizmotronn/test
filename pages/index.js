@@ -1,6 +1,8 @@
 import styled from '@emotion/styled'
 import Chamber from '../components/Chamber'
 import FountainGlobe from '../components/Fountain/FountainGlobe'
+import Text from '../components/Shared/Text'
+import { COLORS } from '../constants'
 import { mq } from '../shared/styles'
 
 export default function Home() {
@@ -40,6 +42,11 @@ export default function Home() {
       <FountainContainer>
         <FountainGlobe />
       </FountainContainer>
+      <BrowserMessage>
+        <MessageContainer>
+          <Text>Please view app on a larger device.</Text>
+        </MessageContainer>
+      </BrowserMessage>
     </>
   )
 }
@@ -53,6 +60,12 @@ const ChamberContainer = styled.div`
   ${'' /* height: 80vh; */}
   background: inherit;
   ${'' /* padding: 7.5px 0 7.5px 7.5px; */}
+  @media (max-width: 767px) {
+    display: none;
+  }
+  @media (max-height: 551px) {
+    display: none;
+  }
 `
 
 const FountainContainer = styled.div`
@@ -62,4 +75,38 @@ const FountainContainer = styled.div`
   align-items: center;
   height: 100%;
   background: inherit;
+  @media (max-width: 767px) {
+    display: none;
+  }
+  @media (max-height: 551px) {
+    display: none;
+  }
+`
+
+const BrowserMessage = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 206px;
+    min-width: 522px;
+    background-color: ${COLORS.primary};
+  }
+  @media (max-height: 552px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 206px;
+    min-width: 522px;
+    background-color: ${COLORS.primary};
+  }
+`
+
+const MessageContainer = styled.div`
+  display: flex;
+  max-width: 722px;
+  max-height: 506px;
 `

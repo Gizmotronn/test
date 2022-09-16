@@ -12,7 +12,7 @@ export default ChamberPlayer
 
 const Wrapper = styled.video`
   ${'' /* height: 100%; */}
-  height: 33vh;
+  ${'' /* height: 33vh; */}
   width: 33%;
   clip-path: circle(50%);
   border-radius: 50%;
