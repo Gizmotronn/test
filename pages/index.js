@@ -43,12 +43,12 @@ export default function Home({ windowSize }) {
           <ChamberContainer>
             <Chamber />
           </ChamberContainer>
-          <ChamberContainerTwo>
+          {/* <ChamberContainerTwo>
             <Chamber />
-          </ChamberContainerTwo>
-          {/* <FountainContainer>
+          </ChamberContainerTwo> */}
+          <FountainContainer>
             <FountainGlobe />
-          </FountainContainer> */}
+          </FountainContainer>
         </>
       ) : (
         <>
@@ -66,6 +66,7 @@ const ChamberContainer = styled.div`
   display: flex;
   ${'' /* width: 50%; */}
   ${'' /* height: 33vh; */}
+  flex: 50%;
   flex-direction: column;
   background: inherit;
   border: 1px solid yellow;
