@@ -4,43 +4,65 @@ import GoToMintButton from '../GoToMintButton'
 
 const Chamber = () => {
   return (
-    <Container>
-      <ChamberRow color='inherit'>
-        <ChamberGlobe />
-      </ChamberRow>
-      <ChamberRow color='inherit'>
+    <>
+      <ChamberRow color='pink'>
         <GlobeContainer>
           <ChamberGlobe />
+        </GlobeContainer>
+        <GlobeContainer>
           <ChamberGlobe />
+        </GlobeContainer>
+        <GlobeContainer>
           <ChamberGlobe />
         </GlobeContainer>
       </ChamberRow>
-      <ChamberRow color='inherit'>
-        <ChamberGlobe />
+      <ChamberRow color='white'>
+        <MiddleContainer>
+          <GlobeContainer>
+            <ChamberGlobe />
+          </GlobeContainer>
+          <GlobeContainer>
+            <ChamberGlobe />
+          </GlobeContainer>
+          <GlobeContainer>
+            <ChamberGlobe />
+          </GlobeContainer>
+        </MiddleContainer>
       </ChamberRow>
-    </Container>
+      <ChamberRow color='beige'>
+        <GlobeContainer>
+          <ChamberGlobe />
+        </GlobeContainer>
+        <GlobeContainer>
+          <ChamberGlobe />
+        </GlobeContainer>
+        <GlobeContainer>
+          <ChamberGlobe />
+        </GlobeContainer>
+      </ChamberRow>
+    </>
   )
 }
 
 export default Chamber
 
-const Container = styled.div`
-  ${'' /* height: 100vh; */}
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-`
-
 const ChamberRow = styled.div`
   ${'' /* height: 33vh; */}
-  ${'' /* width: 100%; */}
+  ${'' /* width: 50vw; */}
   display: flex;
   justify-content: space-around;
   align-items: center;
   background: ${(props) => props.color || 'inherit'};
 `
 
-const GlobeContainer = styled.div`
+const MiddleContainer = styled.div`
   display: flex;
   justify-content: space-around;
+`
+
+const GlobeContainer = styled.div`
+  max-height: 33vh;
+  ${'' /* width: 33%; */}
+  display: flex;
+  border: 1px solid green;
 `

@@ -39,21 +39,19 @@ const Layout = ({ children, windowSize }) => {
 export default Layout
 
 const LayoutContainer = styled.div`
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   background-color: ${COLORS.background};
 `
 
 const Main = styled.div`
-  ${'' /* width: 100vw; */}
-  ${'' /* height: 80%; */}
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: inherit;
-  overflow: hidden;
-  ${'' /* padding: 10px; */}
+  background: green;
+  padding: 15px 7.5px;
 `

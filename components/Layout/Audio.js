@@ -21,5 +21,4 @@ const AudioContainer = styled.div`
   position: fixed;
   top: 15px;
   right: 15px;
-  z-index: 500;
 `
