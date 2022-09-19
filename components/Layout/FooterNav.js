@@ -11,7 +11,9 @@ export default function FooterNav(props) {
   const [forge, setForge] = useState(true)
   const [showForgeWarning, setShowForgeWarning] = useState(false)
 
-  const { route } = props
+  const { route, windowSize } = props
+
+  const { width, height } = windowSize
 
   const handleClick = () => {
     if (route === '/forge') {
@@ -30,33 +32,37 @@ export default function FooterNav(props) {
   return (
     hasMounted && (
       <>
-        {route !== '/mint' && (
-          <NavContainer>
-            {showForgeWarning && <ForgeMessageModal showModal={showForgeWarning} modalOpen={handleCloseModal} />}
-            <ForgeContainer>
-              {route === '/forge' ? (
-                <>
-                  <InnerContainer>
-                    <LabelContainer>
-                      <Text>Forge</Text>
-                    </LabelContainer>
+        {width > 767 && height > 551 && (
+          <>
+            {route !== '/mint' && (
+              <NavContainer>
+                {showForgeWarning && <ForgeMessageModal showModal={showForgeWarning} modalOpen={handleCloseModal} />}
+                <ForgeContainer>
+                  {route === '/forge' ? (
+                    <>
+                      <InnerContainer>
+                        <LabelContainer>
+                          <Text>Forge</Text>
+                        </LabelContainer>
 
-                    <Button onClick={handleClick} type='button' forge={forge}>
-                      <ForgeButton forge={forge} />
-                    </Button>
-                  </InnerContainer>
-                </>
-              ) : (
-                <ForgeLinkContainer>
-                  <Link href='/forge' passHref>
-                    <a target='_blank' rel='noopener noreferrer'>
-                      <ForgeGlobe forge={forge} />
-                    </a>
-                  </Link>
-                </ForgeLinkContainer>
-              )}
-            </ForgeContainer>
-          </NavContainer>
+                        <Button onClick={handleClick} type='button' forge={forge}>
+                          <ForgeButton forge={forge} />
+                        </Button>
+                      </InnerContainer>
+                    </>
+                  ) : (
+                    <ForgeLinkContainer>
+                      <Link href='/forge' passHref>
+                        <a target='_blank' rel='noopener noreferrer'>
+                          <ForgeGlobe forge={forge} />
+                        </a>
+                      </Link>
+                    </ForgeLinkContainer>
+                  )}
+                </ForgeContainer>
+              </NavContainer>
+            )}
+          </>
         )}
       </>
     )
@@ -64,11 +70,13 @@ export default function FooterNav(props) {
 }
 
 const NavContainer = styled.nav`
-  @media (max-width: 767px) {
+  ${
+    '' /* @media (max-width: 767px) {
     display: none;
   }
   @media (max-height: 551px) {
     display: none;
+  } */
   }
 `
 

@@ -2,36 +2,35 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import styled from '@emotion/styled'
-import Text from '../Shared/Text'
 import HeaderNav from './HeaderNav'
 import FooterNav from './FooterNav'
 import { COLORS } from '../../constants'
 
-const Layout = ({ children }) => {
-  const [mounted, setMounted] = useState(false)
+const Layout = ({ children, windowSize }) => {
+  const [hasMounted, setHasMounted] = useState(false)
 
   const router = useRouter()
   const { route } = router
 
   useEffect(() => {
-    setMounted(true)
+    setHasMounted(true)
   }, [])
 
-  if (!mounted) {
+  if (!hasMounted) {
     return null
   }
 
   return (
-    mounted && (
+    hasMounted && (
       <LayoutContainer>
         <Head>
           <title>BricktOrigins</title>
           <meta name='description' content='BricktOrigins' />
           <link rel='icon' href='/favicon.ico' />
         </Head>
-        <HeaderNav route={route} />
+        <HeaderNav route={route} windowSize={windowSize} />
         <Main>{children}</Main>
-        <FooterNav route={route} />
+        <FooterNav route={route} windowSize={windowSize} />
       </LayoutContainer>
     )
   )

@@ -5,11 +5,13 @@ import WalletConnect from './WalletConnect'
 import Audio from './Audio'
 
 export default function HeaderNav(props) {
-  const { route } = props
+  const { route, windowSize } = props
+
+  const { width, height } = windowSize
 
   return (
     <>
-      <WalletConnect />
+      {width > 767 && height > 551 && <WalletConnect windowSize={windowSize} />}
       <Audio route={route} />
     </>
   )

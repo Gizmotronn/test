@@ -5,7 +5,7 @@ import Text from '../components/Shared/Text'
 import { COLORS } from '../constants'
 import { mq } from '../shared/styles'
 
-export default function Home() {
+export default function Home({ windowSize }) {
   const nftData = [
     {
       nft: 1,
@@ -34,19 +34,27 @@ export default function Home() {
     },
   ]
 
+  const { width, height } = windowSize
+
   return (
     <>
-      <ChamberContainer>
-        <Chamber />
-      </ChamberContainer>
-      <FountainContainer>
-        <FountainGlobe />
-      </FountainContainer>
-      <BrowserMessage>
-        <MessageContainer>
-          <Text>Please view app on a larger device.</Text>
-        </MessageContainer>
-      </BrowserMessage>
+      {width > 767 && height > 551 ? (
+        <>
+          <ChamberContainer>
+            <Chamber />
+          </ChamberContainer>
+          <FountainContainer>
+            <FountainGlobe />
+          </FountainContainer>
+        </>
+      ) : (
+        <>
+          <BrowserMessage>
+            <MessageContainer>{width <= 767 && <Text>You need a WIDER browser!</Text>}</MessageContainer>
+            <MessageContainer>{height <= 551 && <Text>You need a TALLER browser!</Text>}</MessageContainer>
+          </BrowserMessage>
+        </>
+      )}
     </>
   )
 }
@@ -60,11 +68,13 @@ const ChamberContainer = styled.div`
   ${'' /* height: 80vh; */}
   background: inherit;
   ${'' /* padding: 7.5px 0 7.5px 7.5px; */}
-  @media (max-width: 767px) {
+  ${
+    '' /* @media (max-width: 767px) {
     display: none;
   }
   @media (max-height: 551px) {
     display: none;
+  } */
   }
 `
 
@@ -75,17 +85,26 @@ const FountainContainer = styled.div`
   align-items: center;
   height: 100%;
   background: inherit;
-  @media (max-width: 767px) {
+  ${
+    '' /* @media (max-width: 767px) {
     display: none;
   }
   @media (max-height: 551px) {
     display: none;
+  } */
   }
 `
 
 const BrowserMessage = styled.div`
-  display: none;
-  @media (max-width: 768px) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 206px;
+  min-width: 522px;
+  background-color: ${COLORS.primary};
+  ${
+    '' /* @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -102,6 +121,7 @@ const BrowserMessage = styled.div`
     min-height: 206px;
     min-width: 522px;
     background-color: ${COLORS.primary};
+  } */
   }
 `
 

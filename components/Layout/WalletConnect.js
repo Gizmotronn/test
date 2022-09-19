@@ -4,7 +4,7 @@ import ConnectWallet from '../ConnectWallet'
 import styled from '@emotion/styled'
 import Text from '../Shared/Text'
 
-export default function WalletConnect(props) {
+export default function WalletConnect({ windowSize }) {
   const { openConnectModal } = useConnectModal()
   const { openAccountModal } = useAccountModal()
   const { isConnected, address } = useAccount()
@@ -36,11 +36,13 @@ export default function WalletConnect(props) {
 }
 
 const NavContainer = styled.nav`
-  @media (max-width: 767px) {
+  ${
+    '' /* @media (max-width: 767px) {
     display: none;
   }
   @media (max-height: 551px) {
     display: none;
+  } */
   }
 `
 
