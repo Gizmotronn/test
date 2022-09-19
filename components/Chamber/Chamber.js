@@ -65,4 +65,6 @@ const GlobeContainer = styled.div`
   ${'' /* width: 33%; */}
   display: flex;
   border: 1px solid green;
+  border-radius: 50%;
+  clip-path: circle(50%);
 `
