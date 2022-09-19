@@ -8,12 +8,8 @@ const Chamber = () => {
       <ChamberRow color='pink'>
         <GlobeContainer>
           <ChamberGlobe />
-        </GlobeContainer>
-        <GlobeContainer>
-          <ChamberGlobe />
-        </GlobeContainer>
-        <GlobeContainer>
-          <ChamberGlobe />
+          {/* <ChamberGlobe />
+          <ChamberGlobe /> */}
         </GlobeContainer>
       </ChamberRow>
       <ChamberRow color='white'>
@@ -30,12 +26,6 @@ const Chamber = () => {
         </MiddleContainer>
       </ChamberRow>
       <ChamberRow color='beige'>
-        <GlobeContainer>
-          <ChamberGlobe />
-        </GlobeContainer>
-        <GlobeContainer>
-          <ChamberGlobe />
-        </GlobeContainer>
         <GlobeContainer>
           <ChamberGlobe />
         </GlobeContainer>
@@ -61,10 +51,10 @@ const MiddleContainer = styled.div`
 `
 
 const GlobeContainer = styled.div`
-  max-height: 33vh;
-  ${'' /* width: 33%; */}
+  max-width: 33%;
+  height: 33vh;
   display: flex;
-  border: 1px solid green;
-  border-radius: 50%;
-  clip-path: circle(50%);
+  ${'' /* border: 1px solid green; */}
+  ${'' /* border-radius: 50%; */}
+  ${'' /* clip-path: circle(50%); */}
 `

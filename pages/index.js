@@ -69,7 +69,7 @@ const ChamberContainer = styled.div`
   flex: 50%;
   flex-direction: column;
   background: inherit;
-  border: 1px solid yellow;
+  border: 4px solid yellow;
 `
 
 const ChamberContainerTwo = styled.div`
