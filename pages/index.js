@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import Chamber from '../components/Chamber'
 import ChamberGlobe from '../components/Chamber/ChamberGlobe'
 import ChamberGlobeMiddle from '../components/Chamber/ChamberGlobeMiddle'
+import ChamberGlobePlaceholder from '../components/Chamber/ChamberGlobePlaceholder'
 import FountainGlobe from '../components/Fountain/FountainGlobe'
 import Text from '../components/Shared/Text'
 import { COLORS } from '../constants'
@@ -43,17 +44,23 @@ export default function Home({ windowSize }) {
       {width > 767 && height > 551 ? (
         <>
           <ChamberContainer>
-            <ChamberGlobe />
-            {/* <ChamberGlobe />
-            <ChamberGlobe /> */}
+            <ChamberRow>
+              <ChamberGlobePlaceholder />
+              <ChamberGlobe />
+              <ChamberGlobePlaceholder />
+            </ChamberRow>
 
-            <ChamberMiddle>
-              <ChamberGlobeMiddle />
-              <ChamberGlobeMiddle />
-              <ChamberGlobeMiddle />
-            </ChamberMiddle>
+            <ChamberRow>
+              <ChamberGlobe />
+              <ChamberGlobe />
+              <ChamberGlobe />
+            </ChamberRow>
 
-            <ChamberGlobe />
+            <ChamberRow>
+              <ChamberGlobePlaceholder />
+              <ChamberGlobe />
+              <ChamberGlobePlaceholder />
+            </ChamberRow>
           </ChamberContainer>
 
           <FountainContainer>
@@ -76,7 +83,7 @@ export default function Home({ windowSize }) {
 const Container = styled.div`
   height: 100%;
   display: flex;
-  background: pink;
+  background: inherit;
 `
 
 // 👇 Set CHAMBER to 50% of viewport and as a 'Column'
@@ -86,18 +93,27 @@ const ChamberContainer = styled.div`
   flex: 50%;
   justify-content: center;
   align-items: center;
-  background: beige;
+  background: inherit;
   border: 1px solid blue;
 `
 
-const ChamberMiddle = styled.div`
+const ChamberRow = styled.div`
   width: 100%;
   max-height: 33%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   justify-content: flex-end;
-  border: 4px solid red;
+`
+
+const ChamberMiddleRow = styled.div`
+  width: 100%;
+  max-height: 33%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: flex-end;
+  ${'' /* border: 4px solid red; */}
 `
 
 const MiddleInner = styled.div`

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-const ChamberPlayerMiddle = ({ children }) => {
+const ChamberPlayerPlaceholder = ({ children }) => {
   return (
     <Wrapper autoPlay loop>
       {children}
@@ -8,10 +8,11 @@ const ChamberPlayerMiddle = ({ children }) => {
   )
 }
 
-export default ChamberPlayerMiddle
+export default ChamberPlayerPlaceholder
 
 const Wrapper = styled.video`
   max-width: 33%;
+  visibility: hidden;
   ${'' /* max-height: 50%; */}
   ${'' /* clip-path: circle(50%); */}
   ${'' /* border: 1px solid green; */}
