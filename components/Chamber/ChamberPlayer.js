@@ -15,5 +15,5 @@ const Wrapper = styled.video`
   ${'' /* max-height: 33%; */}
   clip-path: circle(50%);
   border-radius: 50%;
-  ${'' /* padding: 7.5px; */};
+  padding: 7.5px;
 `

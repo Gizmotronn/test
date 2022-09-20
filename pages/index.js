@@ -84,6 +84,7 @@ const Container = styled.div`
   height: 100%;
   display: flex;
   background: inherit;
+  border: 1px solid yellow;
 `
 
 // 👇 Set CHAMBER to 50% of viewport and as a 'Column'
@@ -94,7 +95,6 @@ const ChamberContainer = styled.div`
   justify-content: center;
   align-items: center;
   background: inherit;
-  border: 1px solid blue;
 `
 
 const ChamberRow = styled.div`
@@ -104,22 +104,6 @@ const ChamberRow = styled.div`
   flex-direction: row;
   justify-content: center;
   justify-content: flex-end;
-`
-
-const ChamberMiddleRow = styled.div`
-  width: 100%;
-  max-height: 33%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  justify-content: flex-end;
-  ${'' /* border: 4px solid red; */}
-`
-
-const MiddleInner = styled.div`
-  ${'' /* width: 100vw; */}
-  height: 33%;
-  ${'' /* display: flex; */}
 `
 
 // 👇 Set FOUNTAIN to 50% of viewport and as a 'Column'

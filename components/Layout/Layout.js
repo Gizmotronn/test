@@ -51,5 +51,5 @@ const LayoutContainer = styled.div`
 const Main = styled.div`
   width: 100%;
   height: 100%;
-  padding: 15px 7.5px;
+  padding: 0px 0px;
 `
