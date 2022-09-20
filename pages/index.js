@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import Chamber from '../components/Chamber'
 import ChamberGlobe from '../components/Chamber/ChamberGlobe'
+import ChamberGlobeMiddle from '../components/Chamber/ChamberGlobeMiddle'
 import FountainGlobe from '../components/Fountain/FountainGlobe'
 import Text from '../components/Shared/Text'
 import { COLORS } from '../constants'
@@ -43,12 +44,15 @@ export default function Home({ windowSize }) {
         <>
           <ChamberContainer>
             <ChamberGlobe />
-            <ChamberGlobe />
-            {/* <ChamberMiddle>
-              <ChamberGlobe />
-              <ChamberGlobe />
-              <ChamberGlobe />
-            </ChamberMiddle> */}
+            {/* <ChamberGlobe />
+            <ChamberGlobe /> */}
+
+            <ChamberMiddle>
+              <ChamberGlobeMiddle />
+              <ChamberGlobeMiddle />
+              <ChamberGlobeMiddle />
+            </ChamberMiddle>
+
             <ChamberGlobe />
           </ChamberContainer>
 
@@ -83,11 +87,23 @@ const ChamberContainer = styled.div`
   justify-content: center;
   align-items: center;
   background: beige;
-  border: 1px solid yellow;
+  border: 1px solid blue;
 `
 
 const ChamberMiddle = styled.div`
+  width: 100%;
+  max-height: 33%;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: flex-end;
+  border: 4px solid red;
+`
+
+const MiddleInner = styled.div`
+  ${'' /* width: 100vw; */}
+  height: 33%;
+  ${'' /* display: flex; */}
 `
 
 // 👇 Set FOUNTAIN to 50% of viewport and as a 'Column'
@@ -96,7 +112,7 @@ const FountainContainer = styled.div`
   flex-direction: column;
   flex: 50%;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background: inherit;
 `
 
