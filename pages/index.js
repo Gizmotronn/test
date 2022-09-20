@@ -84,7 +84,6 @@ const Container = styled.div`
   height: 100%;
   display: flex;
   background: inherit;
-  border: 1px solid yellow;
 `
 
 // 👇 Set CHAMBER to 50% of viewport and as a 'Column'
@@ -114,8 +113,10 @@ const FountainContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   background: inherit;
+  ${'' /* border-radius: 50%; */}
 `
 
+// 👇 Notify user when browser width and/or height is too small
 const BrowserMessage = styled.div`
   display: flex;
   flex-direction: column;
@@ -124,7 +125,8 @@ const BrowserMessage = styled.div`
   min-width: 522px;
   min-height: 206px;
   background-color: ${COLORS.primary};
-  border: 1px solid yellow;
+  margin: auto;
+  ${'' /* border: 1px solid yellow; */}
 `
 
 const MessageContainer = styled.div`
