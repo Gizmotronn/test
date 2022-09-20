@@ -11,8 +11,9 @@ const ChamberPlayer = ({ children }) => {
 export default ChamberPlayer
 
 const Wrapper = styled.video`
-  min-width: 33%;
+  max-width: 33%;
+  max-height: 33%;
   clip-path: circle(50%);
   border-radius: 50%;
-  padding: 7.5px;
+  ${'' /* padding: 7.5px; */}
 `

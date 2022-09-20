@@ -49,10 +49,7 @@ const LayoutContainer = styled.div`
 `
 
 const Main = styled.div`
-  ${'' /* width: 100%; */}
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: green;
+  width: 100%;
+  height: 100%;
   padding: 15px 7.5px;
 `

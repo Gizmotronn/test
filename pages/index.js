@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import Chamber from '../components/Chamber'
+import ChamberGlobe from '../components/Chamber/ChamberGlobe'
 import FountainGlobe from '../components/Fountain/FountainGlobe'
 import Text from '../components/Shared/Text'
 import { COLORS } from '../constants'
@@ -37,15 +38,20 @@ export default function Home({ windowSize }) {
   const { width, height } = windowSize
 
   return (
-    <>
+    <Container>
       {width > 767 && height > 551 ? (
         <>
           <ChamberContainer>
-            <Chamber />
+            <ChamberGlobe />
+            <ChamberGlobe />
+            {/* <ChamberMiddle>
+              <ChamberGlobe />
+              <ChamberGlobe />
+              <ChamberGlobe />
+            </ChamberMiddle> */}
+            <ChamberGlobe />
           </ChamberContainer>
-          {/* <ChamberContainerTwo>
-            <Chamber />
-          </ChamberContainerTwo> */}
+
           <FountainContainer>
             <FountainGlobe />
           </FountainContainer>
@@ -58,29 +64,36 @@ export default function Home({ windowSize }) {
           </BrowserMessage>
         </>
       )}
-    </>
+    </Container>
   )
 }
 
+// 👇 Set a 'Row'
+const Container = styled.div`
+  height: 100%;
+  display: flex;
+  background: pink;
+`
+
+// 👇 Set CHAMBER to 50% of viewport and as a 'Column'
 const ChamberContainer = styled.div`
   display: flex;
-  ${'' /* width: 50%; */}
-  ${'' /* height: 33vh; */}
-  flex: 50%;
   flex-direction: column;
-  background: inherit;
-  border: 4px solid yellow;
+  flex: 50%;
+  justify-content: center;
+  align-items: center;
+  background: beige;
+  border: 1px solid yellow;
 `
 
-const ChamberContainerTwo = styled.div`
+const ChamberMiddle = styled.div`
   display: flex;
-  flex: 50%;
-  flex-direction: column;
-  background: inherit;
-  border: 1px solid red;
 `
 
+// 👇 Set FOUNTAIN to 50% of viewport and as a 'Column'
 const FountainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   flex: 50%;
   justify-content: center;
   align-items: center;
