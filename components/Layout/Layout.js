@@ -40,6 +40,7 @@ export default Layout
 
 const LayoutContainer = styled.div`
   height: 100vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,5 +52,5 @@ const LayoutContainer = styled.div`
 const Main = styled.div`
   width: 100%;
   height: 100%;
-  padding: 0px 0px;
+  padding: 0px;
 `

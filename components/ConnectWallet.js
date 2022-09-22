@@ -48,6 +48,7 @@ const Button = styled.button`
 
 const WalletGlobe = styled.div`
   ${navGlobeSize}
+  ${'' /* width: 82px; */}
   border-radius: 50%;
   background: inherit;
 `

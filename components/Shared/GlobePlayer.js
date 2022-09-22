@@ -1,8 +1,11 @@
 import styled from '@emotion/styled'
 
-const GlobePlayer = ({ children }) => {
+const GlobePlayer = ({ children, width, height }) => {
+  console.log('🚀 ~ file: GlobePlayer.js ~ line 4 ~ GlobePlayer ~ height', height)
+  console.log('🚀 ~ file: GlobePlayer.js ~ line 4 ~ GlobePlayer ~ width', width)
+
   return (
-    <Wrapper autoPlay loop>
+    <Wrapper autoPlay loop width={width}>
       {children}
     </Wrapper>
   )
@@ -11,20 +14,16 @@ const GlobePlayer = ({ children }) => {
 export default GlobePlayer
 
 const Wrapper = styled.video`
-  ${'' /* width: 120px; */}
-  ${'' /* height: 120px; */}
-  min-width: 120px;
-  max-width: 10vw;
-  min-height: 120px;
-  max-height: 10vh;
-  ${'' /* width: 10vmin; */}
-  ${'' /* height: 10vmin; */}
-  ${'' /* width: calc(100% / 55); */}
-  ${'' /* height: calc(100% / 55); */}
-  ${'' /* min-width: 100px; */}
-  ${'' /* min-height: 100px; */}
-  ${'' /* width: 10vw; */}
-  ${'' /* max-height: 10vh; */}
+  width: ${(props) => props.width * 0.1}px;
+  ${'' /* height: 57px; */}
+  ${'' /* max-height: 157px; */}
+  ${'' /* width: 57px; */}
+  ${'' /* width: clamp(100px, 120px, 120px); */}
+  ${'' /* height: max(7.5vh, 57px); */}
+  ${'' /* width: max(7.5vh, 57px); */}
+  ${'' /* width: max(7.5vw, 57px); */}
+  ${'' /* max-height: calc(100vw - 92.5vh); */}
+  ${'' /* height: 7.5vw; */}
   clip-path: circle(50%);
   cursor: pointer;
 `

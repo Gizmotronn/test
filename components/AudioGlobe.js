@@ -27,7 +27,8 @@ const AudioGlobe = (props) => {
 export default AudioGlobe
 
 const Globe = styled.div`
-  ${navGlobeSize}
+  ${'' /* ${navGlobeSize} */}
+  width: 82px;
   border-radius: 50%;
   background: inherit;
 `
