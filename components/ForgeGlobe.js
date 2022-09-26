@@ -18,7 +18,7 @@ const ForgeGlobe = ({ forge, width, height }) => {
   // }, [isActive])
 
   return (
-    <GlobePlayer width={width} height={height}>
+    <GlobePlayer>
       <source src='/videos/Forge/ACTIVE_Colour_400px.mp4' type='video/mp4' />
       <MessageContainer>
         <Text size='12px'>Sorry, your browser does not support embedded videos.</Text>

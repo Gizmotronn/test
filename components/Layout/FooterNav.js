@@ -54,7 +54,7 @@ export default function FooterNav(props) {
                     <ForgeLinkContainer>
                       <Link href='/forge' passHref>
                         <a target='_blank' rel='noopener noreferrer'>
-                          <ForgeGlobe forge={forge} width={width} height={height} />
+                          <ForgeGlobe forge={forge} />
                         </a>
                       </Link>
                     </ForgeLinkContainer>
@@ -73,7 +73,6 @@ const ForgeContainer = styled.div`
   position: fixed;
   bottom: 15px;
   right: 15px;
-  border: 1px solid red;
 `
 
 const InnerContainer = styled.div`

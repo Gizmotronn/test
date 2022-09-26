@@ -6,6 +6,7 @@ import useDimensions from 'react-cool-dimensions'
 const ChamberPlayer = ({ children }) => {
   const [, setDimensions] = useContext(ChamberGlobeContext)
 
+  // 👇 get and set the Chamber Globe dimensions
   const { observe, unobserve, width, height, entry } = useDimensions({
     onResize: ({ observe, unobserve, width, height, entry }) => {
       // Triggered whenever the size of the target is changed...

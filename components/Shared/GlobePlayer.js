@@ -2,11 +2,13 @@ import styled from '@emotion/styled'
 import { useContext } from 'react'
 import { ChamberGlobeContext } from '../../contexts/ChamberGlobeContext'
 
-const GlobePlayer = ({ children, width, height }) => {
+const GlobePlayer = ({ children }) => {
   const [dimensions] = useContext(ChamberGlobeContext)
 
+  const globeWidth = dimensions ? dimensions.width : 112
+
   return (
-    <Wrapper autoPlay loop navGlobeSize={dimensions.width}>
+    <Wrapper autoPlay loop globeWidth={globeWidth}>
       {children}
     </Wrapper>
   )
@@ -15,8 +17,7 @@ const GlobePlayer = ({ children, width, height }) => {
 export default GlobePlayer
 
 const Wrapper = styled.video`
-  ${'' /* width: 56px; */}
-  width: ${(props) => props.navGlobeSize * 0.46}px;
+  width: ${(props) => props.globeWidth * 0.5}px;
   clip-path: circle(50%);
   cursor: pointer;
 `

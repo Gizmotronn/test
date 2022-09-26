@@ -1,34 +1,27 @@
-import React, { useEffect, useRef } from 'react'
-import lottie from 'lottie-web'
+import { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
-import { navGlobeSize } from '../shared/styles'
-import audioGlobeBlack from '../assets/audio-globe-black.json'
-import audioGlobeGrey from '../assets/audio-globe-grey.json'
+import GlobePlayer from './Shared/GlobePlayer'
+import Text from './Shared/Text'
 
-const AudioGlobe = (props) => {
-  const walletGlobeAnimeContainer = useRef(null)
-
-  const { isPlaying } = props
-
-  useEffect(() => {
-    const instance = lottie.loadAnimation({
-      container: walletGlobeAnimeContainer.current,
-      renderer: 'svg',
-      autoplay: true,
-      loop: true,
-      animationData: isPlaying ? audioGlobeBlack : audioGlobeGrey,
-    })
-    // Clean up
-    return () => instance.destroy()
-  }, [isPlaying])
-  return <Globe ref={walletGlobeAnimeContainer} />
+const AudioGlobe = ({ forge, width, height }) => {
+  return (
+    <GlobePlayer>
+      <source src='/videos/Audio/Grey_AUDIOON_400px.mp4' type='video/mp4' />
+      <MessageContainer>
+        <Text size='12px'>Sorry, your browser does not support embedded videos.</Text>
+      </MessageContainer>
+    </GlobePlayer>
+  )
 }
 
 export default AudioGlobe
 
-const Globe = styled.div`
-  ${'' /* ${navGlobeSize} */}
-  width: 82px;
-  border-radius: 50%;
-  background: inherit;
+const MessageContainer = styled.div`
+  height: 100px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  text-align: center;
 `
