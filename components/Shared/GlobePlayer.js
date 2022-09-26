@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styled from '@emotion/styled'
 import { useContext } from 'react'
 import { ChamberGlobeContext } from '../../contexts/ChamberGlobeContext'
@@ -18,6 +19,6 @@ export default GlobePlayer
 
 const Wrapper = styled.video`
   width: ${(props) => props.globeWidth * 0.5}px;
-  clip-path: circle(50%);
+  ${'' /* clip-path: circle(50%); */}
   cursor: pointer;
 `

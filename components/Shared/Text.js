@@ -14,6 +14,5 @@ export default Text
 const Wrapper = styled.p`
   color: ${(props) => props.color || COLORS.text};
   font-size: ${(props) => props.size || '22px'};
-  ${'' /* font-family: 'ABCWhyteInktrapVariable'; */}
   font-weight: ${(props) => props.weight || '400'};
 `

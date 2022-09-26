@@ -1,3 +1,4 @@
+import styled from '@emotion/styled'
 import WalletConnect from './WalletConnect'
 import Audio from './Audio'
 
@@ -9,7 +10,9 @@ export default function HeaderNav(props) {
   return (
     <>
       {width > 767 && height > 551 && <WalletConnect windowSize={windowSize} />}
-      <Audio route={route} />
+      <nav>
+        <Audio route={route} />
+      </nav>
     </>
   )
 }

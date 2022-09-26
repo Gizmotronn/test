@@ -45,4 +45,5 @@ const Button = styled.button`
   padding: 0;
   border: none;
   cursor: pointer;
+  clip-path: circle(50%);
 `
