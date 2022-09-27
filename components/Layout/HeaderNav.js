@@ -1,4 +1,4 @@
-import WalletConnect from './WalletConnect'
+import Wallet from './Wallet'
 import Audio from './Audio'
 
 export default function HeaderNav(props) {
@@ -8,7 +8,9 @@ export default function HeaderNav(props) {
 
   return (
     <>
-      {width > 767 && height > 551 && <WalletConnect windowSize={windowSize} />}
+      {width > 767 && height > 551 && <Wallet windowSize={windowSize} />}
+
+      {/* Always show the Audio button because we always show the Intro Globe regardless of the viewport size */}
       <nav>
         <Audio route={route} />
       </nav>

@@ -4,7 +4,6 @@ import GlobePlayer from '../../Shared/GlobePlayer'
 import Text from '../../Shared/Text'
 
 const ForgeGlobe = ({ forge }) => {
-  console.log('🚀 ~ file: ForgeGlobe.js ~ line 7 ~ ForgeGlobe ~ forge', forge)
   return (
     <>
       {forge && (
