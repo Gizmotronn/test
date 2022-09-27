@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import GlobePlayer from './Shared/GlobePlayer'
 import Text from './Shared/Text'
-import { AudioContext } from '../contexts/AudioContext'
 
 const AudioGlobe = ({ isPlaying }) => {
   return (

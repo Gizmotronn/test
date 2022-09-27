@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { Text } from '../shared/styles'
-import Fountain from '../components/Fountain'
+// import Fountain from '../components/Fountain'
+import FountainGlobe from '../components/Fountain/FountainGlobe'
 
 export default function Forge() {
   // 👇 min size @ 1024px
@@ -15,7 +16,8 @@ export default function Forge() {
           <AvailabilityContainer>
             <Text size='32px'>{nftAvailability}</Text>
           </AvailabilityContainer>
-          <Fountain fountainSize={fountainSize} />
+          {/* <Fountain fountainSize={fountainSize} /> */}
+          <FountainGlobe />
         </RelativeContainer>
       </FountainContainer>
     </LandingContainer>

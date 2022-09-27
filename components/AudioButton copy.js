@@ -8,17 +8,21 @@ const soundURL = `/bricktOrigins-audio.mp3`
 
 const AudioButton = () => {
   const [play, { pause }] = useSound(soundURL)
+  const [isPlaying, setIsPlaying] = useState(false)
 
-  const [audioActive, setAudioActive] = useContext(AudioContext)
+  const [audioActive] = useContext(AudioContext)
 
   const handleClick = () => {
-    setAudioActive((current) => !current)
+    setIsPlaying((current) => !current)
+
+    if (isPlaying) {
+      pause()
+    } else play()
   }
 
   useEffect(() => {
     if (audioActive) {
-      // setIsPlaying(audioActive)
-
+      setIsPlaying(audioActive)
       play()
     } else pause()
   }, [audioActive, play, pause])
@@ -26,7 +30,7 @@ const AudioButton = () => {
   return (
     <>
       <Button onClick={handleClick} type='button'>
-        <AudioGlobe isPlaying={audioActive} />
+        <AudioGlobe isPlaying={isPlaying} />
       </Button>
     </>
   )
