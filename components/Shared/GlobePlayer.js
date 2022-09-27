@@ -1,9 +1,12 @@
 import styled from '@emotion/styled'
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { ChamberGlobeContext } from '../../contexts/ChamberGlobeContext'
 import { FountainContext } from '../../contexts/FountainContext'
 
 const GlobePlayer = ({ children }) => {
+  const [hasMounted, setHasMounted] = useState(false)
+  const [width, setWidth] = useState(112)
+
   // const [dimensions] = useContext(ChamberGlobeContext)
   // const globebase = 112
   // const globeWidth = dimensions ? dimensions.width : globebase
@@ -12,20 +15,30 @@ const GlobePlayer = ({ children }) => {
 
   const [dimensions] = useContext(FountainContext)
   const fountainbase = 370
-  const fountainWidth = dimensions ? dimensions.width : fountainbase
-  const fountainRatio = 0.15
+  // const fountainWidth = dimensions ? dimensions.width : fountainbase
+  const fountainRatio = 0.154
 
-  console.log('🚀 ~ file: GlobePlayer.js ~ line 7 ~ GlobePlayer ~ dimensions', dimensions)
+  useEffect(() => {
+    let fountainWidth = dimensions ? dimensions.width : fountainbase
+    setWidth(fountainWidth * fountainRatio)
+    setHasMounted(true)
+  }, [dimensions])
+
+  if (!hasMounted) {
+    return null
+  }
 
   return (
-    <>
-      {/* <Wrapper autoPlay loop globeWidth={globeWidth} globeHeight={globeHeight} globeRatio={globeRatio}>
+    hasMounted && (
+      <>
+        {/* <Wrapper autoPlay loop globeWidth={globeWidth} globeHeight={globeHeight} globeRatio={globeRatio}>
         {children}
       </Wrapper> */}
-      <WrapperF autoPlay loop fountainWidth={fountainWidth} fountainRatio={fountainRatio}>
-        {children}
-      </WrapperF>
-    </>
+        <WrapperF autoPlay loop fountainWidth={width} fountainRatio={fountainRatio}>
+          {children}
+        </WrapperF>
+      </>
+    )
   )
 }
 
@@ -38,7 +51,9 @@ const Wrapper = styled.video`
 `
 
 const WrapperF = styled.video`
-  width: ${(props) => props.fountainWidth * props.fountainRatio}px;
-  height: ${(props) => props.fountainWidth * props.fountainRatio}px;
+  width: ${(props) => props.fountainWidth}px;
+  height: ${(props) => props.fountainWidth}px;
+  ${'' /* width: ${(props) => props.fountainWidth * props.fountainRatio}px; */}
+  ${'' /* height: ${(props) => props.fountainWidth * props.fountainRatio}px; */}
   cursor: pointer;
 `

@@ -33,6 +33,7 @@ const Layout = ({ children, windowSize }) => {
             <link rel='icon' href='/favicon.ico' />
           </Head>
           <HeaderNav route={route} windowSize={windowSize} />
+          {/* FooterNav is fixed positioned and thus we need to place it before <Main> in the render tree so the 'Forge' label sits behind the Fountain (z-index doesn't work as it is fixed positioned) */}
           <FooterNav route={route} windowSize={windowSize} />
           <Main>{children}</Main>
         </LayoutContainer>
@@ -60,7 +61,3 @@ const Main = styled.div`
   height: 100%;
   padding: 0px;
 `
-
-{
-  /* FooterNav is fixed positioned and thus we need to place it before <Main> in the render tree so the 'Forge' label sits behind the Fountain (z-index doesn't work as it is fixed positioned) */
-}
