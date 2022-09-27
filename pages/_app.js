@@ -4,6 +4,7 @@ import { chain, configureChains, createClient, WagmiConfig } from 'wagmi'
 // import { infuraProvider } from 'wagmi/providers/infura'
 import { publicProvider } from 'wagmi/providers/public'
 import { useRouter } from 'next/router'
+import useWindowSize from '../hooks/useWindowSize'
 import AudioProvider from '../contexts/AudioContext'
 import IntroModal from '../components/IntroModal'
 import Layout from '../components/Layout'
@@ -32,13 +33,16 @@ const wagmiClient = createClient({
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const appRoute = router.route
+
+  const size = useWindowSize()
+
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
         <AudioProvider>
           <IntroModal showModal={true} route={appRoute} />
-          <Layout>
-            <Component {...pageProps} />
+          <Layout windowSize={size}>
+            <Component {...pageProps} windowSize={size} />
           </Layout>
         </AudioProvider>
       </RainbowKitProvider>

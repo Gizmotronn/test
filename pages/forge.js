@@ -1,54 +1,38 @@
 import styled from '@emotion/styled'
-import { Text } from '../shared/styles'
-import Fountain from '../components/Fountain'
+import FountainGlobe from '../components/Fountain/FountainGlobe'
+import ViewportMessage from '../components/ViewportMessage'
 
-export default function Forge() {
-  // 👇 min size @ 1024px
-  const fountainSize = '486px' // 486px
-
-  const nftAvailability = '750/999'
+export default function Forge({ windowSize }) {
+  const { width, height } = windowSize
 
   return (
-    <LandingContainer>
-      <FountainContainer>
-        <RelativeContainer>
-          <AvailabilityContainer>
-            <Text size='32px'>{nftAvailability}</Text>
-          </AvailabilityContainer>
-          <Fountain fountainSize={fountainSize} />
-        </RelativeContainer>
-      </FountainContainer>
-    </LandingContainer>
+    <Container>
+      {width > 767 && height > 551 ? (
+        <>
+          <FountainContainer>
+            <FountainGlobe />
+          </FountainContainer>
+        </>
+      ) : (
+        <ViewportMessage windowSize={windowSize} />
+      )}
+    </Container>
   )
 }
 
-const LandingContainer = styled.div`
+// 👇 Set a 'Row'
+const Container = styled.div`
+  height: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  @media (max-width: 1023px) {
-    display: none;
-  }
+  background: inherit;
 `
 
+// 👇 Set FOUNTAIN to 100% of viewport and as a 'Column'
 const FountainContainer = styled.div`
-  display: 'flex';
-  justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  flex: 100%;
+  justify-content: center;
   align-items: center;
   background: inherit;
-`
-
-const RelativeContainer = styled.div`
-  position: relative;
-`
-
-const AvailabilityContainer = styled.div`
-  position: absolute;
-  top: 50%;
-  right: -55%;
-  transform: translate(-50%, -50%);
-  background: inherit;
-  border: none;
 `

@@ -135,6 +135,15 @@ export const FountainAnimation = styled.video`
   cursor: pointer;
 `
 
+export const GlobeAnimation = styled.video`
+  ${globeSize};
+  ${'' /* width: 100%; */}
+  ${'' /* height: 100%; */}
+  clip-path: circle(50%);
+  background: inherit;
+  cursor: pointer;
+`
+
 // ============ CHAMBER ============
 export const chamberCircleTop = mq({
   top: [0, 15, 15, 15, 15, 15, 17, 18, 20, 20, 20, 22, 22, 22, 23, 25, 28, 28, 29, 31, 33, 33],
@@ -150,13 +159,8 @@ export const ChamberCircleContainer = styled.div`
 
 export const ChamberGlobe = styled.div`
   ${globeSize};
-  ${globeMargin};
-  position: absolute;
-  top: 50%;
-  left: 50%;
   border-radius: 50%;
-  background: black;
-  ${'' /* margin: calc(-${globeMargin} / 2); */}
+  background: inherit;
 `
 
 // ============ TEXT ============

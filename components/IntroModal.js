@@ -65,6 +65,7 @@ export default function Modal(props) {
               left: '50%',
               transform: 'translate(-50%, -50%)',
               backgroundColor: 'rgba(0, 0, 0, 1)',
+              zIndex: '999',
             }}
           >
             <motion.div

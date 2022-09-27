@@ -1,9 +1,11 @@
 import styled from '@emotion/styled'
-import ChamberController from '../components/ChamberController'
-import Fountain from '../components/Fountain'
-import { mq } from '../shared/styles'
+import Chamber from '../components/Chamber'
+import ChamberGlobe from '../components/Chamber/ChamberGlobe'
+import ChamberGlobePlaceholder from '../components/Chamber/ChamberGlobePlaceholder'
+import FountainGlobe from '../components/Fountain/FountainGlobe'
+import ViewportMessage from '../components/ViewportMessage'
 
-export default function Home() {
+export default function Home({ windowSize }) {
   const nftData = [
     {
       nft: 1,
@@ -32,29 +34,75 @@ export default function Home() {
     },
   ]
 
+  const { width, height } = windowSize
+
   return (
-    <LandingContainer>
-      <ChamberController nftData={nftData} />
-      <FountainContainer>
-        <Fountain />
-      </FountainContainer>
-    </LandingContainer>
+    <Container>
+      {width > 767 && height > 551 ? (
+        <>
+          <ChamberContainer>
+            <ChamberRow>
+              <ChamberGlobePlaceholder />
+              <ChamberGlobe />
+              <ChamberGlobePlaceholder />
+            </ChamberRow>
+
+            <ChamberRow>
+              <ChamberGlobe />
+              <ChamberGlobe />
+              <ChamberGlobe />
+            </ChamberRow>
+
+            <ChamberRow>
+              <ChamberGlobePlaceholder />
+              <ChamberGlobe />
+              <ChamberGlobePlaceholder />
+            </ChamberRow>
+          </ChamberContainer>
+
+          <FountainContainer>
+            <FountainGlobe />
+          </FountainContainer>
+        </>
+      ) : (
+        <ViewportMessage windowSize={windowSize} />
+      )}
+    </Container>
   )
 }
 
-const LandingContainer = styled.div`
-  ${mq({ display: ['flex', 'flex'] })};
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
+// 👇 Set a 'Row'
+const Container = styled.div`
+  height: 100%;
+  display: flex;
+  background: inherit;
 `
 
-const FountainContainer = styled.div`
-  width: 50%;
-  background: inherit;
+// 👇 Set CHAMBER to 50% of viewport and as a 'Column'
+const ChamberContainer = styled.div`
   display: flex;
-  justify-content: end;
+  flex-direction: column;
+  flex: 50%;
+  justify-content: center;
+  align-items: center;
+  background: inherit;
+`
+
+const ChamberRow = styled.div`
+  width: 100%;
+  max-height: 33%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: flex-end;
+`
+
+// 👇 Set FOUNTAIN to 50% of viewport and as a 'Column'
+const FountainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 50%;
+  justify-content: center;
+  align-items: flex-start;
+  background: inherit;
 `

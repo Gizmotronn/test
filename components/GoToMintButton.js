@@ -26,7 +26,9 @@ const Button = styled.button`
   border: none;
   border-radius: 50%;
   cursor: ${(props) => (props.mint ? 'pointer' : 'not-allowed')};
-  width: 100%;
-  height: 100%;
+  ${
+    '' /* width: 100%;
+  height: 100%; */
+  }
   background: inherit;
 `
