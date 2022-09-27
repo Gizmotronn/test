@@ -1,11 +1,9 @@
 import styled from '@emotion/styled'
 import Chamber from '../components/Chamber'
 import ChamberGlobe from '../components/Chamber/ChamberGlobe'
-import ChamberGlobeMiddle from '../components/Chamber/ChamberGlobeMiddle'
 import ChamberGlobePlaceholder from '../components/Chamber/ChamberGlobePlaceholder'
 import FountainGlobe from '../components/Fountain/FountainGlobe'
-import Text from '../components/Shared/Text'
-import { COLORS } from '../constants'
+import ViewportMessage from '../components/ViewportMessage'
 
 export default function Home({ windowSize }) {
   const nftData = [
@@ -67,12 +65,7 @@ export default function Home({ windowSize }) {
           </FountainContainer>
         </>
       ) : (
-        <>
-          <BrowserMessage>
-            <MessageContainer>{width <= 767 && <Text>You need a WIDER browser!</Text>}</MessageContainer>
-            <MessageContainer>{height <= 551 && <Text>You need a TALLER browser!</Text>}</MessageContainer>
-          </BrowserMessage>
-        </>
+        <ViewportMessage windowSize={windowSize} />
       )}
     </Container>
   )
@@ -113,23 +106,4 @@ const FountainContainer = styled.div`
   align-items: flex-start;
   background: inherit;
   ${'' /* border-radius: 50%; */}
-`
-
-// 👇 Notify user when browser width and/or height is too small
-const BrowserMessage = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-width: 522px;
-  min-height: 206px;
-  background-color: ${COLORS.primary};
-  margin: auto;
-  ${'' /* border: 1px solid yellow; */}
-`
-
-const MessageContainer = styled.div`
-  display: flex;
-  max-width: 722px;
-  max-height: 506px;
 `
