@@ -34,7 +34,7 @@ const GlobePlayer = ({ children }) => {
         {/* <Wrapper autoPlay loop globeWidth={globeWidth} globeHeight={globeHeight} globeRatio={globeRatio}>
         {children}
       </Wrapper> */}
-        <WrapperF autoPlay loop fountainWidth={width} fountainRatio={fountainRatio}>
+        <WrapperF autoPlay muted loop fountainWidth={width} fountainRatio={fountainRatio}>
           {children}
         </WrapperF>
       </>
