@@ -21,7 +21,7 @@ const BrowserMessage = styled.div`
   align-items: center;
   min-width: 522px;
   min-height: 206px;
-  background-color: ${COLORS.primary};
+  background-color: ${COLORS.background};
   margin: auto;
 `
 

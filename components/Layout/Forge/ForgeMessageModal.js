@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import styled from '@emotion/styled'
 import { Text, StandardButton } from '../../../shared/styles'
 import Portal from '../../Portal'
+import { COLORS } from '../../../constants'
 
 export default function ForgeMessageModal(props) {
   const [open, setOpen] = useState(props.showModal)
@@ -75,7 +76,6 @@ export default function ForgeMessageModal(props) {
                 justifyContent: 'center',
                 alignItems: 'center',
                 height: '100%',
-                width: '50%',
                 margin: 'auto',
               }}
             >
@@ -129,7 +129,9 @@ const WarningContainer = styled.div`
   align-items: center;
   padding: 30px 40px;
   border-radius: 12px;
-  background: yellow;
+  background-color: ${COLORS.accent};
+  max-width: 722px;
+  max-height: 506px;
 `
 
 const WarningCopy = styled.div`
