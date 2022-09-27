@@ -16,7 +16,7 @@ const GlobePlayer = ({ children }) => {
   const [dimensions] = useContext(FountainContext)
   const fountainbase = 370
   // const fountainWidth = dimensions ? dimensions.width : fountainbase
-  const fountainRatio = 0.154
+  const fountainRatio = 0.159
 
   useEffect(() => {
     let fountainWidth = dimensions ? dimensions.width : fountainbase
