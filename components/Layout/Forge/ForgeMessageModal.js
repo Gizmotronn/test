@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import styled from '@emotion/styled'
-import { Text, StandardButton } from '../shared/styles'
-import Portal from './Portal'
+import { Text, StandardButton } from '../../../shared/styles'
+import Portal from '../../Portal'
 
 export default function ForgeMessageModal(props) {
   const [open, setOpen] = useState(props.showModal)

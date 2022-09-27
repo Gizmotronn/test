@@ -1,4 +1,3 @@
-import styled from '@emotion/styled'
 import WalletConnect from './WalletConnect'
 import Audio from './Audio'
 

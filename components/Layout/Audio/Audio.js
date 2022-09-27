@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import AudioButton from '../AudioButton'
+import AudioButton from './AudioButton'
 
 export default function Audio(props) {
   const { route } = props

@@ -6,7 +6,6 @@ import ChamberGlobePlaceholder from '../components/Chamber/ChamberGlobePlacehold
 import FountainGlobe from '../components/Fountain/FountainGlobe'
 import Text from '../components/Shared/Text'
 import { COLORS } from '../constants'
-import { mq } from '../shared/styles'
 
 export default function Home({ windowSize }) {
   const nftData = [

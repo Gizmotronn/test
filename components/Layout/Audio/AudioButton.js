@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import useSound from 'use-sound'
 import styled from '@emotion/styled'
-import { AudioContext } from '../contexts/AudioContext'
+import { AudioContext } from '../../../contexts/AudioContext'
 import AudioGlobe from './AudioGlobe'
 
 const soundURL = `/bricktOrigins-audio.mp3`
