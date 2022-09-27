@@ -19,7 +19,7 @@ const ChamberPlayer = ({ children }) => {
   // })
 
   return (
-    <Wrapper autoPlay muted loop>
+    <Wrapper playsInline autoPlay muted loop>
       {children}
     </Wrapper>
   )

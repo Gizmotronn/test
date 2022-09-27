@@ -19,7 +19,7 @@ const FountainPlayer = ({ children }) => {
   })
 
   return (
-    <Wrapper autoPlay muted loop ref={observe}>
+    <Wrapper playsInline autoPlay muted loop ref={observe}>
       {children}
     </Wrapper>
   )
