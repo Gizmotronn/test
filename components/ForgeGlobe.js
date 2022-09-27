@@ -4,19 +4,6 @@ import GlobePlayer from './Shared/GlobePlayer'
 import Text from './Shared/Text'
 
 const ForgeGlobe = ({ forge, width, height }) => {
-  // const [isActive, setIsActive] = useState(forge)
-
-  // const [videoSource, setVideoSource] = useState('')
-
-  // useEffect(() => {
-  //   const readyToForge = isActive
-  //   if (readyToForge) {
-  //     setVideoSource('/videos/Forge/ACTIVE_Colour_400px.mp4')
-  //   } else {
-  //     setVideoSource('/videos/Shared/Black_INACTIVEGLOBE_400px.mp4')
-  //   }
-  // }, [isActive])
-
   return (
     <GlobePlayer>
       <source src='/videos/Forge/ACTIVE_Colour_400px.mp4' type='video/mp4' />
