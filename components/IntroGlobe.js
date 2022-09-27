@@ -4,7 +4,7 @@ import Text from '../components/Shared/Text'
 
 const IntroGlobe = () => {
   return (
-    <IntroAnimation autoPlay loop>
+    <IntroAnimation autoPlay muted loop>
       <source src='/videos/Colour_Globe.mp4' type='video/mp4' />
       <MessageContainer>
         <Text size='12px'>Sorry, your browser does not support embedded videos.</Text>
