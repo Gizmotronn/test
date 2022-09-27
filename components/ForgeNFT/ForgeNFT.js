@@ -42,6 +42,7 @@ const Container = styled.div`
 
 const LabelContainer = styled.div`
   padding: 0 20px 0 0;
+  z-index: 100;
 `
 
 const Button = styled.button`
@@ -49,4 +50,5 @@ const Button = styled.button`
   padding: 0;
   border: none;
   cursor: ${(props) => (props.forge ? 'pointer' : 'not-allowed')};
+  clip-path: circle(50%);
 `

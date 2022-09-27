@@ -1,12 +1,26 @@
+import styled from '@emotion/styled'
 import FountainPlayer from './FountainPlayer'
+import Text from '../Shared/Text'
 
 const FountainGlobe = () => {
   return (
     <FountainPlayer>
       <source src='/videos/Shared/Black_INACTIVEGLOBE_400px.mp4' type='video/mp4' />
-      Sorry, your browser does not support embedded videos.
+      <MessageContainer>
+        <Text size='12px'>Sorry, your browser does not support embedded videos.</Text>
+      </MessageContainer>
     </FountainPlayer>
   )
 }
 
 export default FountainGlobe
+
+const MessageContainer = styled.div`
+  height: 33vh;
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+`

@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import styled from '@emotion/styled'
 import ChamberGlobeProvider from '../../contexts/ChamberGlobeContext'
+import FountainContextProvider from '../../contexts/FountainContext'
 import HeaderNav from './HeaderNav'
 import FooterNav from './FooterNav'
 import { COLORS } from '../../constants'
@@ -23,7 +24,8 @@ const Layout = ({ children, windowSize }) => {
 
   return (
     hasMounted && (
-      <ChamberGlobeProvider>
+      // <ChamberGlobeProvider>
+      <FountainContextProvider>
         <LayoutContainer>
           <Head>
             <title>BricktOrigins</title>
@@ -31,10 +33,11 @@ const Layout = ({ children, windowSize }) => {
             <link rel='icon' href='/favicon.ico' />
           </Head>
           <HeaderNav route={route} windowSize={windowSize} />
-          <Main>{children}</Main>
           <FooterNav route={route} windowSize={windowSize} />
+          <Main>{children}</Main>
         </LayoutContainer>
-      </ChamberGlobeProvider>
+      </FountainContextProvider>
+      // </ChamberGlobeProvider>
     )
   )
 }
@@ -57,3 +60,7 @@ const Main = styled.div`
   height: 100%;
   padding: 0px;
 `
+
+{
+  /* FooterNav is fixed positioned and thus we need to place it before <Main> in the render tree so the 'Forge' label sits behind the Fountain (z-index doesn't work as it is fixed positioned) */
+}

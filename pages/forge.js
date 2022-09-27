@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import FountainGlobe from '../components/Fountain/FountainGlobe'
 import ViewportMessage from '../components/ViewportMessage'
-import { COLORS } from '../constants'
 
 export default function Forge({ windowSize }) {
   const { width, height } = windowSize
@@ -36,5 +35,4 @@ const FountainContainer = styled.div`
   justify-content: center;
   align-items: center;
   background: inherit;
-  ${'' /* border-radius: 50%; */}
 `

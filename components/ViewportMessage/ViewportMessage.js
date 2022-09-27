@@ -23,7 +23,6 @@ const BrowserMessage = styled.div`
   min-height: 206px;
   background-color: ${COLORS.primary};
   margin: auto;
-  ${'' /* border: 1px solid yellow; */}
 `
 
 const MessageContainer = styled.div`

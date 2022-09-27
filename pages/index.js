@@ -105,5 +105,4 @@ const FountainContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   background: inherit;
-  ${'' /* border-radius: 50%; */}
 `
