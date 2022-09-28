@@ -86,6 +86,7 @@ const ChamberContainer = styled.div`
   justify-content: center;
   align-items: center;
   background: inherit;
+  padding: 7.5px 0px 7.5px 0px;
 `
 
 const ChamberRow = styled.div`
@@ -105,4 +106,5 @@ const FountainContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   background: inherit;
+  padding: 15px 15px 15px 7.5px;
 `

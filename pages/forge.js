@@ -35,4 +35,5 @@ const FountainContainer = styled.div`
   justify-content: center;
   align-items: center;
   background: inherit;
+  margin: 15px 15px 15px 7.5px;
 `
