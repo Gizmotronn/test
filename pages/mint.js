@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
 import { Mint as MintController } from '../components/Mint'
+import MintGlobe from '../components/Mint/MintGlobe'
+import MintGlobePlaceholder from '../components/Mint/MintGlobePlaceholder'
 import PreReveal from '../components/PreReveal'
 import ViewportMessage from '../components/ViewportMessage'
 
@@ -14,7 +16,21 @@ export default function Mint({ windowSize }) {
       {width > 767 && height > 551 ? (
         <>
           <MintContainer>
-            <MintController />
+            <MintRow>
+              <MintGlobePlaceholder />
+              <MintGlobe />
+              <MintGlobePlaceholder />
+            </MintRow>
+            <MintRow>
+              <MintGlobe />
+              <MintGlobe />
+              <MintGlobe />
+            </MintRow>
+            <MintRow>
+              <MintGlobePlaceholder />
+              <MintGlobe />
+              <MintGlobePlaceholder />
+            </MintRow>
           </MintContainer>
           <PreRevealContainer>
             <PreReveal />
@@ -43,11 +59,12 @@ const MintContainer = styled.div`
   align-items: center;
   background: inherit;
   padding: 7.5px 0px 7.5px 0px;
+  ${'' /* background: yellow; */}
 `
 
 const MintRow = styled.div`
   width: 100%;
-  max-height: 33%;
+  ${'' /* max-height: 33%; */}
   display: flex;
   flex-direction: row;
   justify-content: center;
