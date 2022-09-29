@@ -7,8 +7,11 @@ export default function ViewportMessage({ windowSize }) {
 
   return (
     <BrowserMessage>
-      <MessageContainer>{width <= 767 && <Text>You need a WIDER browser!</Text>}</MessageContainer>
-      <MessageContainer>{height <= 551 && <Text>You need a TALLER browser!</Text>}</MessageContainer>
+      <MessageContainer>
+        {width <= 767 && height > 551 && <Text>Water me 🌱 you need a wider browser.</Text>}
+        {height <= 551 && width > 767 && <Text>Water me 🌱 you need a taller browser.</Text>}
+        {width <= 767 && height <= 551 && <Text>Water me 🌱 you need a wider and a taller browser.</Text>}
+      </MessageContainer>
     </BrowserMessage>
   )
 }
