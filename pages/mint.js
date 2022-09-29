@@ -1,42 +1,57 @@
 import styled from '@emotion/styled'
 import MintNFT from '../components/MintNFT'
 import PreReveal from '../components/PreReveal'
+import ViewportMessage from '../components/ViewportMessage'
 
-export default function Mint() {
+export default function Mint({ windowSize }) {
   // 👇 min size @ 1024px
   const baseFountainSize = '486px' // 486px
 
+  const { width, height } = windowSize
+
   return (
-    <LandingContainer>
-      <MintContainer>
-        <MintNFT baseFountainSize={baseFountainSize} />
-      </MintContainer>
-      <PreRevealContainer>
-        <PreReveal baseFountainSize={baseFountainSize} />
-      </PreRevealContainer>
-    </LandingContainer>
+    <Container>
+      {width > 767 && height > 551 ? (
+        <>
+          <MintContainer>
+            <MintNFT baseFountainSize={baseFountainSize} />
+          </MintContainer>
+          <PreRevealContainer>
+            <PreReveal baseFountainSize={baseFountainSize} />
+          </PreRevealContainer>
+        </>
+      ) : (
+        <ViewportMessage windowSize={windowSize} />
+      )}
+    </Container>
   )
 }
 
-const LandingContainer = styled.div`
+// 👇 Set a 'Row'
+const Container = styled.div`
+  height: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: 0 auto;
-  @media (max-width: 1023px) {
-    display: none;
-  }
+  background: inherit;
 `
 
+// 👇 Set MINT Container to 50% of viewport and as a 'Column'
 const MintContainer = styled.div`
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  flex: 50%;
+  justify-content: center;
+  align-items: center;
   background: inherit;
-  border: 1 px solid red;
+  padding: 7.5px 0px 7.5px 0px;
 `
 
+// 👇 Set PRE-REVEAL to 50% of viewport and as a 'Column'
 const PreRevealContainer = styled.div`
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  flex: 50%;
+  justify-content: center;
+  align-items: flex-start;
   background: inherit;
+  padding: 15px 15px 15px 7.5px;
 `
