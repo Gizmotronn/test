@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import MintNFT from '../components/MintNFT'
+import { Mint as MintController } from '../components/Mint'
 import PreReveal from '../components/PreReveal'
 import ViewportMessage from '../components/ViewportMessage'
 
@@ -14,10 +14,10 @@ export default function Mint({ windowSize }) {
       {width > 767 && height > 551 ? (
         <>
           <MintContainer>
-            <MintNFT baseFountainSize={baseFountainSize} />
+            <MintController />
           </MintContainer>
           <PreRevealContainer>
-            <PreReveal baseFountainSize={baseFountainSize} />
+            <PreReveal />
           </PreRevealContainer>
         </>
       ) : (
@@ -43,6 +43,15 @@ const MintContainer = styled.div`
   align-items: center;
   background: inherit;
   padding: 7.5px 0px 7.5px 0px;
+`
+
+const MintRow = styled.div`
+  width: 100%;
+  max-height: 33%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: flex-end;
 `
 
 // 👇 Set PRE-REVEAL to 50% of viewport and as a 'Column'

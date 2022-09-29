@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import styled from '@emotion/styled'
-import PreRevealGlobe from './PreRevealGlobe'
+// import PreRevealGlobe from './PreRevealGlobe'
 
 const GoToMintButton = (props) => {
   const { eligibleToMint } = props
@@ -10,7 +10,7 @@ const GoToMintButton = (props) => {
       <Link href='/mint' passHref>
         <a target='_blank' rel='noopener noreferrer'>
           <Button type='button' mint={eligibleToMint}>
-            <PreRevealGlobe mint={eligibleToMint} />
+            {/* <PreRevealGlobe mint={eligibleToMint} /> */}
           </Button>
         </a>
       </Link>
