@@ -1,16 +1,20 @@
 import styled from '@emotion/styled'
+import { useRouter } from 'next/router'
 import FountainGlobe from '../components/Fountain/FountainGlobe'
 import ViewportMessage from '../components/ViewportMessage'
 
 export default function Forge({ windowSize }) {
   const { width, height } = windowSize
 
+  const router = useRouter()
+  const { route } = router
+
   return (
     <Container>
       {width > 767 && height > 551 ? (
         <>
           <FountainContainer>
-            <FountainGlobe />
+            <FountainGlobe route={route} />
           </FountainContainer>
         </>
       ) : (

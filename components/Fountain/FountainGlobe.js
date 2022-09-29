@@ -2,8 +2,15 @@ import styled from '@emotion/styled'
 import FountainPlayer from './FountainPlayer'
 import Text from '../Shared/Text'
 
-const FountainGlobe = () => {
-  return (
+const FountainGlobe = ({ route }) => {
+  return route === '/forge' ? (
+    <FountainPlayer>
+      <source src='/videos/Fountain/FountainF.mp4' type='video/mp4' />
+      <MessageContainer>
+        <Text size='12px'>Sorry, your browser does not support embedded videos.</Text>
+      </MessageContainer>
+    </FountainPlayer>
+  ) : (
     <FountainPlayer>
       <source src='/videos/Fountain/FountainA.mp4' type='video/mp4' />
       <MessageContainer>
