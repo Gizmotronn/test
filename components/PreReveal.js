@@ -1,9 +1,26 @@
-import React from 'react'
-import PreRevealAnimation from './PreRevealAnimation'
+import styled from '@emotion/styled'
+import FountainPlayer from './Fountain/FountainPlayer'
+import Text from './Shared/Text'
 
-const PreReveal = (props) => {
-  const { baseFountainSize } = props
-  return <PreRevealAnimation baseFountainSize={baseFountainSize} />
+const PreReveal = ({ route }) => {
+  return (
+    <FountainPlayer>
+      <source src='/videos/Fountain/FountainA.mp4' type='video/mp4' />
+      <MessageContainer>
+        <Text size='12px'>Sorry, your browser does not support embedded videos.</Text>
+      </MessageContainer>
+    </FountainPlayer>
+  )
 }
 
 export default PreReveal
+
+const MessageContainer = styled.div`
+  height: 33vh;
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+`
