@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { motion } from 'framer-motion'
-import Portal from './Portal'
-import { AudioContext } from '../contexts/AudioContext'
+import Portal from '../Portal'
+import { AudioContext } from '../../contexts/AudioContext'
 import IntroGlobe from './IntroGlobe'
 
 export default function Modal(props) {

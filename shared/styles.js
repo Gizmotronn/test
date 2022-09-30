@@ -109,15 +109,6 @@ export const navGlobeSize = mq({
 
 // Shareable Elements
 
-// ============ INTRO GLOBE ============
-export const IntroAnimation = styled.video`
-  width: 182px;
-  height: 182px;
-  clip-path: circle(50%);
-  background: inherit;
-  cursor: pointer;
-`
-
 // ============ FOUNTAIN ============
 export const FountainAnimationContainerLottie = styled.div`
   ${fountainSize};
