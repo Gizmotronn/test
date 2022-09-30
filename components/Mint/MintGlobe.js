@@ -23,9 +23,6 @@ const MintGlobe = ({ placeholder = false, children }) => {
         ) : (
           <Circle width={circleWidth} circleRatio={circleRatio}>
             <MessageContainer>{children}</MessageContainer>
-            {/* <MessageContainer>
-              <Text size='50px'>Nothing to see here.</Text>
-            </MessageContainer> */}
           </Circle>
         )}
       </Container>

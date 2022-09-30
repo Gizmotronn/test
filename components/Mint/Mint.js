@@ -1,26 +1,20 @@
 import styled from '@emotion/styled'
 import MintGlobe from './MintGlobe'
 import MintAvailability from './MintAvailability'
+import MintCounter from './MintCounter'
+import MintButton from '../MintButton'
 
 export function Mint({ windowSize }) {
   return (
     <>
       <MintRow>
-        <MintGlobe placeholder={true} />
-        <MintGlobe>
-          <MintAvailability />
-        </MintGlobe>
-        <MintGlobe placeholder={true} />
+        <MintAvailability />
       </MintRow>
       <MintRow>
-        <MintGlobe />
-        <MintGlobe />
-        <MintGlobe />
+        <MintCounter />
       </MintRow>
       <MintRow>
-        <MintGlobe placeholder={true} />
-        <MintGlobe />
-        <MintGlobe placeholder={true} />
+        <MintButton />
       </MintRow>
     </>
   )
