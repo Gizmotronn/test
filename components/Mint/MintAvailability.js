@@ -3,10 +3,8 @@ import styled from '@emotion/styled'
 import MintGlobe from './MintGlobe'
 import Text from '../Shared/Text'
 
-const MintAvailability = (props) => {
-  const { baseFountainSize } = props
-
-  const nftAvailability = '750/999'
+const MintAvailability = () => {
+  const nftAvailability = '749/999'
 
   return (
     <>

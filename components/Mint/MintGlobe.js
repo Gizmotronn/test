@@ -33,6 +33,7 @@ const MintGlobe = ({ placeholder = false, children }) => {
 export default MintGlobe
 
 const Container = styled.div`
+  display: flex;
   padding: 7.5px;
   background: inherit;
 `
@@ -43,7 +44,8 @@ const Circle = styled.div`
   display: flex;
   border-radius: 50%;
   border: 15px solid ${COLORS.text};
-  background: inherit;
+  background: black;
+  z-index: 999;
 `
 
 const CircleHidden = styled.div`

@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import { Mint as MintController } from '../components/Mint'
-import MintGlobe from '../components/Mint/MintGlobe'
 import PreReveal from '../components/PreReveal'
 import ViewportMessage from '../components/ViewportMessage'
 
