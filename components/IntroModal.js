@@ -26,7 +26,7 @@ export default function Modal(props) {
       transition: {
         delay: 1,
         ease: 'easeOut',
-        duration: 1,
+        duration: 0.85,
       },
     },
   }
@@ -41,7 +41,7 @@ export default function Modal(props) {
       transition: {
         delay: 0,
         ease: 'easeOut',
-        duration: 2,
+        duration: 1.5,
       },
     },
   }

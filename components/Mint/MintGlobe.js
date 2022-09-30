@@ -42,7 +42,7 @@ const Circle = styled.div`
   height: ${(props) => props.width}px;
   display: flex;
   border-radius: 50%;
-  border: 2px solid ${COLORS.text};
+  border: 15px solid ${COLORS.text};
   background: inherit;
 `
 
@@ -52,7 +52,7 @@ const CircleHidden = styled.div`
   height: ${(props) => props.width}px;
   display: flex;
   border-radius: 50%;
-  border: 2px solid ${COLORS.text};
+  border: 15px solid ${COLORS.text};
   background: inherit;
 `
 
