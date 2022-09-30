@@ -17,6 +17,7 @@ html,
 body,
 #__next {
   height: 100%;
+  font-size: 16px;
   font-family: 'ABCWhyteInktrapVariable', Helvetica Neue, Helvetica, Arial, -apple-system, BlinkMacSystemFont,
     sans-serif;
 }

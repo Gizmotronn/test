@@ -9,9 +9,9 @@ const MintAvailability = (props) => {
 
   return (
     <>
-      <Availability>
-        <Text size='18px'>{nftAvailability}</Text>
-      </Availability>
+      {/* <Availability> */}
+      <Text size='calc(1rem + 0.6vw)'>{nftAvailability}</Text>
+      {/* </Availability> */}
     </>
   )
 }
@@ -19,13 +19,5 @@ const MintAvailability = (props) => {
 export default MintAvailability
 
 const Availability = styled.div`
-  width: 33%;
-  height: 100%;
-  ${'' /* width: 33%; */}
-  ${'' /* height: 33%; */}
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: inherit;
-  margin: 5px;
+  font-size: 16px;
 `

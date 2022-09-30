@@ -4,7 +4,7 @@ import { FountainContext } from '../../contexts/FountainContext'
 import Text from '../Shared/Text'
 import { COLORS } from '../../constants'
 
-const MintGlobe = ({ placeholder = false }) => {
+const MintGlobe = ({ placeholder = false, children }) => {
   const [dimensions] = useContext(FountainContext)
 
   const circleBase = 112
@@ -17,14 +17,15 @@ const MintGlobe = ({ placeholder = false }) => {
         {placeholder ? (
           <CircleHidden width={circleWidth} circleRatio={circleRatio}>
             <MessageContainer>
-              <Text size='12px'>Nothing to see here.</Text>
+              <Text size='20px'>Nothing to see here.</Text>
             </MessageContainer>
           </CircleHidden>
         ) : (
           <Circle width={circleWidth} circleRatio={circleRatio}>
-            <MessageContainer>
-              <Text size='12px'>Nothing to see here.</Text>
-            </MessageContainer>
+            <MessageContainer>{children}</MessageContainer>
+            {/* <MessageContainer>
+              <Text size='50px'>Nothing to see here.</Text>
+            </MessageContainer> */}
           </Circle>
         )}
       </Container>

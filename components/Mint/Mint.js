@@ -7,7 +7,9 @@ export function Mint({ windowSize }) {
     <>
       <MintRow>
         <MintGlobe placeholder={true} />
-        <MintGlobe />
+        <MintGlobe>
+          <MintAvailability />
+        </MintGlobe>
         <MintGlobe placeholder={true} />
       </MintRow>
       <MintRow>
