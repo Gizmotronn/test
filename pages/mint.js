@@ -1,14 +1,10 @@
 import styled from '@emotion/styled'
 import { Mint as MintController } from '../components/Mint'
 import MintGlobe from '../components/Mint/MintGlobe'
-import MintGlobePlaceholder from '../components/Mint/MintGlobePlaceholder'
 import PreReveal from '../components/PreReveal'
 import ViewportMessage from '../components/ViewportMessage'
 
 export default function Mint({ windowSize }) {
-  // 👇 min size @ 1024px
-  const baseFountainSize = '486px' // 486px
-
   const { width, height } = windowSize
 
   return (
@@ -16,21 +12,7 @@ export default function Mint({ windowSize }) {
       {width > 767 && height > 551 ? (
         <>
           <MintContainer>
-            <MintRow>
-              <MintGlobePlaceholder />
-              <MintGlobe />
-              <MintGlobePlaceholder />
-            </MintRow>
-            <MintRow>
-              <MintGlobe />
-              <MintGlobe />
-              <MintGlobe />
-            </MintRow>
-            <MintRow>
-              <MintGlobePlaceholder />
-              <MintGlobe />
-              <MintGlobePlaceholder />
-            </MintRow>
+            <MintController />
           </MintContainer>
           <PreRevealContainer>
             <PreReveal />
@@ -43,41 +25,32 @@ export default function Mint({ windowSize }) {
   )
 }
 
-// 👇 Set a 'Row'
 const Container = styled.div`
   height: 100%;
   display: flex;
   background: inherit;
+  padding: 15px 15px;
 `
 
 // 👇 Set MINT Container to 50% of viewport and as a 'Column'
+// ❕ Using 'width' instead of 'flex' to fix issue with MinGlobe flickering when scaling based on Fountain size
 const MintContainer = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 50%;
+  width: 50%;
   justify-content: center;
   align-items: center;
   background: inherit;
-  padding: 7.5px 0px 7.5px 0px;
-  ${'' /* background: yellow; */}
-`
-
-const MintRow = styled.div`
-  width: 100%;
-  ${'' /* max-height: 33%; */}
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  justify-content: flex-end;
 `
 
 // 👇 Set PRE-REVEAL to 50% of viewport and as a 'Column'
+// ❕ Using 'width' instead of 'flex' to fix issue with MinGlobe flickering when scaling based on Fountain size
 const PreRevealContainer = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 50%;
+  width: 50%;
   justify-content: center;
   align-items: flex-start;
   background: inherit;
-  padding: 15px 15px 15px 7.5px;
+  padding: 0 7.5px;
 `
