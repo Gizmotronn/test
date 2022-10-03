@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import styled from '@emotion/styled'
 import ForgeGlobe from './ForgeGlobe'
@@ -21,13 +21,17 @@ export default function ForgeNav(props) {
               <ForgeContainer>
                 {route === '/forge' ? (
                   <ForgeNFT forge={forge} />
-                ) : (
-                  <ForgeLinkContainer>
+                ) : forge ? (
+                  <ForgeLinkContainer forge={forge}>
                     <Link href='/forge' passHref>
-                      <a target='_blank' rel='noopener noreferrer'>
+                      <a target='_blank' rel='noopener noreferrer' style={{ cursor: 'pointer' }}>
                         <ForgeGlobe forge={forge} />
                       </a>
                     </Link>
+                  </ForgeLinkContainer>
+                ) : (
+                  <ForgeLinkContainer forge={forge}>
+                    <ForgeGlobe forge={forge} />
                   </ForgeLinkContainer>
                 )}
               </ForgeContainer>
@@ -47,4 +51,5 @@ const ForgeContainer = styled.div`
 
 const ForgeLinkContainer = styled.div`
   clip-path: circle(50%);
+  cursor: ${(props) => (props.forge ? 'pointer' : 'not-allowed')};
 `

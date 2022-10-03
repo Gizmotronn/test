@@ -55,5 +55,4 @@ const WrapperF = styled.video`
   height: ${(props) => props.fountainWidth}px;
   ${'' /* width: ${(props) => props.fountainWidth * props.fountainRatio}px; */}
   ${'' /* height: ${(props) => props.fountainWidth * props.fountainRatio}px; */}
-  cursor: pointer;
 `
