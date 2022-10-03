@@ -47,7 +47,7 @@ export default GlobePlayer
 const Wrapper = styled.video`
   width: ${(props) => props.globeWidth * props.globeRatio}px;
   ${'' /* height: ${(props) => props.globeHeight * props.globeRatio}px; */}
-  cursor: pointer;
+  ${'' /* cursor: pointer; */}
 `
 
 const WrapperF = styled.video`

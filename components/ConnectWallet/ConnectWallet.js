@@ -23,6 +23,7 @@ const Button = styled.button`
   background: inherit;
   padding: 0;
   border: none;
-  cursor: ${(props) => (props.forge ? 'pointer' : 'not-allowed')};
+  cursor: pointer;
+  ${'' /* cursor: ${(props) => (props.forge ? 'pointer' : 'not-allowed')}; */}
   clip-path: circle(50%);
 `
