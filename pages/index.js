@@ -6,33 +6,33 @@ import FountainGlobe from '../components/Fountain/FountainGlobe'
 import ViewportMessage from '../components/ViewportMessage'
 
 export default function Home({ windowSize }) {
-  const nftData = [
-    {
-      nft: 1,
-      name: 'BricktoPunks',
-      mint: true,
-    },
-    {
-      nft: 2,
-      name: 'Beers',
-      mint: true,
-    },
-    {
-      nft: 3,
-      name: 'Super Computer',
-      mint: false,
-    },
-    {
-      nft: 4,
-      name: 'The Forge',
-      mint: false,
-    },
-    {
-      nft: 5,
-      name: 'Brain',
-      mint: false,
-    },
-  ]
+  // const nftData = [
+  //   {
+  //     nft: 1,
+  //     name: 'BricktoPunks',
+  //     mint: true,
+  //   },
+  //   {
+  //     nft: 2,
+  //     name: 'Beers',
+  //     mint: true,
+  //   },
+  //   {
+  //     nft: 3,
+  //     name: 'Super Computer',
+  //     mint: false,
+  //   },
+  //   {
+  //     nft: 4,
+  //     name: 'The Forge',
+  //     mint: false,
+  //   },
+  //   {
+  //     nft: 5,
+  //     name: 'Brain',
+  //     mint: false,
+  //   },
+  // ]
 
   const { width, height } = windowSize
 
