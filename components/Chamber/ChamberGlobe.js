@@ -5,7 +5,10 @@ import Text from '../Shared/Text'
 const ChamberGlobe = () => {
   return (
     <ChamberPlayer>
-      <source src='/videos/Shared/Black_INACTIVEGLOBE_400px.mp4' type='video/mp4' />
+      <source
+        src='https://res.cloudinary.com/bricktorigins/video/upload/v1664764227/globes/inactive/inactive_globe_hmrbyv.mp4'
+        type='video/mp4'
+      />
       <MessageContainer>
         <Text size='12px'>Sorry, your browser does not support embedded videos.</Text>
       </MessageContainer>
