@@ -28,7 +28,7 @@ const FountainPlayer = ({ children }) => {
 export default FountainPlayer
 
 const Wrapper = styled.video`
-  height: 100vh;
+  height: calc(100vh - 32px);
   clip-path: circle(50%);
   border-radius: 50%;
   background: inherit;
