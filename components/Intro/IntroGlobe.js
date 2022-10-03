@@ -5,7 +5,10 @@ import Text from '../Shared/Text'
 const IntroGlobe = () => {
   return (
     <IntroPlayer playsInline autoPlay muted loop>
-      <source src='/videos/Colour_Globe.mp4' type='video/mp4' />
+      <source
+        src='https://res.cloudinary.com/bricktorigins/video/upload/v1664764436/globes/intro/intro_globe_uahsbn.mp4'
+        type='video/mp4'
+      />
       <MessageContainer>
         <Text size='12px'>Sorry, your browser does not support embedded videos.</Text>
       </MessageContainer>
