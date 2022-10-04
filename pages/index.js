@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import CurtainModal from '../components/Curtain/CurtainModal'
 import Chamber from '../components/Chamber'
 import ChamberGlobe from '../components/Chamber/ChamberGlobe'
 import ChamberGlobePlaceholder from '../components/Chamber/ChamberGlobePlaceholder'
@@ -37,37 +38,40 @@ export default function Home({ windowSize }) {
   const { width, height } = windowSize
 
   return (
-    <Container>
-      {width > 767 && height > 551 ? (
-        <>
-          <ChamberContainer>
-            <ChamberRow>
-              <ChamberGlobePlaceholder />
-              <ChamberGlobe />
-              <ChamberGlobePlaceholder />
-            </ChamberRow>
+    <>
+      <CurtainModal showModal={true} route='/' />
+      <Container>
+        {width > 767 && height > 551 ? (
+          <>
+            <ChamberContainer>
+              <ChamberRow>
+                <ChamberGlobePlaceholder />
+                <ChamberGlobe />
+                <ChamberGlobePlaceholder />
+              </ChamberRow>
 
-            <ChamberRow>
-              <ChamberGlobe />
-              <ChamberGlobe />
-              <ChamberGlobe />
-            </ChamberRow>
+              <ChamberRow>
+                <ChamberGlobe />
+                <ChamberGlobe />
+                <ChamberGlobe />
+              </ChamberRow>
 
-            <ChamberRow>
-              <ChamberGlobePlaceholder />
-              <ChamberGlobe />
-              <ChamberGlobePlaceholder />
-            </ChamberRow>
-          </ChamberContainer>
+              <ChamberRow>
+                <ChamberGlobePlaceholder />
+                <ChamberGlobe />
+                <ChamberGlobePlaceholder />
+              </ChamberRow>
+            </ChamberContainer>
 
-          <FountainContainer>
-            <FountainGlobe />
-          </FountainContainer>
-        </>
-      ) : (
-        <ViewportMessage windowSize={windowSize} />
-      )}
-    </Container>
+            <FountainContainer>
+              <FountainGlobe />
+            </FountainContainer>
+          </>
+        ) : (
+          <ViewportMessage windowSize={windowSize} />
+        )}
+      </Container>
+    </>
   )
 }
 
