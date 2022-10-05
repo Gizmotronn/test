@@ -85,7 +85,7 @@ export default function CurtainModal(props) {
                 // height: '100vh',
                 // backgroundColor: 'yellow',
                 zIndex: '999',
-                opacity: '0.5',
+                // opacity: '0.5',
               }}
             />
           </ReactScrollWheelHandler>

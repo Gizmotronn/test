@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import CurtainModal from '../components/Curtain/CurtainModal'
+import CurtainCanvas from '../components/Curtain/CurtainCanvas'
 import Chamber from '../components/Chamber'
 import ChamberGlobe from '../components/Chamber/ChamberGlobe'
 import ChamberGlobePlaceholder from '../components/Chamber/ChamberGlobePlaceholder'
@@ -39,7 +39,7 @@ export default function Home({ windowSize }) {
 
   return (
     <>
-      <CurtainModal showModal={true} route='/' />
+      <CurtainCanvas showModal={true} route='/' />
       <Container>
         {width > 767 && height > 551 ? (
           <>
