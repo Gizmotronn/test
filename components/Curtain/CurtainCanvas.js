@@ -4,12 +4,13 @@ import ReactScrollWheelHandler from 'react-scroll-wheel-handler'
 export default function CurtainCanvas(props) {
   const ref = useRef()
   const [images, setImages] = useState([])
-  console.log('🚀 ~ file: CurtainCanvas.js ~ line 7 ~ CurtainCanvas ~ images', images)
+  // console.log('🚀 ~ file: CurtainCanvas.js ~ line 7 ~ CurtainCanvas ~ images', images)
   const [index, setIndex] = useState(0)
+  console.log('🚀 ~ file: CurtainCanvas.js ~ line 9 ~ CurtainCanvas ~ index', index)
 
   const { route } = props
 
-  const frameCount = 6 - 1
+  const frameCount = 240
   const canvasWidth = 1600
   const canvasHeight = 1000
 
@@ -29,7 +30,7 @@ export default function CurtainCanvas(props) {
       .toString()
       .padStart(3, '0')}.png`
 
-  // 👇 Handle scroll / arrow BACK
+  // 👇 Handle scroll / up arrow BACK
   const prevIndex = () => {
     if (index === 0) {
       return
@@ -38,7 +39,7 @@ export default function CurtainCanvas(props) {
     return setIndex(index - 1)
   }
 
-  // 👇 Handle scroll / arrow FORWARD
+  // 👇 Handle scroll / down arrow FORWARD
   const nextIndex = () => {
     if (index === frameCount - 1) {
       return
@@ -57,7 +58,7 @@ export default function CurtainCanvas(props) {
   useEffect(() => {
     // 👇 Loop over the frames and add them to the images array as state
     function preloadImages() {
-      for (let i = 0; i <= frameCount; i++) {
+      for (let i = 0; i <= frameCount - 1; i++) {
         const img = new Image()
         const imgSrc = getCurrentFrame(i)
         img.src = imgSrc
