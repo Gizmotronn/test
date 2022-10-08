@@ -4,13 +4,14 @@ import ReactScrollWheelHandler from 'react-scroll-wheel-handler'
 export default function CurtainCanvas(props) {
   const ref = useRef()
   const [images, setImages] = useState([])
+  console.log('🚀 ~ file: CurtainCanvas.js ~ line 7 ~ CurtainCanvas ~ images', images)
   const [index, setIndex] = useState(0)
 
   const { route } = props
 
-  const frameCount = 200
-  const canvasWidth = 1158
-  const canvasHeight = 770
+  const frameCount = 6 - 1
+  const canvasWidth = 1600
+  const canvasHeight = 1000
 
   // 👇 Get the current frame image
   // const getCurrentFrame = (index) =>
@@ -18,10 +19,15 @@ export default function CurtainCanvas(props) {
   //     .toString()
   //     .padStart(4, '0')}.jpg`
 
+  // const getCurrentFrame = (index) =>
+  //   `https://res.cloudinary.com/bricktorigins/image/upload/v1664857485/curtain/Curtain_c_1.${index
+  //     .toString()
+  //     .padStart(4, '0')}.png`
+
   const getCurrentFrame = (index) =>
-    `https://res.cloudinary.com/bricktorigins/image/upload/v1664857485/curtain/Curtain_c_1.${index
+    `https://res.cloudinary.com/bricktorigins/image/upload/v1664857485/curtain/Please_Be_Seated.0001${index
       .toString()
-      .padStart(4, '0')}.png`
+      .padStart(3, '0')}.png`
 
   // 👇 Handle scroll / arrow BACK
   const prevIndex = () => {
@@ -29,16 +35,16 @@ export default function CurtainCanvas(props) {
       return
     }
 
-    return setIndex(index - 4)
+    return setIndex(index - 1)
   }
 
   // 👇 Handle scroll / arrow FORWARD
   const nextIndex = () => {
-    if (index === frameCount - 4) {
+    if (index === frameCount - 1) {
       return
     }
 
-    return setIndex(index + 4)
+    return setIndex(index + 1)
   }
 
   // 👇 Render the CANVAS
@@ -51,7 +57,7 @@ export default function CurtainCanvas(props) {
   useEffect(() => {
     // 👇 Loop over the frames and add them to the images array as state
     function preloadImages() {
-      for (let i = 1; i <= frameCount; i++) {
+      for (let i = 0; i <= frameCount; i++) {
         const img = new Image()
         const imgSrc = getCurrentFrame(i)
         img.src = imgSrc
@@ -60,7 +66,7 @@ export default function CurtainCanvas(props) {
     }
     preloadImages()
     renderCanvas()
-  }, [])
+  }, [frameCount])
 
   useEffect(() => {
     if (!ref.current || images.length < 1) {
@@ -87,8 +93,8 @@ export default function CurtainCanvas(props) {
           <ReactScrollWheelHandler upHandler={prevIndex} downHandler={nextIndex} timeout={0}>
             <canvas
               ref={ref}
-              width='1024'
-              height='1024'
+              width={canvasWidth}
+              height={canvasHeight}
               style={{
                 position: 'fixed',
                 left: '50%',
@@ -98,7 +104,7 @@ export default function CurtainCanvas(props) {
                 height: '100vh',
                 // backgroundColor: 'yellow',
                 zIndex: '999',
-                opacity: '0.7',
+                // opacity: '0.7',
               }}
             />
           </ReactScrollWheelHandler>
