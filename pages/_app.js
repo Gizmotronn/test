@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import useWindowSize from '../hooks/useWindowSize'
 import AudioProvider from '../contexts/AudioContext'
 import IntroModal from '../components/Intro/IntroModal'
+import CurtainCanvas from '../components/Curtain/CurtainCanvas'
 import Layout from '../components/Layout'
 import '../styles/globals.css'
 import '../styles/fonts.css'
@@ -41,6 +42,7 @@ function MyApp({ Component, pageProps }) {
       <RainbowKitProvider chains={chains}>
         <AudioProvider>
           <IntroModal showModal={true} route={appRoute} />
+          {/* <CurtainCanvas showModal={true} route='/' /> */}
           <Layout windowSize={size}>
             <Component {...pageProps} windowSize={size} />
           </Layout>

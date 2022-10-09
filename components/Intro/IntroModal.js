@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import { motion } from 'framer-motion'
-import Portal from '../Portal'
+import Portal from '../Shared/Portal'
 import { AudioContext } from '../../contexts/AudioContext'
 import IntroGlobe from './IntroGlobe'
 
