@@ -5,18 +5,22 @@ import { GLOBES } from '../../../constants'
 import Text from '../../Shared/Text'
 
 const ForgeGlobe = ({ forge }) => {
-  const [globe, setGlobe] = useState({})
+  const [globe, setGlobe] = useState({
+    active: GLOBES.forgeActive,
+    inActive: GLOBES.inActive,
+  })
 
-  useEffect(() => {
-    function preloadGlobes() {
-      setGlobe({
-        active: GLOBES.forgeActive,
-        inActive: GLOBES.inActive,
-      })
-    }
+  // useEffect(() => {
+  //   function preloadGlobes() {
+  //     setGlobe({
+  //       active: GLOBES.forgeActive,
+  //       inActive: GLOBES.inActive,
+  //     })
+  //   }
 
-    preloadGlobes()
-  }, [])
+  //   preloadGlobes()
+  // }, [])
+
   return (
     <>
       <GlobePlayer source={forge ? globe.active : globe.inActive}>

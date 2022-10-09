@@ -5,18 +5,18 @@ import { GLOBES } from '../../../constants'
 import Text from '../../Shared/Text'
 
 const WalletGlobe = ({ walletConnected }) => {
-  const [globe, setGlobe] = useState({})
+  const [globe, setGlobe] = useState({ active: GLOBES.walletActive, inActive: GLOBES.inActive })
 
-  useEffect(() => {
-    function preloadGlobes() {
-      setGlobe({
-        active: GLOBES.walletActive,
-        inActive: GLOBES.inActive,
-      })
-    }
+  // useEffect(() => {
+  //   function preloadGlobes() {
+  //     setGlobe({
+  //       active: GLOBES.walletActive,
+  //       inActive: GLOBES.inActive,
+  //     })
+  //   }
 
-    preloadGlobes()
-  }, [])
+  //   preloadGlobes()
+  // }, [])
 
   return (
     <>

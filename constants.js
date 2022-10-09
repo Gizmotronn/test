@@ -14,3 +14,19 @@ export const GLOBES = {
   forgeActive:
     'https://res.cloudinary.com/bricktorigins/video/upload/q_auto,f_auto/v1664763574/globes/forge/forge_active_globe_xl5w2p.mp4',
 }
+
+export const CHAMBERGLOBE = {
+  inActive:
+    'https://res.cloudinary.com/bricktorigins/video/upload/q_auto,f_auto/v1664764227/globes/inactive/inactive_globe_hmrbyv.mp4',
+}
+
+export const FOUNTAIN = {
+  inActive:
+    'https://res.cloudinary.com/bricktorigins/video/upload/q_auto,f_auto/v1664764227/globes/inactive/inactive_globe_hmrbyv.mp4',
+  fountainA: 'https://res.cloudinary.com/bricktorigins/video/upload/q_auto,f_auto/v1664761494/fountain/A.mp4',
+  fountainB: 'https://res.cloudinary.com/bricktorigins/video/upload/q_auto,f_auto/v1664761494/fountain/B.mp4',
+  fountainC: 'https://res.cloudinary.com/bricktorigins/video/upload/q_auto,f_auto/v1664761494/fountain/C.mp4',
+  fountainD: 'https://res.cloudinary.com/bricktorigins/video/upload/q_auto,f_auto/v1664761494/fountain/D.mp4',
+  fountainE: 'https://res.cloudinary.com/bricktorigins/video/upload/q_auto,f_auto/v1664761494/fountain/E.mp4',
+  fountainF: 'https://res.cloudinary.com/bricktorigins/video/upload/q_auto,f_auto/v1664761494/fountain/F.mp4',
+}

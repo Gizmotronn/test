@@ -5,18 +5,18 @@ import { GLOBES } from '../../../constants'
 import Text from '../../Shared/Text'
 
 const AudioGlobe = ({ isPlaying }) => {
-  const [globe, setGlobe] = useState({})
+  const [globe, setGlobe] = useState({ active: GLOBES.audioActive, inActive: GLOBES.inActive })
 
-  useEffect(() => {
-    function preloadGlobes() {
-      setGlobe({
-        active: GLOBES.audioActive,
-        inActive: GLOBES.inActive,
-      })
-    }
+  // useEffect(() => {
+  //   function preloadGlobes() {
+  //     setGlobe({
+  //       active: GLOBES.audioActive,
+  //       inActive: GLOBES.inActive,
+  //     })
+  //   }
 
-    preloadGlobes()
-  }, [])
+  //   preloadGlobes()
+  // }, [])
 
   return (
     <>
