@@ -39,6 +39,7 @@ const WalletContainer = styled.div`
   position: fixed;
   top: 15px;
   left: 15px;
+  z-index: 300;
 `
 
 const InnerContainer = styled.div`

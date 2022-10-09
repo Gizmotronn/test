@@ -39,7 +39,7 @@ export default function Home({ windowSize }) {
 
   return (
     <>
-      <CurtainCanvas showModal={true} route='/' />
+      <CurtainCanvas route='/' />
       <Container>
         {width > 767 && height > 551 ? (
           <>

@@ -47,6 +47,7 @@ const ForgeContainer = styled.div`
   position: fixed;
   bottom: 15px;
   right: 15px;
+  z-index: 300;
 `
 
 const ForgeLinkContainer = styled.div`

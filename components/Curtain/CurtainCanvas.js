@@ -4,9 +4,8 @@ import ReactScrollWheelHandler from 'react-scroll-wheel-handler'
 export default function CurtainCanvas(props) {
   const ref = useRef()
   const [images, setImages] = useState([])
-  // console.log('🚀 ~ file: CurtainCanvas.js ~ line 7 ~ CurtainCanvas ~ images', images)
   const [index, setIndex] = useState(0)
-  console.log('🚀 ~ file: CurtainCanvas.js ~ line 9 ~ CurtainCanvas ~ index', index)
+  console.log('🚀 ~ file: CurtainCanvas.js ~ line 8 ~ CurtainCanvas ~ index', index)
 
   const { route } = props
 
@@ -15,11 +14,6 @@ export default function CurtainCanvas(props) {
   const canvasHeight = 1000
 
   // 👇 Get the current frame image
-  // const getCurrentFrame = (index) =>
-  //   `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index
-  //     .toString()
-  //     .padStart(4, '0')}.jpg`
-
   const getCurrentFrame = (index) =>
     `https://res.cloudinary.com/bricktorigins/image/upload/q_auto,f_auto/v1664857485/curtain/Please_Be_Seated.0001${index
       .toString()
@@ -101,7 +95,7 @@ export default function CurtainCanvas(props) {
                 width: '100vw',
                 height: '100vh',
                 // backgroundColor: 'yellow',
-                zIndex: '999',
+                zIndex: index === 235 ? '0' : '500',
                 // opacity: '0.7',
               }}
             />
