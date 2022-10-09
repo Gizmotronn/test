@@ -49,4 +49,5 @@ const InnerContainer = styled.div`
 
 const AddressContainer = styled.div`
   padding: 0 0 0 20px;
+  min-width: 100px;
 `

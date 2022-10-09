@@ -13,7 +13,7 @@ const FountainGlobe = ({ route }) => {
   ) : (
     <FountainPlayer>
       <source
-        src='https://res.cloudinary.com/bricktorigins/video/upload/v1664761494/fountain/A_li3acb.mp4'
+        src='https://res.cloudinary.com/bricktorigins/video/upload/q_auto,f_auto/v1664761494/fountain/A_li3acb.mp4'
         type='video/mp4'
       />
       <MessageContainer>

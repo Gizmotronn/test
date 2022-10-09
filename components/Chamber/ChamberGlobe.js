@@ -6,7 +6,7 @@ const ChamberGlobe = () => {
   return (
     <ChamberPlayer>
       <source
-        src='https://res.cloudinary.com/bricktorigins/video/upload/v1664764227/globes/inactive/inactive_globe_hmrbyv.mp4'
+        src='https://res.cloudinary.com/bricktorigins/video/upload/q_auto,f_auto/v1664764227/globes/inactive/inactive_globe_hmrbyv.mp4'
         type='video/mp4'
       />
       <MessageContainer>

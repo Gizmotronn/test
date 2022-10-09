@@ -4,8 +4,8 @@ import ReactScrollWheelHandler from 'react-scroll-wheel-handler'
 export default function CurtainCanvas(props) {
   const ref = useRef()
   const [images, setImages] = useState([])
+
   const [index, setIndex] = useState(0)
-  console.log('🚀 ~ file: CurtainCanvas.js ~ line 8 ~ CurtainCanvas ~ index', index)
 
   const { route } = props
 
@@ -94,9 +94,7 @@ export default function CurtainCanvas(props) {
                 transform: 'translate(-50%, -50%)',
                 width: '100vw',
                 height: '100vh',
-                // backgroundColor: 'yellow',
                 zIndex: index === 235 ? '0' : '500',
-                // opacity: '0.7',
               }}
             />
           </ReactScrollWheelHandler>

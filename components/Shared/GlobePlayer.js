@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from 'react'
 import { ChamberGlobeContext } from '../../contexts/ChamberGlobeContext'
 import { FountainContext } from '../../contexts/FountainContext'
 
-const GlobePlayer = ({ children }) => {
+const GlobePlayer = ({ children, source }) => {
   const [hasMounted, setHasMounted] = useState(false)
   const [width, setWidth] = useState(112)
 
@@ -34,7 +34,7 @@ const GlobePlayer = ({ children }) => {
         {/* <Wrapper autoPlay loop globeWidth={globeWidth} globeHeight={globeHeight} globeRatio={globeRatio}>
         {children}
       </Wrapper> */}
-        <WrapperF playsInline autoPlay muted loop fountainWidth={width} fountainRatio={fountainRatio}>
+        <WrapperF playsInline autoPlay muted loop fountainWidth={width} fountainRatio={fountainRatio} src={source}>
           {children}
         </WrapperF>
       </>

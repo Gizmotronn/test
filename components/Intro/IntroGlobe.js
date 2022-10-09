@@ -6,7 +6,7 @@ const IntroGlobe = () => {
   return (
     <IntroPlayer playsInline autoPlay muted loop>
       <source
-        src='https://res.cloudinary.com/bricktorigins/video/upload/v1664764436/globes/intro/intro_globe_uahsbn.mp4'
+        src='https://res.cloudinary.com/bricktorigins/video/upload/q_auto,f_auto/v1664764436/globes/intro/intro_globe_uahsbn.mp4'
         type='video/mp4'
       />
       <MessageContainer>
