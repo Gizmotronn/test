@@ -20,13 +20,8 @@ export default function CurtainCanvas(props) {
   //     .toString()
   //     .padStart(4, '0')}.jpg`
 
-  // const getCurrentFrame = (index) =>
-  //   `https://res.cloudinary.com/bricktorigins/image/upload/v1664857485/curtain/Curtain_c_1.${index
-  //     .toString()
-  //     .padStart(4, '0')}.png`
-
   const getCurrentFrame = (index) =>
-    `https://res.cloudinary.com/bricktorigins/image/upload/v1664857485/curtain/Please_Be_Seated.0001${index
+    `https://res.cloudinary.com/bricktorigins/image/upload/q_auto,f_auto/v1664857485/curtain/Please_Be_Seated.0001${index
       .toString()
       .padStart(3, '0')}.png`
 
@@ -36,16 +31,16 @@ export default function CurtainCanvas(props) {
       return
     }
 
-    return setIndex(index - 1)
+    return setIndex(index - 5)
   }
 
   // 👇 Handle scroll / down arrow FORWARD
   const nextIndex = () => {
-    if (index === frameCount - 1) {
+    if (index === frameCount - 5) {
       return
     }
 
-    return setIndex(index + 1)
+    return setIndex(index + 5)
   }
 
   // 👇 Render the CANVAS
@@ -75,6 +70,7 @@ export default function CurtainCanvas(props) {
     }
 
     const context = ref.current.getContext('2d')
+
     let requestId
 
     const render = () => {
@@ -83,6 +79,7 @@ export default function CurtainCanvas(props) {
     }
 
     render()
+    context.clearRect(0, 0, canvasWidth, canvasHeight) // Clear the canvas before the drawing the next image in the sequence
 
     return () => cancelAnimationFrame(requestId)
   }, [index, images])
