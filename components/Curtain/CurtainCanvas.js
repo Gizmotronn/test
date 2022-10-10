@@ -99,7 +99,6 @@ export default function CurtainCanvas(props) {
               ref={ref}
               width={canvasWidth}
               height={canvasHeight}
-              onMouseOver={() => console.log('poop')}
               style={{
                 position: 'fixed',
                 left: '50%',
