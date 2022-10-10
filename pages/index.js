@@ -39,10 +39,10 @@ export default function Home({ windowSize }) {
 
   return (
     <>
-      <CurtainCanvas route='/' />
       <Container>
         {width > 767 && height > 551 ? (
           <>
+            <CurtainCanvas route='/' />
             <ChamberContainer>
               <ChamberRow>
                 <ChamberGlobePlaceholder />
