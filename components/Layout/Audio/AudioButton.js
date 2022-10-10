@@ -5,7 +5,7 @@ import { AudioContext } from '../../../contexts/AudioContext'
 import AudioGlobe from './AudioGlobe'
 
 // const soundURL = `/bricktOrigins-audio.mp3`
-const soundURL = `https://res.cloudinary.com/bricktorigins/video/upload/v1664764973/audio/bricktorigins_audio_atzzve.mp3`
+const soundURL = `https://res.cloudinary.com/bricktorigins/video/upload/br_50k/v1664764973/audio/bricktorigins_audio_atzzve.mp3`
 
 const AudioButton = () => {
   const [play, { pause }] = useSound(soundURL)
