@@ -6,7 +6,6 @@ export default function CurtainCanvas(props) {
   const [images, setImages] = useState([])
 
   const [index, setIndex] = useState(0)
-  console.log('🚀 ~ file: CurtainCanvas.js ~ line 9 ~ CurtainCanvas ~ index', index)
 
   const { route } = props
 
@@ -88,11 +87,18 @@ export default function CurtainCanvas(props) {
     <>
       {route === '/' && (
         <>
-          <ReactScrollWheelHandler upHandler={prevIndex} downHandler={nextIndex} timeout={0}>
+          <ReactScrollWheelHandler
+            upHandler={prevIndex}
+            downHandler={nextIndex}
+            rightHandler={nextIndex}
+            leftHandler={prevIndex}
+            timeout={0}
+          >
             <canvas
               ref={ref}
               width={canvasWidth}
               height={canvasHeight}
+              onMouseOver={() => console.log('poop')}
               style={{
                 position: 'fixed',
                 left: '50%',
@@ -101,6 +107,7 @@ export default function CurtainCanvas(props) {
                 width: '100vw',
                 height: '100vh',
                 zIndex: index === frameCount - 1 ? '0' : '500',
+                // background: index === frameCount - 1 ? 'yellow' : 'pink',
               }}
             />
           </ReactScrollWheelHandler>
