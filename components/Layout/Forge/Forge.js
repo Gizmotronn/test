@@ -5,7 +5,7 @@ import ForgeGlobe from './ForgeGlobe'
 import ForgeNFT from '../../ForgeNFT'
 
 export default function ForgeNav(props) {
-  const [forge, setForge] = useState(true)
+  const [forge, setForge] = useState(false)
 
   const { route, windowSize } = props
 
