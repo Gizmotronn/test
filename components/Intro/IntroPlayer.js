@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
 
-const IntroPlayer = ({ children }) => {
+const IntroPlayer = ({ children, source, hasLoaded }) => {
   return (
-    <Wrapper playsInline autoPlay muted loop>
+    <Wrapper playsInline autoPlay muted loop src={source} hasLoaded={hasLoaded}>
       {children}
     </Wrapper>
   )
@@ -15,5 +15,5 @@ const Wrapper = styled.video`
   height: 182px;
   clip-path: circle(50%);
   background: inherit;
-  cursor: pointer;
+  cursor: ${(props) => (props.hasLoaded ? 'pointer' : 'not-allowed')};
 `

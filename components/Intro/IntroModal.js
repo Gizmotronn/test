@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Portal from '../Shared/Portal'
 import { AudioContext } from '../../contexts/AudioContext'
@@ -7,6 +7,8 @@ import IntroGlobe from './IntroGlobe'
 export default function Modal(props) {
   const [open, setOpen] = useState(props.showModal)
   const [removeModal, setRemoveModal] = useState(false)
+  const [hasLoaded, setHasLoaded] = useState(false)
+  console.log('🚀 ~ file: IntroModal.js ~ line 11 ~ Modal ~ hasLoaded', hasLoaded)
 
   const { route } = props
 
@@ -45,6 +47,12 @@ export default function Modal(props) {
       },
     },
   }
+
+  useEffect(() => {
+    setInterval(() => {
+      setHasLoaded(true)
+    }, 12000)
+  }, [hasLoaded])
 
   return (
     <>
@@ -85,13 +93,22 @@ export default function Modal(props) {
                 height: '100%',
               }}
             >
-              <button
-                onClick={handleClick}
-                type='button'
-                style={{ background: 'inherit', padding: 0, border: 'none', borderRadius: '50%' }}
-              >
-                <IntroGlobe />
-              </button>
+              {hasLoaded && (
+                <button
+                  onClick={handleClick}
+                  type='button'
+                  style={{
+                    background: 'inherit',
+                    padding: 0,
+                    border: 'none',
+                    borderRadius: '50%',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <IntroGlobe hasLoaded={hasLoaded} />
+                </button>
+              )}
+              {!hasLoaded && <IntroGlobe hasLoaded={hasLoaded} />}
             </motion.div>
           </motion.div>
         </Portal>
