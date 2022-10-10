@@ -51,7 +51,7 @@ export default function Modal(props) {
   useEffect(() => {
     setInterval(() => {
       setHasLoaded(true)
-    }, 5000)
+    }, 3000)
   }, [hasLoaded])
 
   return (
