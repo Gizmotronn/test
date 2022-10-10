@@ -6,7 +6,6 @@ export default function CurtainCanvas(props) {
   const [images, setImages] = useState([])
 
   const [index, setIndex] = useState(0)
-  console.log('🚀 ~ file: CurtainCanvas.js ~ line 9 ~ CurtainCanvas ~ index', index)
 
   const { route } = props
 

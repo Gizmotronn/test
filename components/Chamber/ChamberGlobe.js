@@ -1,14 +1,12 @@
 import styled from '@emotion/styled'
 import ChamberPlayer from './ChamberPlayer'
+import { CHAMBERGLOBE } from '../../constants'
 import Text from '../Shared/Text'
 
 const ChamberGlobe = () => {
   return (
     <ChamberPlayer>
-      <source
-        src='https://res.cloudinary.com/bricktorigins/video/upload/q_auto,f_auto/v1664764227/globes/inactive/inactive_globe_hmrbyv.mp4'
-        type='video/mp4'
-      />
+      <source src={CHAMBERGLOBE.inActive} type='video/mp4' />
       <MessageContainer>
         <Text size='12px'>Sorry, your browser does not support embedded videos.</Text>
       </MessageContainer>
