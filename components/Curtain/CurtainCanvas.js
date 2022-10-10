@@ -26,7 +26,7 @@ export default function CurtainCanvas(props) {
 
   // 👇 Handle scroll / up arrow BACK
   const prevIndex = () => {
-    if (index === 1) {
+    if (index === 0) {
       return
     }
 
