@@ -73,6 +73,7 @@ export default function CurtainCanvas(props) {
     let requestId
 
     const render = () => {
+      context.clearRect(0, 0, canvasWidth, canvasHeight) // Clear the canvas
       context.drawImage(images[index], 0, 0)
       requestId = requestAnimationFrame(render)
     }
