@@ -108,7 +108,7 @@ export default function CurtainCanvas(props) {
                 width: '100vw',
                 height: '100vh',
                 zIndex: index === frameCount - 1 ? '0' : '500',
-                // background: index === frameCount - 1 ? 'yellow' : 'pink',
+                cursor: 'all-scroll',
               }}
             />
           </ReactScrollWheelHandler>

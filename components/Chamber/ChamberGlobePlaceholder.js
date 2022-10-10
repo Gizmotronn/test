@@ -5,12 +5,19 @@ import Text from '../Shared/Text'
 
 const ChamberGlobePlaceholder = () => {
   return (
-    <ChamberPlayerPlaceholder>
-      <source src={CHAMBERGLOBE.inActive} type='video/mp4' />
-      <MessageContainer>
-        <Text size='12px'>Sorry, your browser does not support embedded videos.</Text>
-      </MessageContainer>
-    </ChamberPlayerPlaceholder>
+    <a
+      href='https://opensea.io/collection/bricktopians-by-law-degree'
+      target='_blank'
+      rel='noopener noreferrer'
+      style={{ cursor: true ? 'pointer' : 'not-allowed', display: 'contents' }}
+    >
+      <ChamberPlayerPlaceholder>
+        <source src={CHAMBERGLOBE.inActive} type='video/mp4' />
+        <MessageContainer>
+          <Text size='12px'>Sorry, your browser does not support embedded videos.</Text>
+        </MessageContainer>
+      </ChamberPlayerPlaceholder>
+    </a>
   )
 }
 
