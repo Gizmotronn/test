@@ -6,6 +6,7 @@ export default function CurtainCanvas(props) {
   const [images, setImages] = useState([])
 
   const [index, setIndex] = useState(0)
+  console.log('🚀 ~ file: CurtainCanvas.js ~ line 9 ~ CurtainCanvas ~ index', index)
 
   const { route } = props
 
@@ -99,7 +100,7 @@ export default function CurtainCanvas(props) {
                 transform: 'translate(-50%, -50%)',
                 width: '100vw',
                 height: '100vh',
-                zIndex: index === 49 ? '0' : '500',
+                zIndex: index === frameCount - 1 ? '0' : '500',
               }}
             />
           </ReactScrollWheelHandler>
