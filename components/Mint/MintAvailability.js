@@ -10,7 +10,7 @@ const MintAvailability = () => {
     <>
       <MintGlobe placeholder={true} />
       <MintGlobe>
-        <Text size='calc(1rem + 0.6vw)'>{nftAvailability}</Text>
+        <Text>{nftAvailability}</Text>
       </MintGlobe>
       <MintGlobe placeholder={true} />
     </>

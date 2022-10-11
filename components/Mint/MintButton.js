@@ -1,12 +1,14 @@
 import styled from '@emotion/styled'
-import MintGlobe from './Mint/MintGlobe'
+import MintGlobe from './MintGlobe'
+import { BASEFONTSIZE } from '../../constants'
 
 const MintButton = () => {
   return (
     <>
       <MintGlobe placeholder={true} />
       <MintGlobe>
-        <Button fontSize='calc(1rem + 0.6vw)'>Mint</Button>
+        <Button>Mint</Button>
+        {/* <Button fontSize='calc(1rem + 0.6vw)'>Mint</Button> */}
       </MintGlobe>
       <MintGlobe placeholder={true} />
     </>
@@ -23,7 +25,7 @@ const Button = styled.button`
   align-items: center;
   background: inherit;
   border: none;
-  font-size: ${(props) => props.fontSize || '22px'};
+  font-size: ${(props) => props.fontSize || BASEFONTSIZE};
   font-family: 'ABCWhyteInktrapVariable';
   font-weight: ${(props) => props.weight || '400'};
   color: #fff;

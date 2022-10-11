@@ -4,6 +4,8 @@ export const COLORS = {
   accent: 'yellow',
 }
 
+export const BASEFONTSIZE = '18px'
+
 export const GLOBES = {
   inActive:
     'https://res.cloudinary.com/bricktorigins/video/upload/q_auto,f_auto/v1664764227/globes/inactive/inactive_globe_hmrbyv.mp4',

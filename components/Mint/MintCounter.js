@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import styled from '@emotion/styled'
 import MintGlobe from './MintGlobe'
-import { Text } from '../../shared/styles'
+import Text from '../Shared/Text'
+import { BASEFONTSIZE } from '../../constants'
 
 const MintCounter = () => {
   const [count, setCount] = useState(1)
@@ -21,17 +22,15 @@ const MintCounter = () => {
   return (
     <>
       <MintGlobe>
-        <Button fontSize='calc(1rem + 1.6vw)' paddingBottom='4px' onClick={handleDecrease} disabled={count === 1}>
+        <Button paddingBottom='4px' onClick={handleDecrease} disabled={count === 1}>
           -
         </Button>
       </MintGlobe>
       <MintGlobe>
-        <Text size='calc(1rem + 1.6vw)'>{count}</Text>
+        <Text>{count}</Text>
       </MintGlobe>
       <MintGlobe>
-        <Button fontSize='calc(1rem + 1.6vw)' onClick={handleIncrease}>
-          +
-        </Button>
+        <Button onClick={handleIncrease}>+</Button>
       </MintGlobe>
     </>
   )
@@ -48,10 +47,16 @@ const Button = styled.button`
   background: inherit;
   border: none;
   border-radius: 50%;
-  font-size: ${(props) => props.fontSize || '34px'};
+  font-size: ${(props) => props.fontSize || BASEFONTSIZE};
   font-family: 'ABCWhyteInktrapVariable';
   font-weight: ${(props) => props.weight || '400'};
   color: #fff;
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
   padding-bottom: ${(props) => props.paddingBottom || '0px'};
 `
+
+{
+  /* <Button fontSize='calc(1rem + 1.6vw)' onClick={handleIncrease}>
+          +
+        </Button> */
+}

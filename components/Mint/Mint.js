@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import MintGlobe from './MintGlobe'
 import MintAvailability from './MintAvailability'
 import MintCounter from './MintCounter'
-import MintButton from '../MintButton'
+import MintButton from './MintButton'
 
 export function Mint({ windowSize }) {
   return (
