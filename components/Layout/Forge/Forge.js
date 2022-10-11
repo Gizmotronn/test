@@ -20,8 +20,9 @@ export default function ForgeNav(props) {
             <nav>
               <ForgeContainer>
                 {route === '/forge' ? (
-                  <ForgeNFT forge={forge} />
+                  <ForgeNFT forge={forge} /> // 👈 Forge logic and messaging
                 ) : forge ? (
+                  // 👇 If ready to Forge show link to Forge page, else show inActive globe and button
                   <ForgeLinkContainer forge={forge}>
                     <Link href='/forge' passHref>
                       <a target='_blank' rel='noopener noreferrer' style={{ cursor: 'pointer' }}>

@@ -1,0 +1,23 @@
+import styled from '@emotion/styled'
+import { COLORS } from '../../constants'
+
+const StandardButton = ({ color, cursor, size, weight, children }) => {
+  return (
+    <Wrapper color={color} cursor={cursor} size={size} weight={weight}>
+      {children}
+    </Wrapper>
+  )
+}
+
+export default StandardButton
+
+const Wrapper = styled.button`
+  background: ${(props) => props.color || COLORS.text};
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 12px;
+  cursor: ${(props) => props.cursor || 'pointer'};
+  font-size: ${(props) => props.size || '18px'};
+  font-family: 'ABCWhyteInktrapVariable';
+  font-weight: ${(props) => props.weight || '400'};
+`

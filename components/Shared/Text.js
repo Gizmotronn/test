@@ -13,6 +13,6 @@ export default Text
 
 const Wrapper = styled.p`
   color: ${(props) => props.color || COLORS.text};
-  font-size: ${(props) => props.size || '22px'};
+  font-size: ${(props) => props.size || '18px'};
   font-weight: ${(props) => props.weight || '400'};
 `

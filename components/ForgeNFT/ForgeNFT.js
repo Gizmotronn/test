@@ -19,9 +19,9 @@ export default function ForgeNav(props) {
 
   return (
     <>
-      {/* Forge Warning Message */}
+      {/* 👇 Forge Warning Message */}
       {showForgeWarning && <ForgeMessageModal showModal={showForgeWarning} modalOpen={handleCloseModal} />}
-      {/* Forge NFT Button */}
+      {/* 👇 Forge NFT Button */}
       <Container>
         <LabelContainer>
           <Text>Forge</Text>

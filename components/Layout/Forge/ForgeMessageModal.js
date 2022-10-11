@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import styled from '@emotion/styled'
-import { Text, StandardButton } from '../../../shared/styles'
+import Text from '../../Shared/Text'
+import StandardButton from '../../Shared/StandardButton'
 import Portal from '../../Shared/Portal'
 import { COLORS } from '../../../constants'
 
@@ -81,25 +82,25 @@ export default function ForgeMessageModal(props) {
             >
               <WarningContainer>
                 <WarningCopy>
-                  <Text size='24px' color='#000'>
+                  <Text size='15px' color='#000'>
                     You are now about to Forge a Monument.
                   </Text>
-                  <Text size='24px' color='#000'>
+                  <Text size='15px' color='#000'>
                     Monumental moments require a monumental sacrifice.
                   </Text>
-                  <Text size='24px' color='#000'>
+                  <Text size='15px' color='#000'>
                     Continuing will combine the essence of all 5 Artifact NFTs, rebirthing them as a Monument.
                   </Text>
-                  <Text size='24px' color='#000'>
+                  <Text size='15px' color='#000'>
                     This will permanently remove one of each artifact NFT from your wallet.
                   </Text>
-                  <Text size='24px' color='#000'>
+                  <Text size='15px' color='#000'>
                     Are you ready?
                   </Text>
                 </WarningCopy>
                 <ButtonsContainer>
                   <ButtonContainer>
-                    <StandardButton onClick={handleClose} type='button'>
+                    <StandardButton onClick={handleClose} type='button' size='15px'>
                       I’m not ready
                     </StandardButton>
                   </ButtonContainer>
@@ -108,6 +109,7 @@ export default function ForgeMessageModal(props) {
                       // onClick={handleClick}
                       type='button'
                       cursor='not-allowed'
+                      size='15px'
                     >
                       Let’s Forge!
                     </StandardButton>
