@@ -32,4 +32,5 @@ const Wrapper = styled.video`
   clip-path: circle(50%);
   border-radius: 50%;
   background: inherit;
+  z-index: 400;
 `

@@ -53,6 +53,7 @@ const Wrapper = styled.video`
 const WrapperF = styled.video`
   width: ${(props) => props.fountainWidth}px;
   height: ${(props) => props.fountainWidth}px;
+  ${'' /* z-index: 400; */}
   ${'' /* width: ${(props) => props.fountainWidth * props.fountainRatio}px; */}
   ${'' /* height: ${(props) => props.fountainWidth * props.fountainRatio}px; */}
 `

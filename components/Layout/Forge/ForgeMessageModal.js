@@ -134,7 +134,8 @@ const WarningContainer = styled.div`
   align-items: center;
   padding: 30px 40px;
   border-radius: 12px;
-  background-color: ${COLORS.accent};
+  border: 1px solid white;
+  background-color: none;
   max-width: 722px;
   max-height: 506px;
 `
