@@ -15,4 +15,5 @@ const Wrapper = styled.p`
   color: ${(props) => props.color || COLORS.text};
   font-size: ${(props) => props.size || BASEFONTSIZE};
   font-weight: ${(props) => props.weight || '400'};
+  line-height: 2.5rem;
 `

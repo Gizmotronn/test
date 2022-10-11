@@ -66,7 +66,7 @@ export default function ForgeMessageModal(props) {
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              background: 'rgba(0, 0, 0, 0.5)',
               padding: '15px',
               cursor: 'not-allowed',
             }}
@@ -89,30 +89,28 @@ export default function ForgeMessageModal(props) {
                 width: dimensions.width,
                 margin: 'auto',
                 borderRadius: '50%',
-                backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                // background: 'rgba(255, 255, 255, 0.7)',
+                // background: 'radial-gradient(#FFF, #000)',
+                // background: 'radial-gradient(circle at 50%, #333, #333 50%, #eee 75%, #333 75%)',
+                background:
+                  'radial-gradient(ellipse at top, #fff, transparent), radial-gradient(ellipse at bottom, #fff, transparent)',
                 cursor: 'auto',
               }}
             >
               <WarningContainer>
                 <WarningCopy>
-                  <Text size='15px' color={COLORS.background}>
-                    You are now about to Forge a Monument.
-                  </Text>
-                  <Text size='15px' color={COLORS.background}>
-                    Monumental moments require a monumental sacrifice.
-                  </Text>
-                  <Text size='15px' color={COLORS.background}>
+                  <Text color={COLORS.background}>You are now about to Forge a Monument.</Text>
+                  <Text color={COLORS.background}>Monumental moments require a monumental sacrifice.</Text>
+                  <Text color={COLORS.background}>
                     Continuing will combine the essence of all 5 Artifact NFTs, rebirthing them as a Monument.
                   </Text>
-                  <Text size='15px' color={COLORS.background}>
+                  <Text color={COLORS.background}>
                     This will permanently remove one of each artifact NFT from your wallet.
                   </Text>
-                  <Text size='15px' color={COLORS.background}>
-                    Are you ready?
-                  </Text>
+                  <Text color={COLORS.background}>Are you ready?</Text>
                 </WarningCopy>
                 <ButtonsContainer>
-                  <RadialButton onClick={handleClose} type='button' size='15px'>
+                  <RadialButton onClick={handleClose} type='button'>
                     I’m not ready
                   </RadialButton>
 
@@ -120,7 +118,6 @@ export default function ForgeMessageModal(props) {
                     // onClick={handleClick}
                     type='button'
                     cursor='not-allowed'
-                    size='15px'
                   >
                     Let’s Forge!
                   </RadialButton>

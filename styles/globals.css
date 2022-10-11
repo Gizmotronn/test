@@ -29,7 +29,7 @@ body,
   2. Improve text rendering
 */
 body {
-  line-height: 1.5;
+  line-height: 1.5em;
   -webkit-font-smoothing: antialiased;
 }
 
