@@ -2,17 +2,19 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import styled from '@emotion/styled'
 import Text from '../../Shared/Text'
-import StandardButton from '../../Shared/StandardButton'
+import RadialButton from '../../Shared/RadialButton'
 import Portal from '../../Shared/Portal'
 import { COLORS } from '../../../constants'
 
 export default function ForgeMessageModal(props) {
+  console.log('🚀 ~ file: ForgeMessageModal.js ~ line 10 ~ ForgeMessageModal ~ props', props)
   const [open, setOpen] = useState(props.showModal)
 
   const handleClose = () => {
     const { modalOpen } = props
     modalOpen(false)
     setOpen(false)
+    console.log('clicked')
   }
 
   const overlayAnimation = {
@@ -100,19 +102,19 @@ export default function ForgeMessageModal(props) {
                 </WarningCopy>
                 <ButtonsContainer>
                   <ButtonContainer>
-                    <StandardButton onClick={handleClose} type='button' size='15px'>
+                    <RadialButton onClick={handleClose} type='button' size='15px'>
                       I’m not ready
-                    </StandardButton>
+                    </RadialButton>
                   </ButtonContainer>
                   <ButtonContainer>
-                    <StandardButton
+                    <RadialButton
                       // onClick={handleClick}
                       type='button'
                       cursor='not-allowed'
                       size='15px'
                     >
                       Let’s Forge!
-                    </StandardButton>
+                    </RadialButton>
                   </ButtonContainer>
                 </ButtonsContainer>
               </WarningContainer>

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { COLORS, BASEFONTSIZE } from '../../constants'
 
-const StandardButton = ({ color, cursor, size, weight, onClick, children }) => {
+const RadialButton = ({ color, cursor, size, weight, onClick, children }) => {
   return (
     <Wrapper color={color} cursor={cursor} size={size} weight={weight} onClick={onClick}>
       {children}
@@ -9,7 +9,7 @@ const StandardButton = ({ color, cursor, size, weight, onClick, children }) => {
   )
 }
 
-export default StandardButton
+export default RadialButton
 
 const Wrapper = styled.button`
   background: ${(props) => props.color || COLORS.text};
