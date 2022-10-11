@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import styled from '@emotion/styled'
 import Text from '../../Shared/Text'
 import RadialButton from '../../Shared/RadialButton'
+import StandardButton from '../../Shared/StandardButton'
 import Portal from '../../Shared/Portal'
 import { COLORS } from '../../../constants'
 
@@ -101,21 +102,21 @@ export default function ForgeMessageModal(props) {
                   </Text>
                 </WarningCopy>
                 <ButtonsContainer>
-                  <ButtonContainer>
-                    <RadialButton onClick={handleClose} type='button' size='15px'>
-                      I’m not ready
-                    </RadialButton>
-                  </ButtonContainer>
-                  <ButtonContainer>
-                    <RadialButton
-                      // onClick={handleClick}
-                      type='button'
-                      cursor='not-allowed'
-                      size='15px'
-                    >
-                      Let’s Forge!
-                    </RadialButton>
-                  </ButtonContainer>
+                  {/* <ButtonContainer> */}
+                  <RadialButton onClick={handleClose} type='button' size='15px'>
+                    I’m not ready
+                  </RadialButton>
+                  {/* </ButtonContainer> */}
+                  {/* <ButtonContainer> */}
+                  <RadialButton
+                    // onClick={handleClick}
+                    type='button'
+                    cursor='not-allowed'
+                    size='15px'
+                  >
+                    Let’s Forge!
+                  </RadialButton>
+                  {/* </ButtonContainer> */}
                 </ButtonsContainer>
               </WarningContainer>
             </motion.div>
@@ -150,7 +151,7 @@ const ButtonsContainer = styled.div`
 `
 
 const ButtonContainer = styled.div`
-  margin: 20px;
+  ${'' /* margin: 40px; */}
 `
 
 // const CancelButton = styled.button`

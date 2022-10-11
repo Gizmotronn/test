@@ -1,9 +1,32 @@
 import styled from '@emotion/styled'
 import { COLORS, BASEFONTSIZE } from '../../constants'
 
-const StandardButton = ({ color, cursor, size, weight, onClick, children }) => {
+const StandardButton = ({
+  width,
+  height,
+  backgroundColor,
+  labelColor,
+  cursor,
+  size,
+  weight,
+  margin,
+  padding,
+  onClick,
+  children,
+}) => {
   return (
-    <Wrapper color={color} cursor={cursor} size={size} weight={weight} onClick={onClick}>
+    <Wrapper
+      width={width}
+      height={height}
+      backgroundColor={backgroundColor}
+      labelColor={labelColor}
+      cursor={cursor}
+      size={size}
+      weight={weight}
+      margin={margin}
+      padding={padding}
+      onClick={onClick}
+    >
       {children}
     </Wrapper>
   )
@@ -12,12 +35,16 @@ const StandardButton = ({ color, cursor, size, weight, onClick, children }) => {
 export default StandardButton
 
 const Wrapper = styled.button`
-  background: ${(props) => props.color || COLORS.text};
-  padding: 20px;
+  width: ${(props) => props.width || '100px'};
+  height: ${(props) => props.height || '80px'};
+  background: ${(props) => props.backgroundColor || COLORS.text};
+  margin: ${(props) => props.margin || '10px'};
+  padding: ${(props) => props.padding || '10px'};
   border: 1px solid black;
   border-radius: 12px;
   cursor: ${(props) => props.cursor || 'pointer'};
   font-size: ${(props) => props.size || BASEFONTSIZE};
   font-family: 'ABCWhyteInktrapVariable';
   font-weight: ${(props) => props.weight || '400'};
+  color: ${(props) => props.labelColor || COLORS.background};
 `
