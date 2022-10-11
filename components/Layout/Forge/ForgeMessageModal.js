@@ -1,14 +1,18 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { motion } from 'framer-motion'
 import styled from '@emotion/styled'
+import { FountainContext } from '../../../contexts/FountainContext'
 import Text from '../../Shared/Text'
 import RadialButton from '../../Shared/RadialButton'
-import StandardButton from '../../Shared/StandardButton'
 import Portal from '../../Shared/Portal'
 import { COLORS } from '../../../constants'
 
 export default function ForgeMessageModal(props) {
-  console.log('🚀 ~ file: ForgeMessageModal.js ~ line 10 ~ ForgeMessageModal ~ props', props)
+  const [dimensions] = useContext(FountainContext)
+  const { width, height } = dimensions
+
+  const heightAdjust = height
+
   const [open, setOpen] = useState(props.showModal)
 
   const handleClose = () => {
@@ -63,6 +67,8 @@ export default function ForgeMessageModal(props) {
               left: '50%',
               transform: 'translate(-50%, -50%)',
               backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              padding: '15px',
+              cursor: 'not-allowed',
             }}
           >
             <motion.div
@@ -79,35 +85,37 @@ export default function ForgeMessageModal(props) {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: '100%',
+                height: heightAdjust,
+                width: dimensions.width,
                 margin: 'auto',
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                cursor: 'auto',
               }}
             >
               <WarningContainer>
                 <WarningCopy>
-                  <Text size='15px' color='#000'>
+                  <Text size='15px' color={COLORS.background}>
                     You are now about to Forge a Monument.
                   </Text>
-                  <Text size='15px' color='#000'>
+                  <Text size='15px' color={COLORS.background}>
                     Monumental moments require a monumental sacrifice.
                   </Text>
-                  <Text size='15px' color='#000'>
+                  <Text size='15px' color={COLORS.background}>
                     Continuing will combine the essence of all 5 Artifact NFTs, rebirthing them as a Monument.
                   </Text>
-                  <Text size='15px' color='#000'>
+                  <Text size='15px' color={COLORS.background}>
                     This will permanently remove one of each artifact NFT from your wallet.
                   </Text>
-                  <Text size='15px' color='#000'>
+                  <Text size='15px' color={COLORS.background}>
                     Are you ready?
                   </Text>
                 </WarningCopy>
                 <ButtonsContainer>
-                  {/* <ButtonContainer> */}
                   <RadialButton onClick={handleClose} type='button' size='15px'>
                     I’m not ready
                   </RadialButton>
-                  {/* </ButtonContainer> */}
-                  {/* <ButtonContainer> */}
+
                   <RadialButton
                     // onClick={handleClick}
                     type='button'
@@ -116,7 +124,6 @@ export default function ForgeMessageModal(props) {
                   >
                     Let’s Forge!
                   </RadialButton>
-                  {/* </ButtonContainer> */}
                 </ButtonsContainer>
               </WarningContainer>
             </motion.div>
@@ -132,17 +139,12 @@ const WarningContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px 40px;
-  border-radius: 12px;
-  border: 1px solid white;
-  background-color: none;
-  max-width: 722px;
-  max-height: 506px;
 `
 
 const WarningCopy = styled.div`
   text-align: center;
-  width: 90%;
+  ${'' /* width: 90%; */}
+  padding: 40px 60px;
 `
 const ButtonsContainer = styled.div`
   display: flex;
@@ -150,23 +152,3 @@ const ButtonsContainer = styled.div`
   align-items: center;
   margin: auto;
 `
-
-const ButtonContainer = styled.div`
-  ${'' /* margin: 40px; */}
-`
-
-// const CancelButton = styled.button`
-//   background: #fff;
-//   padding: 20px;
-//   border: 1px solid black;
-//   border-radius: 12px;
-//   cursor: pointer;
-// `
-
-// const ProceedButton = styled.button`
-//   background: #fff;
-//   padding: 20px;
-//   border: 1px solid black;
-//   border-radius: 12px;
-//   cursor: not-allowed;
-// `
