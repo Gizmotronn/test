@@ -8,7 +8,6 @@ export default function Modal(props) {
   const [open, setOpen] = useState(props.showModal)
   const [removeModal, setRemoveModal] = useState(false)
   const [hasLoaded, setHasLoaded] = useState(false)
-  console.log('🚀 ~ file: IntroModal.js ~ line 11 ~ Modal ~ hasLoaded', hasLoaded)
 
   const { route } = props
 
