@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import useDimensions from 'react-cool-dimensions'
 import { FountainContext } from '../../contexts/FountainContext'
 
-const FountainPlayer = ({ children }) => {
+const ForgeFountainPlayer = ({ children }) => {
   const [, setDimensions] = useContext(FountainContext)
 
   // 👇 get and set the Fountain dimensions
@@ -25,13 +25,12 @@ const FountainPlayer = ({ children }) => {
   )
 }
 
-export default FountainPlayer
+export default ForgeFountainPlayer
 
 const Wrapper = styled.video`
-  ${'' /* height: calc(100vh - 32px); */}
-  max-height: 100%;
-  max-width: 100%;
-  clip-path: circle(50%);
+  max-height: calc(100vh - 30px);
+  max-width: calc(100vh - 30px);
+  width: 100%;
   border-radius: 50%;
   ${'' /* border: 3px solid yellow; */}
   background: inherit;

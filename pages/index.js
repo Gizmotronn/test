@@ -80,7 +80,6 @@ const Container = styled.div`
   height: 100%;
   display: flex;
   background: inherit;
-  ${'' /* padding: 7.5px 0px; */}
 `
 
 // 👇 Set CHAMBER to 50% of viewport and as a 'Column'
@@ -100,6 +99,7 @@ const ChamberRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  background: inherit;
 `
 
 // 👇 Set FOUNTAIN to 50% of viewport and as a 'Column'
@@ -110,6 +110,5 @@ const FountainContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   background: inherit;
-  ${'' /* padding: 15px 15px 15px 7.5px; */}
-  padding: 0 15px 0 7.5px;
+  padding: 15px 15px 15px 7.5px;
 `

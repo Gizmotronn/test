@@ -11,8 +11,6 @@ export default function ForgeMessageModal(props) {
   const [dimensions] = useContext(FountainContext)
   const { width, height } = dimensions
 
-  const heightAdjust = height
-
   const [open, setOpen] = useState(props.showModal)
 
   const handleClose = () => {
@@ -69,6 +67,7 @@ export default function ForgeMessageModal(props) {
               background: 'rgba(0, 0, 0, 0.5)',
               padding: '15px',
               cursor: 'not-allowed',
+              display: 'flex',
             }}
           >
             <motion.div
@@ -85,13 +84,11 @@ export default function ForgeMessageModal(props) {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: heightAdjust,
+                height: dimensions.height,
                 width: dimensions.width,
                 margin: 'auto',
                 borderRadius: '50%',
                 // background: 'rgba(255, 255, 255, 0.7)',
-                // background: 'radial-gradient(#FFF, #000)',
-                // background: 'radial-gradient(circle at 50%, #333, #333 50%, #eee 75%, #333 75%)',
                 background:
                   'radial-gradient(ellipse at top, #fff, transparent), radial-gradient(ellipse at bottom, #fff, transparent)',
                 cursor: 'auto',
@@ -141,7 +138,7 @@ const WarningContainer = styled.div`
 const WarningCopy = styled.div`
   text-align: center;
   ${'' /* width: 90%; */}
-  padding: 40px 60px;
+  padding: 40px 200px;
 `
 const ButtonsContainer = styled.div`
   display: flex;

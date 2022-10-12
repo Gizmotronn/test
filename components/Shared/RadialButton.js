@@ -36,7 +36,7 @@ const Wrapper = styled.button`
   width: ${(props) => props.width || '100px'};
   height: ${(props) => props.width || '100px'};
   background: ${(props) => props.backgroundColor || COLORS.background};
-  margin: ${(props) => props.margin || '40px'};
+  margin: ${(props) => props.margin || '20px 30px'};
   padding: ${(props) => props.padding || '20px'};
   border-radius: 50%;
   border: none;
