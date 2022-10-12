@@ -32,7 +32,7 @@ const Container = styled.div`
 `
 
 // 👇 Set MINT Container to 50% of viewport and as a 'Column'
-// ❕ Using 'width' instead of 'flex' to fix issue with MinGlobe flickering when scaling based on Fountain size
+// ❕ Using 'width' instead of 'flex' to fix issue with MintGlobe flickering when scaling based on Fountain size
 const MintContainer = styled.div`
   display: flex;
   flex-direction: column;

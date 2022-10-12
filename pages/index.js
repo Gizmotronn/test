@@ -90,7 +90,6 @@ const ChamberContainer = styled.div`
   justify-content: center;
   align-items: center;
   background: inherit;
-  ${'' /* padding: 7.5px 0px 7.5px 0px; */}
 `
 
 const ChamberRow = styled.div`
