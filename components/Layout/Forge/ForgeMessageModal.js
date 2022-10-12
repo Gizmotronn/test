@@ -95,7 +95,7 @@ export default function ForgeMessageModal(props) {
               }}
             >
               <WarningContainer>
-                <WarningCopy>
+                <WarningCopy padding={height <= 560 ? '55px 0px 5px 0px' : '30px 0px 30px 0px'}>
                   <Text color={COLORS.background}>You are now about to Forge a Monument.</Text>
                   <Text color={COLORS.background}>Monumental moments require a monumental sacrifice.</Text>
                   <Text color={COLORS.background}>
@@ -133,12 +133,15 @@ const WarningContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  ${'' /* margin: 30px 0px; */}
 `
 
 const WarningCopy = styled.div`
   text-align: center;
-  ${'' /* width: 90%; */}
-  padding: 40px 200px;
+  width: 70%;
+  padding: ${(props) => props.padding};
+  ${'' /* padding: 30px 0px 10px 0px; */}
+  ${'' /* padding: 55px 0px 5px 0px; */};
 `
 const ButtonsContainer = styled.div`
   display: flex;
