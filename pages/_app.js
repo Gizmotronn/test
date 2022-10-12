@@ -3,6 +3,7 @@ import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { chain, configureChains, createClient, WagmiConfig } from 'wagmi'
 // import { infuraProvider } from 'wagmi/providers/infura'
 import { publicProvider } from 'wagmi/providers/public'
+import { MoralisProvider } from 'react-moralis'
 import { useRouter } from 'next/router'
 import useWindowSize from '../hooks/useWindowSize'
 import AudioProvider from '../contexts/AudioContext'
@@ -40,10 +41,12 @@ function MyApp({ Component, pageProps }) {
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
         <AudioProvider>
-          <IntroModal showModal={true} route={appRoute} />
-          <Layout windowSize={size}>
-            <Component {...pageProps} windowSize={size} />
-          </Layout>
+          <MoralisProvider appId={process.env.NEXT_PUBLIC_APP_ID} serverUrl={process.env.NEXT_PUBLIC_SERVER_URL}>
+            <IntroModal showModal={true} route={appRoute} />
+            <Layout windowSize={size}>
+              <Component {...pageProps} windowSize={size} />
+            </Layout>
+          </MoralisProvider>
         </AudioProvider>
       </RainbowKitProvider>
     </WagmiConfig>
