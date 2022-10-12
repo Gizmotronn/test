@@ -88,9 +88,8 @@ export default function ForgeMessageModal(props) {
                 width: dimensions.width,
                 margin: 'auto',
                 borderRadius: '50%',
-                // background: 'rgba(255, 255, 255, 0.7)',
                 background:
-                  'radial-gradient(ellipse at top, #fff, transparent), radial-gradient(ellipse at bottom, #fff, transparent)',
+                  'radial-gradient(ellipse at center, #fff, transparent), radial-gradient(ellipse at center, #fff, transparent)',
                 cursor: 'auto',
               }}
             >
