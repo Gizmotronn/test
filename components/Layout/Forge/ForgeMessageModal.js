@@ -132,15 +132,12 @@ const WarningContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  ${'' /* margin: 30px 0px; */}
 `
 
 const WarningCopy = styled.div`
   text-align: center;
   width: 70%;
   padding: ${(props) => props.padding};
-  ${'' /* padding: 30px 0px 10px 0px; */}
-  ${'' /* padding: 55px 0px 5px 0px; */};
 `
 const ButtonsContainer = styled.div`
   display: flex;
