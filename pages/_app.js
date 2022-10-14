@@ -3,8 +3,6 @@ import { chain, configureChains, createClient, WagmiConfig } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
 // import { infuraProvider } from 'wagmi/providers/infura'
 import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit'
-import { MoralisProvider } from 'react-moralis'
-import { SessionProvider } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import useWindowSize from '../hooks/useWindowSize'
 import AudioProvider from '../contexts/AudioContext'
@@ -16,7 +14,7 @@ import '../styles/fonts.css'
 // const infuraId = process.env.NEXT_PUBLIC_INFURA_ID;
 
 const { chains, provider, webSocketProvider } = configureChains(
-  [chain.polygon],
+  [chain.goerli],
   [publicProvider()]
   // [infuraProvider({ infuraId }), publicProvider()]
 )
@@ -41,18 +39,14 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <WagmiConfig client={wagmiClient}>
-      <SessionProvider session={pageProps.session} refetchInterval={0}>
-        <RainbowKitProvider chains={chains}>
-          <AudioProvider>
-            {/* <MoralisProvider appId={process.env.NEXT_PUBLIC_APP_ID} serverUrl={process.env.NEXT_PUBLIC_SERVER_URL}> */}
-            <IntroModal showModal={true} route={appRoute} />
-            <Layout windowSize={size}>
-              <Component {...pageProps} windowSize={size} />
-            </Layout>
-            {/* </MoralisProvider> */}
-          </AudioProvider>
-        </RainbowKitProvider>
-      </SessionProvider>
+      <RainbowKitProvider chains={chains}>
+        <AudioProvider>
+          <IntroModal showModal={true} route={appRoute} />
+          <Layout windowSize={size}>
+            <Component {...pageProps} windowSize={size} />
+          </Layout>
+        </AudioProvider>
+      </RainbowKitProvider>
     </WagmiConfig>
   )
 }
