@@ -33,8 +33,8 @@ const RadialButton = ({
 export default RadialButton
 
 const Wrapper = styled.button`
-  width: ${(props) => props.width || '100px'};
-  height: ${(props) => props.width || '100px'};
+  width: ${(props) => props.width || '110px'};
+  height: ${(props) => props.width || '110px'};
   background: ${(props) => props.backgroundColor || COLORS.background};
   margin: ${(props) => props.margin || '20px 30px'};
   padding: ${(props) => props.padding || '20px'};

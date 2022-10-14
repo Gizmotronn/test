@@ -1,8 +1,8 @@
 import '@rainbow-me/rainbowkit/styles.css'
-import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { chain, configureChains, createClient, WagmiConfig } from 'wagmi'
-// import { infuraProvider } from 'wagmi/providers/infura'
 import { publicProvider } from 'wagmi/providers/public'
+// import { infuraProvider } from 'wagmi/providers/infura'
+import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { useRouter } from 'next/router'
 import useWindowSize from '../hooks/useWindowSize'
 import AudioProvider from '../contexts/AudioContext'
@@ -13,8 +13,8 @@ import '../styles/fonts.css'
 
 // const infuraId = process.env.NEXT_PUBLIC_INFURA_ID;
 
-const { chains, provider } = configureChains(
-  [chain.polygon],
+const { chains, provider, webSocketProvider } = configureChains(
+  [chain.goerli],
   [publicProvider()]
   // [infuraProvider({ infuraId }), publicProvider()]
 )
@@ -28,6 +28,7 @@ const wagmiClient = createClient({
   autoConnect: true,
   connectors,
   provider,
+  webSocketProvider,
 })
 
 function MyApp({ Component, pageProps }) {

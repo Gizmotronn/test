@@ -106,7 +106,7 @@ export default function ForgeMessageModal(props) {
                   <Text color={COLORS.background}>Are you ready?</Text>
                 </WarningCopy>
                 <ButtonsContainer>
-                  <RadialButton onClick={handleClose} type='button'>
+                  <RadialButton onClick={handleClose} type='button' width={height <= 560 ? '100px' : '120px'}>
                     I’m not ready
                   </RadialButton>
 
@@ -114,6 +114,7 @@ export default function ForgeMessageModal(props) {
                     // onClick={handleClick}
                     type='button'
                     cursor='not-allowed'
+                    width={height <= 560 ? '100px' : '120px'}
                   >
                     Let’s Forge!
                   </RadialButton>

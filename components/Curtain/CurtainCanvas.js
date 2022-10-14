@@ -89,8 +89,8 @@ export default function CurtainCanvas(props) {
       {route === '/' && (
         <>
           <ReactScrollWheelHandler
-            upHandler={prevIndex}
-            downHandler={nextIndex}
+            // upHandler={prevIndex}
+            // downHandler={nextIndex}
             rightHandler={nextIndex}
             leftHandler={prevIndex}
             timeout={0}
@@ -107,7 +107,7 @@ export default function CurtainCanvas(props) {
                 width: '100vw',
                 height: '100vh',
                 zIndex: index === frameCount - 1 ? '0' : '500',
-                cursor: 'all-scroll',
+                cursor: 'ew-resize',
               }}
             />
           </ReactScrollWheelHandler>
