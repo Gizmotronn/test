@@ -28,7 +28,6 @@ const Container = styled.div`
   height: 100%;
   display: flex;
   background: inherit;
-  ${'' /* padding: 15px 15px; */}
 `
 
 // 👇 Set MINT Container to 50% of viewport and as a 'Column'
@@ -51,10 +50,5 @@ const PreRevealContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   background: inherit;
-  ${
-    ''
-    /* padding: 0 7.5px;
-     */
-  }
-  padding: 0 15px 0 7.5px;
+  padding: 15px 15px 15px 7.5px;
 `

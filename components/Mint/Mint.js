@@ -23,6 +23,7 @@ export function Mint({ windowSize }) {
 // 👇 Set a 'Row'
 const MintRow = styled.div`
   width: 100%;
+  max-height: calc(33.66% - 7.5px);
   display: flex;
   flex-direction: row;
   justify-content: center;
