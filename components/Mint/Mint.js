@@ -4,7 +4,7 @@ import MintAvailability from './MintAvailability'
 import MintCounter from './MintCounter'
 import MintButton from './MintButton'
 
-export function Mint({ totalSupply }) {
+export function Mint({ isConnected, totalSupply, contractConfig }) {
   return (
     <>
       <MintRow>
@@ -14,7 +14,7 @@ export function Mint({ totalSupply }) {
         <MintCounter />
       </MintRow>
       <MintRow>
-        <MintButton />
+        <MintButton isConnected={isConnected} contractConfig={contractConfig} />
       </MintRow>
     </>
   )
