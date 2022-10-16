@@ -10,8 +10,9 @@ import ViewportMessage from '../components/ViewportMessage'
 
 export default function Mint({ windowSize, nftId = 0 }) {
   const [totalSupply, setTotalSupply] = useState(6)
-
   const [totalMinted, setTotalMinted] = useState(0)
+  const [alreadyMinted, setAlreadyMinted] = useState(true)
+  console.log('🚀 ~ file: mint.js ~ line 15 ~ Mint ~ alreadyMinted', alreadyMinted)
 
   const { width, height } = windowSize
 
@@ -24,8 +25,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
     contractInterface: contractInterface.abi,
   }
 
-  // 👇 Check USER does NOT ALREADY OWN the NFT
-  // const { isConnected, address } = useAccount()
+  const testAddress = '0x15A4C3b42f3386Cd1A642908525469684Cac7C6d'
 
   // 👇 Get TOTAL SUPPLY
 
@@ -36,11 +36,21 @@ export default function Mint({ windowSize, nftId = 0 }) {
     watch: true,
   })
 
+  // 👇 Check USER does NOT ALREADY OWN the NFT
+  const { data: hasNftData } = useContractRead({
+    ...contractConfig,
+    functionName: 'hasNft',
+    args: [address, nftId],
+    watch: true,
+  })
+
   useEffect(() => {
     if (totalSupplyData) {
       setTotalSupply(totalSupplyData.toNumber())
     }
-  }, [totalSupplyData])
+
+    setAlreadyMinted(hasNftData)
+  }, [totalSupplyData, hasNftData])
 
   // useEffect(() => {
   //   if (totalSupplyData) {
@@ -59,7 +69,12 @@ export default function Mint({ windowSize, nftId = 0 }) {
         {width > 767 && height > 551 ? (
           <>
             <MintContainer>
-              <MintController isConnected={isConnected} totalSupply={totalSupply} contractConfig={contractConfig} />
+              <MintController
+                isConnected={isConnected}
+                totalSupply={totalSupply}
+                contractConfig={contractConfig}
+                alreadyMinted={alreadyMinted}
+              />
             </MintContainer>
             <PreRevealContainer>
               <PreReveal />
