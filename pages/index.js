@@ -1,41 +1,12 @@
 import styled from '@emotion/styled'
 import Head from 'next/head'
 import CurtainCanvas from '../components/Curtain/CurtainCanvas'
-import Chamber from '../components/Chamber'
 import ChamberGlobe from '../components/Chamber/ChamberGlobe'
 import ChamberGlobePlaceholder from '../components/Chamber/ChamberGlobePlaceholder'
 import FountainGlobe from '../components/Fountain/FountainGlobe'
 import ViewportMessage from '../components/ViewportMessage'
 
 export default function Home({ windowSize }) {
-  // const nftData = [
-  //   {
-  //     nft: 1,
-  //     name: 'BricktoPunks',
-  //     mint: true,
-  //   },
-  //   {
-  //     nft: 2,
-  //     name: 'Beers',
-  //     mint: true,
-  //   },
-  //   {
-  //     nft: 3,
-  //     name: 'Super Computer',
-  //     mint: false,
-  //   },
-  //   {
-  //     nft: 4,
-  //     name: 'The Forge',
-  //     mint: false,
-  //   },
-  //   {
-  //     nft: 5,
-  //     name: 'Brain',
-  //     mint: false,
-  //   },
-  // ]
-
   const { width, height } = windowSize
 
   return (

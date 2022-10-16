@@ -8,7 +8,6 @@ export default function Wallet({ windowSize }) {
   const { openConnectModal } = useConnectModal()
   const { openAccountModal } = useAccountModal()
   const { isConnected, address } = useAccount()
-  const { disconnect } = useDisconnect()
 
   return (
     <>
@@ -17,9 +16,8 @@ export default function Wallet({ windowSize }) {
           <InnerContainer>
             <ConnectWallet
               walletConnected={isConnected}
-              connect={() => openConnectModal()}
-              disconnect={() => disconnect()}
-              account={() => openAccountModal()}
+              connect={() => openConnectModal()} // Connect wallet modal
+              account={() => openAccountModal()} // Disconnect wallet modal
             />
             <AddressContainer>
               <Text>

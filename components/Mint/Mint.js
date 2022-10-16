@@ -4,11 +4,11 @@ import MintAvailability from './MintAvailability'
 import MintCounter from './MintCounter'
 import MintButton from './MintButton'
 
-export function Mint({ windowSize }) {
+export function Mint({ totalSupply }) {
   return (
     <>
       <MintRow>
-        <MintAvailability />
+        <MintAvailability totalSupply={totalSupply} />
       </MintRow>
       <MintRow>
         <MintCounter />

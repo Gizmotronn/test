@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import WalletGlobe from '../Layout/Wallet/WalletGlobe'
 
 const ConnectWallet = (props) => {
-  const { walletConnected, connect, disconnect, account } = props
+  const { walletConnected, connect, account } = props
 
   return (
     <>
@@ -24,6 +24,5 @@ const Button = styled.button`
   padding: 0;
   border: none;
   cursor: pointer;
-  ${'' /* cursor: ${(props) => (props.forge ? 'pointer' : 'not-allowed')}; */}
   clip-path: circle(50%);
 `
