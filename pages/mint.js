@@ -6,6 +6,7 @@ import contractInterface from '../constants/contract-abi.json'
 import { CONTRACT_ADDRESS } from '../constants/constants'
 import { Mint as MintController } from '../components/Mint'
 import PreReveal from '../components/PreReveal'
+import MintMessage from '../components/Mint/MintMessage'
 import ViewportMessage from '../components/ViewportMessage'
 
 export default function Mint({ windowSize, nftId = 0 }) {
@@ -35,6 +36,15 @@ export default function Mint({ windowSize, nftId = 0 }) {
     watch: true,
   })
 
+  // 👇 Get TOTAL MINTED
+
+  const { data: totalMintedData } = useContractRead({
+    ...contractConfig,
+    functionName: 'mintedCounterTokenId',
+    args: [nftId],
+    watch: true,
+  })
+
   // 👇 Check USER does NOT ALREADY OWN the NFT
   const { data: hasNftData } = useContractRead({
     ...contractConfig,
@@ -47,15 +57,12 @@ export default function Mint({ windowSize, nftId = 0 }) {
     if (totalSupplyData) {
       setTotalSupply(totalSupplyData.toNumber())
     }
+    if (totalMintedData) {
+      setTotalMinted(totalMintedData.toNumber())
+    }
 
     setAlreadyMinted(hasNftData)
-  }, [totalSupplyData, hasNftData])
-
-  // useEffect(() => {
-  //   if (totalSupplyData) {
-  //     setTotalMinted(totalSupplyData.toNumber())
-  //   }
-  // }, [totalSupplyData])
+  }, [totalSupplyData, totalMintedData, hasNftData])
 
   return (
     <>
@@ -71,11 +78,15 @@ export default function Mint({ windowSize, nftId = 0 }) {
               <MintController
                 isConnected={isConnected}
                 totalSupply={totalSupply}
+                totalMinted={totalMinted}
                 contractConfig={contractConfig}
                 alreadyMinted={alreadyMinted}
               />
             </MintContainer>
             <PreRevealContainer>
+              <MintMessageContainer>
+                <MintMessage showMessage={true} />
+              </MintMessageContainer>
               <PreReveal />
             </PreRevealContainer>
           </>
@@ -114,4 +125,18 @@ const PreRevealContainer = styled.div`
   align-items: flex-start;
   background: inherit;
   padding: 15px 15px 15px 7.5px;
+  position: relative;
+`
+
+const MintMessageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  ${'' /* width: 100%; */}
+  ${'' /* height: 100%; */}
+  justify-content: center;
+  align-items: flex-start;
+  background: yellow;
+  padding: 15px 15px 15px 7.5px;
+  position: absolute;
+  z-index: 999;
 `

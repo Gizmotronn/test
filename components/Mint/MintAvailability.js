@@ -3,15 +3,13 @@ import styled from '@emotion/styled'
 import MintGlobe from './MintGlobe'
 import Text from '../Shared/Text'
 
-const MintAvailability = ({ totalSupply }) => {
-  const nftMinted = '444'
-
+const MintAvailability = ({ totalSupply, totalMinted }) => {
   return (
     <>
       <MintGlobe placeholder={true} />
       <MintGlobe>
         <Text>
-          {nftMinted} / {totalSupply}
+          {totalMinted} / {totalSupply}
         </Text>
       </MintGlobe>
       <MintGlobe placeholder={true} />
