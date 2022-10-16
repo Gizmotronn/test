@@ -5,9 +5,7 @@ import MintGlobe from './MintGlobe'
 import { BASEFONTSIZE } from '../../constants/constants'
 
 const MintButton = ({ isConnected, contractConfig, alreadyMinted }) => {
-  console.log('🚀 ~ file: MintButton.js ~ line 8 ~ MintButton ~ alreadyMinted', alreadyMinted)
   const [eligibleToMint, setEligibleToMint] = useState(false)
-  console.log('🚀 ~ file: MintButton.js ~ line 10 ~ MintButton ~ eligibleToMint', eligibleToMint)
 
   // 👇 MINT - write to contract
 

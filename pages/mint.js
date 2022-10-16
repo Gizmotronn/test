@@ -12,7 +12,6 @@ export default function Mint({ windowSize, nftId = 0 }) {
   const [totalSupply, setTotalSupply] = useState(6)
   const [totalMinted, setTotalMinted] = useState(0)
   const [alreadyMinted, setAlreadyMinted] = useState(true)
-  console.log('🚀 ~ file: mint.js ~ line 15 ~ Mint ~ alreadyMinted', alreadyMinted)
 
   const { width, height } = windowSize
 

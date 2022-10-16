@@ -5,7 +5,6 @@ import MintCounter from './MintCounter'
 import MintButton from './MintButton'
 
 export function Mint({ isConnected, totalSupply, contractConfig, alreadyMinted }) {
-  console.log('🚀 ~ file: Mint.js ~ line 8 ~ Mint ~ alreadyMinted', alreadyMinted)
   return (
     <>
       <MintRow>
