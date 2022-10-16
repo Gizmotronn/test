@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styled from '@emotion/styled'
 import MintGlobe from './MintGlobe'
 import Text from '../Shared/Text'
-import { BASEFONTSIZE } from '../../constants'
+import { BASEFONTSIZE } from '../../constants/constants'
 
 const MintCounter = () => {
   const [count, setCount] = useState(1)

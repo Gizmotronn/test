@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import styled from '@emotion/styled'
 import { FountainContext } from '../../contexts/FountainContext'
 import Text from '../Shared/Text'
-import { COLORS } from '../../constants'
+import { COLORS } from '../../constants/constants'
 
 const MintGlobe = ({ placeholder = false, children }) => {
   const [dimensions] = useContext(FountainContext)

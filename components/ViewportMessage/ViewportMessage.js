@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import Text from '../../components/Shared/Text'
-import { COLORS } from '../../constants'
+import { COLORS } from '../../constants/constants'
 
 export default function ViewportMessage({ windowSize }) {
   const { width, height } = windowSize

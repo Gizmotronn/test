@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { useEffect, useState } from 'react'
 import GlobePlayer from '../../Shared/GlobePlayer'
-import { GLOBES } from '../../../constants'
+import { GLOBES } from '../../../constants/constants'
 import Text from '../../Shared/Text'
 
 const AudioGlobe = ({ isPlaying }) => {

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import Link from 'next/link'
 import ChamberPlayer from './ChamberPlayer'
-import { CHAMBERGLOBE } from '../../constants'
+import { CHAMBERGLOBE } from '../../constants/constants'
 import Text from '../Shared/Text'
 
 const ChamberGlobe = () => {

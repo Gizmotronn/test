@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import FountainPlayer from './FountainPlayer'
 import ForgeFountainPlayer from './ForgeFountainPlayer'
-import { FOUNTAIN } from '../../constants'
+import { FOUNTAIN } from '../../constants/constants'
 import Text from '../Shared/Text'
 
 const FountainGlobe = ({ route }) => {

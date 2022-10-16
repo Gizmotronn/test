@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import FountainGlobe from '../components/Fountain/FountainGlobe'
 import ViewportMessage from '../components/ViewportMessage'
@@ -10,17 +11,24 @@ export default function Forge({ windowSize }) {
   const { route } = router
 
   return (
-    <Container>
-      {width > 767 && height > 551 ? (
-        <>
-          <FountainContainer>
-            <FountainGlobe route={route} />
-          </FountainContainer>
-        </>
-      ) : (
-        <ViewportMessage windowSize={windowSize} />
-      )}
-    </Container>
+    <>
+      <Head>
+        <title>BricktOrigins - Forge</title>
+        <meta name='BricktOrigins Forge' content='BricktOrigins' />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+      <Container>
+        {width > 767 && height > 551 ? (
+          <>
+            <FountainContainer>
+              <FountainGlobe route={route} />
+            </FountainContainer>
+          </>
+        ) : (
+          <ViewportMessage windowSize={windowSize} />
+        )}
+      </Container>
+    </>
   )
 }
 

@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
-import Head from 'next/head'
 import { useRouter } from 'next/router'
 import styled from '@emotion/styled'
-import ChamberGlobeProvider from '../../contexts/ChamberGlobeContext'
 import FountainContextProvider from '../../contexts/FountainContext'
 import HeaderNav from './HeaderNav'
 import FooterNav from './FooterNav'
-import { COLORS } from '../../constants'
+import { COLORS } from '../../constants/constants'
 
 const Layout = ({ children, windowSize }) => {
   const [hasMounted, setHasMounted] = useState(false)
@@ -24,21 +22,14 @@ const Layout = ({ children, windowSize }) => {
 
   return (
     hasMounted && (
-      // <ChamberGlobeProvider>
       <FountainContextProvider>
         <LayoutContainer>
-          <Head>
-            <title>BricktOrigins</title>
-            <meta name='description' content='BricktOrigins' />
-            <link rel='icon' href='/favicon.ico' />
-          </Head>
           <HeaderNav route={route} windowSize={windowSize} />
           {/* FooterNav is fixed positioned and thus we need to place it before <Main> in the render tree so the 'Forge' label sits behind the Fountain (z-index doesn't work as it is fixed positioned) */}
           <FooterNav route={route} windowSize={windowSize} />
           <Main>{children}</Main>
         </LayoutContainer>
       </FountainContextProvider>
-      // </ChamberGlobeProvider>
     )
   )
 }

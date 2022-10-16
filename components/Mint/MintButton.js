@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import MintGlobe from './MintGlobe'
-import { BASEFONTSIZE } from '../../constants'
+import { BASEFONTSIZE } from '../../constants/constants'
 
 const MintButton = () => {
   return (

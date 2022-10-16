@@ -5,7 +5,7 @@ import { FountainContext } from '../../../contexts/FountainContext'
 import Text from '../../Shared/Text'
 import RadialButton from '../../Shared/RadialButton'
 import Portal from '../../Shared/Portal'
-import { COLORS } from '../../../constants'
+import { COLORS } from '../../../constants/constants'
 
 export default function ForgeMessageModal(props) {
   const [dimensions] = useContext(FountainContext)

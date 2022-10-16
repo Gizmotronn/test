@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import Head from 'next/head'
 import CurtainCanvas from '../components/Curtain/CurtainCanvas'
 import Chamber from '../components/Chamber'
 import ChamberGlobe from '../components/Chamber/ChamberGlobe'
@@ -39,6 +40,11 @@ export default function Home({ windowSize }) {
 
   return (
     <>
+      <Head>
+        <title>BricktOrigins</title>
+        <meta name='Welcome to BricktOrigins.' content='BricktOrigins' />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
       <Container>
         {width > 767 && height > 551 ? (
           <>
