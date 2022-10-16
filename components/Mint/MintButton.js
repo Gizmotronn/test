@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'
 import MintGlobe from './MintGlobe'
 import { BASEFONTSIZE } from '../../constants/constants'
+import { useEffect } from 'react'
 
 const MintButton = ({ isConnected, contractConfig }) => {
   // 👇 MINT - write to contract
@@ -19,15 +20,25 @@ const MintButton = ({ isConnected, contractConfig }) => {
 
   const isMinted = txnSuccess
 
+  // useEffect(() => {
+  //   if (isMinted) {
+  //     setAlreadyMinted(isMinted)
+  //   }
+  // }, [isMinted])
+
   return (
     <>
       <MintGlobe placeholder={true} />
       <MintGlobe>
-        <Button isConnected={isConnected} onClick={() => mint?.()} disabled={isMintLoading || isMintStarted}>
-          {isMintLoading && 'Waiting for approval'}
-          {isMintStarted && 'Minting...'}
-          {!isMintLoading && !isMintStarted && 'Mint'}
-        </Button>
+        {isConnected ? (
+          <Button isConnected={isConnected} onClick={() => mint?.()} disabled={isMintLoading || isMintStarted}>
+            {isMintLoading && 'Waiting for approval'}
+            {isMintStarted && 'Minting...'}
+            {!isMintLoading && !isMintStarted && 'Mint'}
+          </Button>
+        ) : (
+          <Button isConnected={isConnected}>Mint</Button>
+        )}
       </MintGlobe>
       <MintGlobe placeholder={true} />
     </>
@@ -47,7 +58,7 @@ const Button = styled.button`
   font-size: ${(props) => props.fontSize || BASEFONTSIZE};
   font-family: 'ABCWhyteInktrapVariable';
   font-weight: ${(props) => props.weight || '400'};
-  color: #fff;
+  color: ${(props) => (props.isConnected ? '#FFF' : 'gray')};
   cursor: ${(props) => (props.isConnected ? 'pointer' : 'not-allowed')};
   ${'' /* margin-top: 25px; */}
   padding-bottom: ${(props) => props.paddingBottom || '0px'};

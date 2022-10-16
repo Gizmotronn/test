@@ -8,8 +8,9 @@ import { Mint as MintController } from '../components/Mint'
 import PreReveal from '../components/PreReveal'
 import ViewportMessage from '../components/ViewportMessage'
 
-export default function Mint({ windowSize }) {
-  const [totalSupply, setTotalSupply] = useState(0)
+export default function Mint({ windowSize, nftId = 0 }) {
+  const [totalSupply, setTotalSupply] = useState(6)
+
   const [totalMinted, setTotalMinted] = useState(0)
 
   const { width, height } = windowSize
@@ -23,12 +24,15 @@ export default function Mint({ windowSize }) {
     contractInterface: contractInterface.abi,
   }
 
+  // 👇 Check USER does NOT ALREADY OWN the NFT
+  // const { isConnected, address } = useAccount()
+
   // 👇 Get TOTAL SUPPLY
 
   const { data: totalSupplyData } = useContractRead({
     ...contractConfig,
     functionName: 'totalSupply',
-    args: [0],
+    args: [nftId],
     watch: true,
   })
 
@@ -38,11 +42,11 @@ export default function Mint({ windowSize }) {
     }
   }, [totalSupplyData])
 
-  useEffect(() => {
-    if (totalSupplyData) {
-      setTotalMinted(totalSupplyData.toNumber())
-    }
-  }, [totalSupplyData])
+  // useEffect(() => {
+  //   if (totalSupplyData) {
+  //     setTotalMinted(totalSupplyData.toNumber())
+  //   }
+  // }, [totalSupplyData])
 
   return (
     <>
