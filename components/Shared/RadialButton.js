@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { COLORS, BASEFONTSIZE } from '../../constants'
+import { COLORS, BASEFONTSIZE } from '../../constants/constants'
 
 const RadialButton = ({
   width,

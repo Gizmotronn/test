@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import ChamberPlayerPlaceholder from './ChamberPlayerPlaceholder'
-import { CHAMBERGLOBE } from '../../constants'
+import { CHAMBERGLOBE } from '../../constants/constants'
 import Text from '../Shared/Text'
 
 const ChamberGlobePlaceholder = () => {

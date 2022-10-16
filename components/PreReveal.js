@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import MintFountainPlayer from './Fountain/MintFountainPlayer'
-import { FOUNTAIN } from '../constants'
+import { FOUNTAIN } from '../constants/constants'
 import Text from './Shared/Text'
 
 const PreReveal = ({ route }) => {

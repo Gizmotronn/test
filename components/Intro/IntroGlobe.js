@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { useState } from 'react'
 import IntroPlayer from './IntroPlayer'
-import { GLOBES } from '../../constants'
+import { GLOBES } from '../../constants/constants'
 import Text from '../Shared/Text'
 
 const IntroGlobe = ({ hasLoaded }) => {

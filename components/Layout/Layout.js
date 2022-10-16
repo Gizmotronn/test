@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
-import Head from 'next/head'
 import { useRouter } from 'next/router'
 import styled from '@emotion/styled'
 import FountainContextProvider from '../../contexts/FountainContext'
 import HeaderNav from './HeaderNav'
 import FooterNav from './FooterNav'
-import { COLORS } from '../../constants'
+import { COLORS } from '../../constants/constants'
 
 const Layout = ({ children, windowSize }) => {
   const [hasMounted, setHasMounted] = useState(false)
