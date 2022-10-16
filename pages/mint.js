@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import Head from 'next/head'
 import { Mint as MintController } from '../components/Mint'
 import PreReveal from '../components/PreReveal'
 import ViewportMessage from '../components/ViewportMessage'
@@ -7,20 +8,27 @@ export default function Mint({ windowSize }) {
   const { width, height } = windowSize
 
   return (
-    <Container>
-      {width > 767 && height > 551 ? (
-        <>
-          <MintContainer>
-            <MintController />
-          </MintContainer>
-          <PreRevealContainer>
-            <PreReveal />
-          </PreRevealContainer>
-        </>
-      ) : (
-        <ViewportMessage windowSize={windowSize} />
-      )}
-    </Container>
+    <>
+      <Head>
+        <title>BricktOrigins - Mint</title>
+        <meta name='Mint BricktOrigins NFTs' content='BricktOrigins' />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+      <Container>
+        {width > 767 && height > 551 ? (
+          <>
+            <MintContainer>
+              <MintController />
+            </MintContainer>
+            <PreRevealContainer>
+              <PreReveal />
+            </PreRevealContainer>
+          </>
+        ) : (
+          <ViewportMessage windowSize={windowSize} />
+        )}
+      </Container>
+    </>
   )
 }
 
