@@ -9,13 +9,12 @@ import { COLORS } from '../../constants/constants'
 
 const MintButton = ({ isConnected, chain, contractConfig, alreadyMinted, nftId, viewportWidth, viewportHeight, x }) => {
   const [eligibleToMint, setEligibleToMint] = useState(false)
-  const [showMessage, setShowMessage] = useState(false)
-  const [showForgeWarning, setShowForgeWarning] = useState(false)
+  const [showMintMessage, setShowMintMessage] = useState(false)
   const [nftHasBeenMinted, setNftHasBeenMinted] = useState(false)
 
   // 👇 Close Mint Message
   const handleCloseModal = (props) => {
-    setShowForgeWarning(props)
+    setShowMintMessage(props)
   }
 
   // 👇 MINT - write to contract
@@ -74,8 +73,11 @@ const MintButton = ({ isConnected, chain, contractConfig, alreadyMinted, nftId, 
 
   useEffect(() => {
     setEligibleToMint(alreadyMinted)
+  }, [isConnected, alreadyMinted])
+
+  useEffect(() => {
     setNftHasBeenMinted(true)
-  }, [isConnected, alreadyMinted, isMinted])
+  }, [isMinted])
   return (
     <>
       <MintGlobe placeholder={true} />

@@ -5,7 +5,7 @@ import { FountainContext } from '../../contexts/FountainContext'
 import RadialButton from '../Shared/RadialButton'
 import Portal from '../Shared/Portal'
 
-export default function MintMessage(props) {
+export default function MintEligibilityMessage(props) {
   const [dimensions] = useContext(FountainContext)
 
   const fountainHeight = dimensions ? dimensions.height : 0
