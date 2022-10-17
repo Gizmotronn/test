@@ -38,11 +38,20 @@ export default function Mint({ windowSize, nftId = 0 }) {
   // 👇 Get Window Size for Viewport Message
   const { width, height } = windowSize
 
-  // 👇 Set the Eligible to Mint Message
-  const EligibilityMessage = () => {
+  // 👇 Set the Already Minted NFT Message
+  const AlreadyMintedMessage = () => {
     return (
       <>
-        <Text color={COLORS.background}>Sorry, you are not eligible to Mint an NFT.</Text>
+        <Text color={COLORS.background}>You have already minted an NFT.</Text>
+      </>
+    )
+  }
+
+  // 👇 Set Not On Whitelist Message
+  const WhitelistMessage = () => {
+    return (
+      <>
+        <Text color={COLORS.background}>You are not on the whitelist.</Text>
       </>
     )
   }
@@ -195,13 +204,21 @@ export default function Mint({ windowSize, nftId = 0 }) {
     }
     if (openedPresale1Data) {
       setSaleType('presale1')
-      setIsWhiteListed1(whitelisted1Data)
-      setWhiteListed1Amount(whitelisted1_amountData.toNumber())
+      if (whitelisted1Data) {
+        setIsWhiteListed1(whitelisted1Data)
+        setWhiteListed1Amount(whitelisted1_amountData.toNumber())
+        return
+      }
+      return
     }
     if (openedPresale2Data) {
       setSaleType('presale2')
-      setIsWhiteListed2(isWhitelisted2Data)
-      setWhiteListed2Amount(whitelisted2_amountData.toNumber())
+      if (isWhitelisted2Data) {
+        setIsWhiteListed2(isWhitelisted2Data)
+        setWhiteListed2Amount(whitelisted2_amountData.toNumber())
+        return
+      }
+      return
     }
   }, [
     isConnected,
@@ -257,7 +274,17 @@ export default function Mint({ windowSize, nftId = 0 }) {
             {alreadyMinted && (
               <MintEligibilityMessage
                 showMessage={true}
-                message={EligibilityMessage}
+                message={AlreadyMintedMessage}
+                modalOpen={handleCloseModal}
+                viewportWidth={width}
+                viewportHeight={height}
+                x={x}
+              />
+            )}
+            {!isWhiteListed1 && !isWhiteListed2 && (
+              <MintEligibilityMessage
+                showMessage={true}
+                message={WhitelistMessage}
                 modalOpen={handleCloseModal}
                 viewportWidth={width}
                 viewportHeight={height}
