@@ -1,20 +1,41 @@
 import styled from '@emotion/styled'
-import MintGlobe from './MintGlobe'
+import MintMessage from './MintMessage'
 import MintAvailability from './MintAvailability'
 import MintCounter from './MintCounter'
 import MintButton from './MintButton'
 
-export function Mint({ windowSize }) {
+export function Mint({
+  isConnected,
+  chain,
+  totalSupply,
+  totalMinted,
+  contractConfig,
+  alreadyMinted,
+  nftId,
+  viewportWidth,
+  viewportHeight,
+  x,
+  maxMintable,
+}) {
   return (
     <>
       <MintRow>
-        <MintAvailability />
+        <MintAvailability totalSupply={totalSupply} totalMinted={totalMinted} />
       </MintRow>
       <MintRow>
-        <MintCounter />
+        <MintCounter isConnected={isConnected} maxMintable={maxMintable} />
       </MintRow>
       <MintRow>
-        <MintButton />
+        <MintButton
+          isConnected={isConnected}
+          chain={chain}
+          contractConfig={contractConfig}
+          alreadyMinted={alreadyMinted}
+          nftId={nftId}
+          viewportWidth={viewportWidth}
+          viewportHeight={viewportHeight}
+          x={x}
+        />
       </MintRow>
     </>
   )

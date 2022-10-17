@@ -4,6 +4,8 @@ import styled from '@emotion/styled'
 import ForgeGlobe from './ForgeGlobe'
 import ForgeNFT from '../../ForgeNFT'
 
+// This component is the Forge Nav Button
+
 export default function ForgeNav(props) {
   const [forge, setForge] = useState(false)
 

@@ -1,18 +1,19 @@
 import { useState, useContext } from 'react'
 import { motion } from 'framer-motion'
 import styled from '@emotion/styled'
-import { FountainContext } from '../../../contexts/FountainContext'
-import Text from '../../Shared/Text'
-import RadialButton from '../../Shared/RadialButton'
-import Portal from '../../Shared/Portal'
-import { COLORS } from '../../../constants/constants'
+import { FountainContext } from '../../contexts/FountainContext'
+import RadialButton from '../Shared/RadialButton'
+import Portal from '../Shared/Portal'
 
-export default function ForgeMessageModal(props) {
+export default function MintEligibilityMessage(props) {
   const [dimensions] = useContext(FountainContext)
-  const { width, height } = dimensions
 
-  const [open, setOpen] = useState(props.showModal)
+  const fountainHeight = dimensions ? dimensions.height : 0
+  const fountainWidth = dimensions ? dimensions.width : 0
 
+  const [open, setOpen] = useState(props.showMessage)
+
+  // 👇 Close Modal
   const handleClose = () => {
     const { modalOpen } = props
     modalOpen(false)
@@ -64,9 +65,11 @@ export default function ForgeMessageModal(props) {
               left: '50%',
               transform: 'translate(-50%, -50%)',
               background: 'rgba(0, 0, 0, 0.5)',
-              padding: '15px',
               cursor: 'not-allowed',
               display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
             }}
           >
             <motion.div
@@ -83,39 +86,24 @@ export default function ForgeMessageModal(props) {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: dimensions.height,
-                width: dimensions.width,
-                margin: 'auto',
+                height: fountainHeight,
+                width: fountainWidth,
                 borderRadius: '50%',
                 background:
                   'radial-gradient(ellipse at center, #fff, transparent), radial-gradient(ellipse at center, #fff, transparent)',
                 cursor: 'auto',
+                margin: '7.5px',
+                position: 'absolute',
+                left: `${props.x}px`,
               }}
             >
               <WarningContainer>
-                <WarningCopy padding={height <= 560 ? '55px 0px 5px 0px' : '30px 0px 30px 0px'}>
-                  <Text color={COLORS.background}>You are now about to Forge a Monument.</Text>
-                  <Text color={COLORS.background}>Monumental moments require a monumental sacrifice.</Text>
-                  <Text color={COLORS.background}>
-                    Continuing will combine the essence of all 5 Artifact NFTs, rebirthing them as a Monument.
-                  </Text>
-                  <Text color={COLORS.background}>
-                    This will permanently remove one of each artifact NFT from your wallet.
-                  </Text>
-                  <Text color={COLORS.background}>Are you ready?</Text>
+                <WarningCopy padding={fountainHeight <= 560 ? '55px 0px 5px 0px' : '30px 0px 30px 0px'}>
+                  {props.message()}
                 </WarningCopy>
                 <ButtonsContainer>
-                  <RadialButton onClick={handleClose} type='button' width={height <= 560 ? '100px' : '120px'}>
-                    I’m not ready
-                  </RadialButton>
-
-                  <RadialButton
-                    // onClick={handleClick}
-                    type='button'
-                    cursor='not-allowed'
-                    width={height <= 560 ? '100px' : '120px'}
-                  >
-                    Let’s Forge!
+                  <RadialButton onClick={handleClose} type='button' width={fountainHeight <= 560 ? '100px' : '120px'}>
+                    Close
                   </RadialButton>
                 </ButtonsContainer>
               </WarningContainer>

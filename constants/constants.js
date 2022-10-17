@@ -1,3 +1,5 @@
+export const CONTRACT_ADDRESS = '0x05f4f4e56463723bE4A1622828348DA00128C570'
+
 export const COLORS = {
   background: '#000',
   text: '#fff',

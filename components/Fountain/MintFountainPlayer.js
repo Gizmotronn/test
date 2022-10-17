@@ -4,9 +4,10 @@ import useDimensions from 'react-cool-dimensions'
 import { FountainContext } from '../../contexts/FountainContext'
 
 const MintFountainPlayer = ({ children }) => {
+  // 👇 Capture the dimensions of the Fountain Player on the Mint page as it resizes so we can use it to set the dimensions of the nav globes
   const [, setDimensions] = useContext(FountainContext)
 
-  // 👇 get and set the Fountain dimensions
+  // 👇 get the dimensions as Video Player resizes and then set the Fountain Context dimensions
   const { observe, unobserve, width, height, entry } = useDimensions({
     onResize: ({ observe, unobserve, width, height, entry }) => {
       // Triggered whenever the size of the target is changed...
