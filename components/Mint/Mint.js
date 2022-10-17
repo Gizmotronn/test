@@ -15,7 +15,6 @@ export function Mint({
   viewportWidth,
   viewportHeight,
   x,
-  y,
 }) {
   return (
     <>
@@ -35,7 +34,6 @@ export function Mint({
           viewportWidth={viewportWidth}
           viewportHeight={viewportHeight}
           x={x}
-          y={y}
         />
       </MintRow>
     </>

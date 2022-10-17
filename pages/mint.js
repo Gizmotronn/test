@@ -6,9 +6,7 @@ import contractInterface from '../constants/contract-abi.json'
 import { CONTRACT_ADDRESS } from '../constants/constants'
 import { Mint as MintController } from '../components/Mint'
 import PreReveal from '../components/Mint/PreReveal'
-import MintMessage from '../components/Mint/MintMessage'
 import ViewportMessage from '../components/ViewportMessage'
-import MintFountain from '../components/Mint/MintFountain'
 
 export default function Mint({ windowSize, nftId = 0 }) {
   const [totalSupply, setTotalSupply] = useState(6)
@@ -16,18 +14,12 @@ export default function Mint({ windowSize, nftId = 0 }) {
   const [alreadyMinted, setAlreadyMinted] = useState(true)
   // 👇 Size the Mint Message
   const fountainRef = useRef()
-  const [x, setX] = useState(100)
-  console.log('🚀 ~ file: mint.js ~ line 20 ~ Mint ~ x', x)
-  const [y, setY] = useState(100)
-  console.log('🚀 ~ file: mint.js ~ line 22 ~ Mint ~ y', y)
+  const [x, setX] = useState(0)
 
   // 👇 Get the position of the Fountain container to use for the Mint Message
   const getPosition = () => {
     const x = fountainRef.current ? fountainRef.current.offsetLeft : 200
     setX(x)
-
-    const y = fountainRef.current ? fountainRef.current.offsetTop : 200
-    setY(y)
   }
 
   const { width, height } = windowSize
@@ -43,8 +35,6 @@ export default function Mint({ windowSize, nftId = 0 }) {
     addressOrName: CONTRACT_ADDRESS,
     contractInterface: contractInterface.abi,
   }
-
-  const testAddress = '0x15A4C3b42f3386Cd1A642908525469684Cac7C6d'
 
   // 👇 Get TOTAL SUPPLY
 
@@ -113,10 +103,9 @@ export default function Mint({ windowSize, nftId = 0 }) {
                 viewportWidth={width}
                 viewportHeight={height}
                 x={x}
-                y={y}
               />
             </MintContainer>
-            {/* <MintFountain /> */}
+
             <PreRevealContainer ref={fountainRef}>
               <PreReveal />
             </PreRevealContainer>

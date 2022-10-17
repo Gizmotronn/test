@@ -8,8 +8,11 @@ import Portal from '../Shared/Portal'
 import { COLORS } from '../../constants/constants'
 
 export default function MintMessage(props) {
+  console.log('🚀 ~ file: MintMessage.js ~ line 11 ~ MintMessage ~ props', props)
   const [dimensions] = useContext(FountainContext)
-  const { width, height } = dimensions
+
+  const fountainHeight = dimensions ? dimensions.height : 0
+  const fountainWidth = dimensions ? dimensions.width : 0
 
   const [open, setOpen] = useState(props.showMessage)
 
@@ -65,7 +68,6 @@ export default function MintMessage(props) {
               left: '50%',
               transform: 'translate(-50%, -50%)',
               background: 'rgba(0, 0, 0, 0.5)',
-              // padding: '15px',
               cursor: 'not-allowed',
               display: 'flex',
               flexDirection: 'column',
@@ -87,8 +89,8 @@ export default function MintMessage(props) {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: dimensions.height,
-                width: dimensions.width,
+                height: fountainHeight,
+                width: fountainWidth,
                 borderRadius: '50%',
                 background:
                   'radial-gradient(ellipse at center, #fff, transparent), radial-gradient(ellipse at center, #fff, transparent)',
@@ -99,11 +101,11 @@ export default function MintMessage(props) {
               }}
             >
               <WarningContainer>
-                <WarningCopy padding={height <= 560 ? '55px 0px 5px 0px' : '30px 0px 30px 0px'}>
+                <WarningCopy padding={fountainHeight <= 560 ? '55px 0px 5px 0px' : '30px 0px 30px 0px'}>
                   {props.message()}
                 </WarningCopy>
                 <ButtonsContainer>
-                  <RadialButton onClick={handleClose} type='button' width={height <= 560 ? '100px' : '120px'}>
+                  <RadialButton onClick={handleClose} type='button' width={fountainHeight <= 560 ? '100px' : '120px'}>
                     Close
                   </RadialButton>
                 </ButtonsContainer>

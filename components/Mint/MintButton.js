@@ -7,17 +7,7 @@ import MintMessage from './MintMessage'
 import Text from '../Shared/Text'
 import { COLORS } from '../../constants/constants'
 
-const MintButton = ({
-  isConnected,
-  chain,
-  contractConfig,
-  alreadyMinted,
-  nftId,
-  viewportWidth,
-  viewportHeight,
-  x,
-  y,
-}) => {
+const MintButton = ({ isConnected, chain, contractConfig, alreadyMinted, nftId, viewportWidth, viewportHeight, x }) => {
   const [eligibleToMint, setEligibleToMint] = useState(false)
   const [showMessage, setShowMessage] = useState(false)
   const [showForgeWarning, setShowForgeWarning] = useState(false)
@@ -108,7 +98,6 @@ const MintButton = ({
           viewportWidth={viewportWidth}
           viewportHeight={viewportHeight}
           x={x}
-          y={y}
         />
       )}
     </>
