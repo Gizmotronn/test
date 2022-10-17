@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import MintGlobe from './MintGlobe'
 import Text from '../Shared/Text'
@@ -22,10 +22,16 @@ const MintCounter = ({ isConnected, maxMintable = 10 }) => {
     } else setCount(currentCount + 1)
   }
 
+  useEffect(() => {
+    if (!isConnected) {
+      setCount(0)
+    }
+  }, [isConnected])
+
   return (
     <>
       <MintGlobe>
-        <Button paddingBottom='4px' onClick={handleDecrease} disabled={count === 1}>
+        <Button paddingBottom='4px' onClick={handleDecrease} disabled={!isConnected || count === 1}>
           -
         </Button>
       </MintGlobe>

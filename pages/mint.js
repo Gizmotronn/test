@@ -175,6 +175,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
     if (publicSaleData) {
       setSaleType('public')
       setMaxMintablePublic(publicMaxMintableCountData)
+      return
     }
     if (openedPresale1Data) {
       setSaleType('presale1')
@@ -230,7 +231,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
                 viewportWidth={width}
                 viewportHeight={height}
                 x={x}
-                maxMintable='12'
+                maxMintable='3'
               />
             </MintContainer>
 
