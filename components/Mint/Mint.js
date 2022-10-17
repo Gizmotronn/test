@@ -15,6 +15,7 @@ export function Mint({
   viewportWidth,
   viewportHeight,
   x,
+  maxMintable,
 }) {
   return (
     <>
@@ -22,7 +23,7 @@ export function Mint({
         <MintAvailability totalSupply={totalSupply} totalMinted={totalMinted} />
       </MintRow>
       <MintRow>
-        <MintCounter />
+        <MintCounter isConnected={isConnected} maxMintable={maxMintable} />
       </MintRow>
       <MintRow>
         <MintButton

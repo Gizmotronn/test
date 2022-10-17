@@ -4,7 +4,7 @@ import MintGlobe from './MintGlobe'
 import Text from '../Shared/Text'
 import { BASEFONTSIZE } from '../../constants/constants'
 
-const MintCounter = () => {
+const MintCounter = ({ isConnected, maxMintable = 10 }) => {
   const [count, setCount] = useState(1)
 
   function handleDecrease() {
@@ -16,7 +16,10 @@ const MintCounter = () => {
 
   function handleIncrease() {
     const currentCount = count
-    setCount(currentCount + 1)
+    const limit = parseInt(maxMintable)
+    if (currentCount === limit) {
+      return
+    } else setCount(currentCount + 1)
   }
 
   return (
@@ -30,7 +33,9 @@ const MintCounter = () => {
         <Text>{count}</Text>
       </MintGlobe>
       <MintGlobe>
-        <Button onClick={handleIncrease}>+</Button>
+        <Button onClick={handleIncrease} disabled={!isConnected || count === parseInt(maxMintable)}>
+          +
+        </Button>
       </MintGlobe>
     </>
   )

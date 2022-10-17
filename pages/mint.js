@@ -18,7 +18,11 @@ export default function Mint({ windowSize, nftId = 0 }) {
   const [saleType, setSaleType] = useState('pending')
   const [maxMintablePublic, setMaxMintablePublic] = useState(0)
   const [isWhiteListed1, setIsWhiteListed1] = useState(false)
+  const [whiteListed1Amount, setWhiteListed1Amount] = useState(0)
+  console.log('🚀 ~ file: mint.js ~ line 21 ~ Mint ~ isWhiteListed1', isWhiteListed1)
+  console.log('🚀 ~ file: mint.js ~ line 22 ~ Mint ~ whiteListed1Amount', whiteListed1Amount)
   const [isWhiteListed2, setIsWhiteListed2] = useState(false)
+  const [whiteListed2Amount, setWhiteListed2Amount] = useState(0)
   const [showEligibilityMessage, setShowEligibilityMessage] = useState(false)
   // 👇 Size the Mint Message
   const fountainRef = useRef()
@@ -85,8 +89,9 @@ export default function Mint({ windowSize, nftId = 0 }) {
     watch: true,
   })
 
+  // ================== PUBLIC SALE ==================
   // 👇 Check if PUBLIC SALE is open
-  const publicSaleData = true
+  const publicSaleData = false
 
   // 👇 Get Public Sale MAX Mint #
   const { data: publicMaxMintableCountData } = useContractRead({
@@ -95,6 +100,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
     watch: true,
   })
 
+  // ================== PRE-SALE 1 ==================
   // 👇 Check if PRE-SALE 1 open
   const { data: openedPresale1Data } = useContractRead({
     ...contractConfig,
@@ -103,12 +109,22 @@ export default function Mint({ windowSize, nftId = 0 }) {
   })
 
   // 👇 Check if user on WHITELIST 1
-  const { data: isWhiteListed1Data } = useContractRead({
+  const { data: whitelisted1Data } = useContractRead({
     ...contractConfig,
-    functionName: 'isWhiteListed1',
-    args: [nftId, address],
+    functionName: 'whitelisted1',
+    args: [address, nftId],
     watch: true,
   })
+
+  // 👇 Check HOW MANY User can mint on WHITELIST 1
+  const { data: whitelisted1_amountData } = useContractRead({
+    ...contractConfig,
+    functionName: 'whitelisted1_amount',
+    args: [address],
+    watch: true,
+  })
+
+  // ================== PRE-SALE 2 ==================
 
   // 👇 Check if PRE-SALE 2 open
   const { data: openedPresale2Data } = useContractRead({
@@ -118,46 +134,71 @@ export default function Mint({ windowSize, nftId = 0 }) {
   })
 
   // 👇 Check if user on WHITELIST 2
-  const { data: isWhiteListed2Data } = useContractRead({
+  const { data: isWhitelisted2Data } = useContractRead({
     ...contractConfig,
-    functionName: 'isWhiteListed2',
+    functionName: 'isWhitelisted2',
     args: [nftId, address],
     watch: true,
   })
 
+  // 👇 Check HOW MANY User can mint on WHITELIST 2
+  const { data: whitelisted2_amountData } = useContractRead({
+    ...contractConfig,
+    functionName: 'whitelisted2_amount',
+    args: [address],
+    watch: true,
+  })
+
   useEffect(() => {
+    if (!isConnected) {
+      return
+    }
+
     getPosition() // 👈 Set the Fountain container position on mount
+
+    // 👇 Get Count and Total Available
     if (totalSupplyData) {
       setTotalSupply(totalSupplyData.toNumber())
     }
     if (totalMintedData) {
       setTotalMinted(totalMintedData.toNumber())
     }
+
+    // 👇 Then check if user has already minted an NFT and throw Message and stop them proceeding if they have
     if (hasNftData) {
       setAlreadyMinted(hasNftData)
+      return
     }
+
+    // 👇 If no NFT has been minted, Proceed:
+
     if (publicSaleData) {
       setSaleType('public')
       setMaxMintablePublic(publicMaxMintableCountData)
     }
     if (openedPresale1Data) {
       setSaleType('presale1')
-      setIsWhiteListed1(isWhiteListed1Data)
+      setIsWhiteListed1(whitelisted1Data)
+      setWhiteListed1Amount(whitelisted1_amountData.toNumber())
     }
     if (openedPresale2Data) {
       setSaleType('presale2')
-      setIsWhiteListed2(isWhiteListed2Data)
+      setIsWhiteListed2(isWhitelisted2Data)
+      setWhiteListed2Amount(whitelisted2_amountData.toNumber())
     }
   }, [
+    isConnected,
     totalSupplyData,
     totalMintedData,
     hasNftData,
     publicSaleData,
-    openedPresale1Data,
-    openedPresale2Data,
     publicMaxMintableCountData,
-    isWhiteListed1Data,
-    isWhiteListed2Data,
+    openedPresale1Data,
+    whitelisted1Data,
+    whitelisted1_amountData,
+    openedPresale2Data,
+    isWhitelisted2Data,
+    whitelisted2_amountData,
   ])
 
   // 👇 Recalculate X and Y when browser window is re-sized
@@ -189,6 +230,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
                 viewportWidth={width}
                 viewportHeight={height}
                 x={x}
+                maxMintable='12'
               />
             </MintContainer>
 

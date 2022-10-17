@@ -76,7 +76,7 @@ const MintButton = ({ isConnected, chain, contractConfig, alreadyMinted, nftId, 
   }, [isConnected, alreadyMinted])
 
   useEffect(() => {
-    setNftHasBeenMinted(true)
+    setNftHasBeenMinted(isMinted)
   }, [isMinted])
   return (
     <>
@@ -89,7 +89,7 @@ const MintButton = ({ isConnected, chain, contractConfig, alreadyMinted, nftId, 
             {!isMintLoading && !isMintStarted && 'Mint'}
           </Button>
         )}
-        {isConnected && alreadyMinted && <DisabledButton>Mint</DisabledButton>}
+        {/* {isConnected && alreadyMinted && <DisabledButton>Mint</DisabledButton>} */}
       </MintGlobe>
       <MintGlobe placeholder={true} />
       {nftHasBeenMinted && (
