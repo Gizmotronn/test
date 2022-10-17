@@ -1,5 +1,5 @@
+import { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
-import MintMessage from './MintMessage'
 import MintAvailability from './MintAvailability'
 import MintCounter from './MintCounter'
 import MintButton from './MintButton'
@@ -18,13 +18,30 @@ export function Mint({
   viewportHeight,
   x,
 }) {
+  const [quantity, setQuantity] = useState()
+
+  const setMintQuantity = (amount) => {
+    console.log('set quant')
+    setQuantity(amount)
+  }
+
+  // useEffect(() => {
+  //   const amount = setMintQuantity()
+  //   setQuantity(amount)
+  // }, [])
+
   return (
     <>
       <MintRow>
         <MintAvailability totalSupply={totalSupply} totalMinted={totalMinted} />
       </MintRow>
       <MintRow>
-        <MintCounter isConnected={isConnected} maxMintable={maxMintable} saleTypeEligible={saleTypeEligible} />
+        <MintCounter
+          isConnected={isConnected}
+          maxMintable={maxMintable}
+          saleTypeEligible={saleTypeEligible}
+          setMintQuantity={setMintQuantity}
+        />
       </MintRow>
       <MintRow>
         <MintButton
@@ -37,6 +54,7 @@ export function Mint({
           viewportWidth={viewportWidth}
           viewportHeight={viewportHeight}
           x={x}
+          nftQantity={quantity}
         />
       </MintRow>
     </>

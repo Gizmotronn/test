@@ -4,8 +4,9 @@ import MintGlobe from './MintGlobe'
 import Text from '../Shared/Text'
 import { BASEFONTSIZE } from '../../constants/constants'
 
-const MintCounter = ({ isConnected, maxMintable = 0, saleTypeEligible }) => {
+const MintCounter = ({ isConnected, maxMintable = 0, saleTypeEligible, setMintQuantity }) => {
   const [count, setCount] = useState(1)
+  setMintQuantity(count)
 
   function handleDecrease() {
     const currentCount = count
@@ -24,14 +25,18 @@ const MintCounter = ({ isConnected, maxMintable = 0, saleTypeEligible }) => {
 
   useEffect(() => {
     if (!isConnected) {
-      setCount(0)
+      setCount(1)
     }
   }, [isConnected])
 
   return (
     <>
       <MintGlobe>
-        <Button paddingBottom='4px' onClick={handleDecrease} disabled={!isConnected || !saleTypeEligible}>
+        <Button
+          paddingBottom='4px'
+          onClick={handleDecrease}
+          disabled={!isConnected || !saleTypeEligible || count === 1}
+        >
           -
         </Button>
       </MintGlobe>

@@ -17,7 +17,9 @@ const MintButton = ({
   viewportWidth,
   viewportHeight,
   x,
+  nftQantity,
 }) => {
+  console.log('🚀 ~ file: MintButton.js ~ line 22 ~ chain', chain)
   const [eligibleToMint, setEligibleToMint] = useState(false)
   const [showMintMessage, setShowMintMessage] = useState(false)
   const [nftHasBeenMinted, setNftHasBeenMinted] = useState(false)
@@ -29,13 +31,17 @@ const MintButton = ({
 
   // 👇 MINT - write to contract
 
-  const { config } = usePrepareContractWrite({
+  const { config, error } = usePrepareContractWrite({
     ...contractConfig,
     functionName: 'mint',
-    args: [nftId],
+    args: [nftId, nftQantity],
   })
+  console.log('🚀 ~ file: MintButton.js ~ line 38 ~ config', config)
+  console.log('🚀 ~ file: MintButton.js ~ line 38 ~ error', error)
 
   const { data: mintData, write: mint, isLoading: isMintLoading, isSuccess: isMintStarted } = useContractWrite(config)
+  console.log('🚀 ~ file: MintButton.js ~ line 42 ~ isMintStarted', isMintStarted)
+  console.log('🚀 ~ file: MintButton.js ~ line 42 ~ mintData', mintData)
 
   const { isSuccess: txnSuccess } = useWaitForTransaction({
     hash: mintData?.hash,
@@ -51,8 +57,8 @@ const MintButton = ({
           View on{' '}
           <a
             href={
-              chain === 'Goerli'
-                ? `https://${chain.name.toLowerCase()}.etherscan.io/tx/${mintData?.hash}`
+              chain.network === 'goerli'
+                ? `https://${chain.network}.etherscan.io/tx/${mintData?.hash}`
                 : `https://etherscan.io/tx/${mintData?.hash}`
             }
             target='_blank'
@@ -92,13 +98,19 @@ const MintButton = ({
     <>
       <MintGlobe placeholder={true} />
       <MintGlobe>
-        {isConnected && !alreadyMinted && saleTypeEligible && (
-          <Button onClick={() => mint?.()} disabled={isMintLoading || isMintStarted}>
-            {isMintLoading && 'Waiting for approval'}
-            {isMintStarted && 'Minting...'}
-            {!isMintLoading && !isMintStarted && 'Mint'}
-          </Button>
-        )}
+        {/* {isConnected && !alreadyMinted && saleTypeEligible && ( */}
+        <Button
+          onClick={() => {
+            console.log('mint')
+            return mint?.()
+          }}
+          disabled={isMintLoading || isMintStarted}
+        >
+          {isMintLoading && 'Waiting for approval'}
+          {isMintStarted && 'Minting...'}
+          {!isMintLoading && !isMintStarted && 'Mint'}
+        </Button>
+        {/* )} */}
         {/* {isConnected && alreadyMinted && <DisabledButton>Mint</DisabledButton>} */}
       </MintGlobe>
       <MintGlobe placeholder={true} />

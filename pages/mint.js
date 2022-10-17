@@ -16,9 +16,9 @@ export default function Mint({ windowSize, nftId = 0 }) {
 
   const [totalSupply, setTotalSupply] = useState(0)
   const [totalMinted, setTotalMinted] = useState(0)
+  console.log('🚀 ~ file: mint.js ~ line 19 ~ Mint ~ totalMinted', totalMinted)
   const [alreadyMinted, setAlreadyMinted] = useState(false)
   const [saleType, setSaleType] = useState('pending')
-  console.log('🚀 ~ file: mint.js ~ line 21 ~ Mint ~ saleType', saleType)
   const [maxMintablePublic, setMaxMintablePublic] = useState(0)
   const [isWhiteListed1, setIsWhiteListed1] = useState(false)
   const [whiteListed1Amount, setWhiteListed1Amount] = useState(0)
@@ -79,7 +79,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
     ...contractConfig,
     functionName: 'totalSupply',
     args: [nftId],
-    watch: true,
+    // watch: true,
   })
 
   // 👇 Get TOTAL MINTED
@@ -88,7 +88,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
     ...contractConfig,
     functionName: 'mintedCounterTokenId',
     args: [nftId],
-    watch: true,
+    // watch: true,
   })
 
   // 👇 Check USER does NOT ALREADY OWN the NFT
@@ -96,7 +96,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
     ...contractConfig,
     functionName: 'hasNft',
     args: [address, nftId],
-    watch: true,
+    // watch: true,
   })
 
   // ================== PUBLIC SALE ==================
@@ -107,7 +107,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
   const { data: publicMaxMintableCountData } = useContractRead({
     ...contractConfig,
     functionName: 'publicMaxMintableCount',
-    watch: true,
+    // watch: true,
   })
 
   // ================== PRE-SALE 1 ==================
@@ -115,7 +115,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
   const { data: openedPresale1Data } = useContractRead({
     ...contractConfig,
     functionName: 'openedPresale1',
-    watch: true,
+    // watch: true,
   })
 
   // 👇 Check if user on WHITELIST 1
@@ -123,7 +123,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
     ...contractConfig,
     functionName: 'whitelisted1',
     args: [address, nftId],
-    watch: true,
+    // watch: true,
   })
 
   // 👇 Check HOW MANY User can mint on WHITELIST 1
@@ -131,7 +131,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
     ...contractConfig,
     functionName: 'whitelisted1_amount',
     args: [address],
-    watch: true,
+    // watch: true,
   })
 
   // ================== PRE-SALE 2 ==================
@@ -140,7 +140,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
   const { data: openedPresale2Data } = useContractRead({
     ...contractConfig,
     functionName: 'openedPresale2',
-    watch: true,
+    // watch: true,
   })
 
   // 👇 Check if user on WHITELIST 2
@@ -148,7 +148,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
     ...contractConfig,
     functionName: 'isWhitelisted2',
     args: [nftId, address],
-    watch: true,
+    // watch: true,
   })
 
   // 👇 Check HOW MANY User can mint on WHITELIST 2
@@ -156,7 +156,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
     ...contractConfig,
     functionName: 'whitelisted2_amount',
     args: [address],
-    watch: true,
+    // watch: true,
   })
 
   const nftMintLimit = () => {
