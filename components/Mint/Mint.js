@@ -6,16 +6,17 @@ import MintButton from './MintButton'
 
 export function Mint({
   isConnected,
+  alreadyMinted,
+  maxMintable,
+  saleTypeEligible,
   chain,
   totalSupply,
   totalMinted,
   contractConfig,
-  alreadyMinted,
   nftId,
   viewportWidth,
   viewportHeight,
   x,
-  maxMintable,
 }) {
   return (
     <>
@@ -23,14 +24,15 @@ export function Mint({
         <MintAvailability totalSupply={totalSupply} totalMinted={totalMinted} />
       </MintRow>
       <MintRow>
-        <MintCounter isConnected={isConnected} maxMintable={maxMintable} />
+        <MintCounter isConnected={isConnected} maxMintable={maxMintable} saleTypeEligible={saleTypeEligible} />
       </MintRow>
       <MintRow>
         <MintButton
           isConnected={isConnected}
+          alreadyMinted={alreadyMinted}
+          saleTypeEligible={saleTypeEligible}
           chain={chain}
           contractConfig={contractConfig}
-          alreadyMinted={alreadyMinted}
           nftId={nftId}
           viewportWidth={viewportWidth}
           viewportHeight={viewportHeight}

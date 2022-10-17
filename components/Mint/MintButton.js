@@ -7,7 +7,17 @@ import MintMessage from './MintMessage'
 import Text from '../Shared/Text'
 import { COLORS } from '../../constants/constants'
 
-const MintButton = ({ isConnected, chain, contractConfig, alreadyMinted, nftId, viewportWidth, viewportHeight, x }) => {
+const MintButton = ({
+  isConnected,
+  saleTypeEligible,
+  alreadyMinted,
+  chain,
+  contractConfig,
+  nftId,
+  viewportWidth,
+  viewportHeight,
+  x,
+}) => {
   const [eligibleToMint, setEligibleToMint] = useState(false)
   const [showMintMessage, setShowMintMessage] = useState(false)
   const [nftHasBeenMinted, setNftHasBeenMinted] = useState(false)
@@ -82,7 +92,7 @@ const MintButton = ({ isConnected, chain, contractConfig, alreadyMinted, nftId, 
     <>
       <MintGlobe placeholder={true} />
       <MintGlobe>
-        {isConnected && !alreadyMinted && (
+        {isConnected && !alreadyMinted && saleTypeEligible && (
           <Button onClick={() => mint?.()} disabled={isMintLoading || isMintStarted}>
             {isMintLoading && 'Waiting for approval'}
             {isMintStarted && 'Minting...'}

@@ -12,16 +12,16 @@ import Text from '../components/Shared/Text'
 import { COLORS } from '../constants/constants'
 
 export default function Mint({ windowSize, nftId = 0 }) {
+  // const [userAccount, setUserAccount] = useState(0)
+
   const [totalSupply, setTotalSupply] = useState(0)
   const [totalMinted, setTotalMinted] = useState(0)
   const [alreadyMinted, setAlreadyMinted] = useState(false)
   const [saleType, setSaleType] = useState('pending')
-  console.log('🚀 ~ file: mint.js ~ line 19 ~ Mint ~ saleType', saleType)
+  console.log('🚀 ~ file: mint.js ~ line 21 ~ Mint ~ saleType', saleType)
   const [maxMintablePublic, setMaxMintablePublic] = useState(0)
   const [isWhiteListed1, setIsWhiteListed1] = useState(false)
   const [whiteListed1Amount, setWhiteListed1Amount] = useState(0)
-  console.log('🚀 ~ file: mint.js ~ line 21 ~ Mint ~ isWhiteListed1', isWhiteListed1)
-  console.log('🚀 ~ file: mint.js ~ line 22 ~ Mint ~ whiteListed1Amount', whiteListed1Amount)
   const [isWhiteListed2, setIsWhiteListed2] = useState(false)
   const [whiteListed2Amount, setWhiteListed2Amount] = useState(0)
   const [showEligibilityMessage, setShowEligibilityMessage] = useState(false)
@@ -174,10 +174,34 @@ export default function Mint({ windowSize, nftId = 0 }) {
     }
   }
 
+  const saleTypeIs = () => {
+    if (saleType === 'pending') {
+      return false
+    }
+    if (saleType === 'public') {
+      return true
+    }
+    if (saleType === 'presale1') {
+      return isWhiteListed1
+    }
+    if (saleType === 'presale2') {
+      return isWhiteListed2
+    }
+  }
+
   useEffect(() => {
     if (!isConnected) {
       return
     }
+
+    // if (isConnected) {
+    //   setUserAccount(address)
+    // }
+
+    // if (userAccount !== address) {
+    //   console.log('reset')
+    //   setUserAccount(address)
+    // }
 
     getPosition() // 👈 Set the Fountain container position on mount
 
@@ -222,6 +246,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
     }
   }, [
     isConnected,
+    address,
     totalSupplyData,
     totalMintedData,
     hasNftData,
@@ -255,23 +280,24 @@ export default function Mint({ windowSize, nftId = 0 }) {
             <MintContainer>
               <MintController
                 isConnected={isConnected}
+                alreadyMinted={alreadyMinted}
+                maxMintable={nftMintLimit()}
+                saleTypeEligible={saleTypeIs()}
                 chain={chain}
                 totalSupply={totalSupply}
                 totalMinted={totalMinted}
                 contractConfig={contractConfig}
-                alreadyMinted={alreadyMinted}
                 nftId={nftId}
                 viewportWidth={width}
                 viewportHeight={height}
                 x={x}
-                maxMintable={nftMintLimit()}
               />
             </MintContainer>
 
             <PreRevealContainer ref={fountainRef}>
               <PreReveal />
             </PreRevealContainer>
-            {alreadyMinted && (
+            {isConnected && alreadyMinted && (
               <MintEligibilityMessage
                 showMessage={true}
                 message={AlreadyMintedMessage}
@@ -281,7 +307,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
                 x={x}
               />
             )}
-            {!isWhiteListed1 && !isWhiteListed2 && (
+            {isConnected && !isWhiteListed1 && !isWhiteListed2 && (
               <MintEligibilityMessage
                 showMessage={true}
                 message={WhitelistMessage}

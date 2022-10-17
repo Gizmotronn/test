@@ -7,7 +7,7 @@ import Text from '../../Shared/Text'
 export default function Wallet({ windowSize }) {
   const { openConnectModal } = useConnectModal()
   const { openAccountModal } = useAccountModal()
-  const { isConnected, address } = useAccount()
+  const { isConnected, address, useDisconnect } = useAccount()
 
   return (
     <>
