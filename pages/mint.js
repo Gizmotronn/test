@@ -16,6 +16,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
   const [totalMinted, setTotalMinted] = useState(0)
   const [alreadyMinted, setAlreadyMinted] = useState(false)
   const [saleType, setSaleType] = useState('pending')
+  console.log('🚀 ~ file: mint.js ~ line 19 ~ Mint ~ saleType', saleType)
   const [maxMintablePublic, setMaxMintablePublic] = useState(0)
   const [isWhiteListed1, setIsWhiteListed1] = useState(false)
   const [whiteListed1Amount, setWhiteListed1Amount] = useState(0)
@@ -149,6 +150,21 @@ export default function Mint({ windowSize, nftId = 0 }) {
     watch: true,
   })
 
+  const nftMintLimit = () => {
+    if (saleType === 'pending') {
+      return 0
+    }
+    if (saleType === 'public') {
+      return maxMintablePublic
+    }
+    if (saleType === 'presale1') {
+      return whiteListed1Amount
+    }
+    if (saleType === 'presale2') {
+      return whiteListed2Amount
+    }
+  }
+
   useEffect(() => {
     if (!isConnected) {
       return
@@ -231,7 +247,7 @@ export default function Mint({ windowSize, nftId = 0 }) {
                 viewportWidth={width}
                 viewportHeight={height}
                 x={x}
-                maxMintable='3'
+                maxMintable={nftMintLimit()}
               />
             </MintContainer>
 

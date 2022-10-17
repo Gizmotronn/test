@@ -4,7 +4,7 @@ import MintGlobe from './MintGlobe'
 import Text from '../Shared/Text'
 import { BASEFONTSIZE } from '../../constants/constants'
 
-const MintCounter = ({ isConnected, maxMintable = 10 }) => {
+const MintCounter = ({ isConnected, maxMintable = 0 }) => {
   const [count, setCount] = useState(1)
 
   function handleDecrease() {
