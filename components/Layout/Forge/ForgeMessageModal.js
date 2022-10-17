@@ -17,7 +17,6 @@ export default function ForgeMessageModal(props) {
     const { modalOpen } = props
     modalOpen(false)
     setOpen(false)
-    console.log('clicked')
   }
 
   const overlayAnimation = {

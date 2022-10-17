@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import styled from '@emotion/styled'
 import { FountainContext } from '../../contexts/FountainContext'
@@ -13,11 +13,11 @@ export default function MintMessage(props) {
 
   const [open, setOpen] = useState(props.showMessage)
 
+  // 👇 Close Modal
   const handleClose = () => {
     const { modalOpen } = props
     modalOpen(false)
     setOpen(false)
-    console.log('clicked')
   }
 
   const overlayAnimation = {
@@ -65,9 +65,12 @@ export default function MintMessage(props) {
               left: '50%',
               transform: 'translate(-50%, -50%)',
               background: 'rgba(0, 0, 0, 0.5)',
-              padding: '15px',
+              // padding: '15px',
               cursor: 'not-allowed',
               display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
             }}
           >
             <motion.div
@@ -86,37 +89,22 @@ export default function MintMessage(props) {
                 alignItems: 'center',
                 height: dimensions.height,
                 width: dimensions.width,
-                margin: 'auto',
                 borderRadius: '50%',
                 background:
                   'radial-gradient(ellipse at center, #fff, transparent), radial-gradient(ellipse at center, #fff, transparent)',
                 cursor: 'auto',
+                margin: '7.5px',
+                position: 'absolute',
+                left: `${props.x}px`,
               }}
             >
               <WarningContainer>
                 <WarningCopy padding={height <= 560 ? '55px 0px 5px 0px' : '30px 0px 30px 0px'}>
-                  <Text color={COLORS.background}>You are now about to Forge a Monument.</Text>
-                  <Text color={COLORS.background}>Monumental moments require a monumental sacrifice.</Text>
-                  <Text color={COLORS.background}>
-                    Continuing will combine the essence of all 5 Artifact NFTs, rebirthing them as a Monument.
-                  </Text>
-                  <Text color={COLORS.background}>
-                    This will permanently remove one of each artifact NFT from your wallet.
-                  </Text>
-                  <Text color={COLORS.background}>Are you ready?</Text>
+                  {props.message()}
                 </WarningCopy>
                 <ButtonsContainer>
                   <RadialButton onClick={handleClose} type='button' width={height <= 560 ? '100px' : '120px'}>
-                    I’m not ready
-                  </RadialButton>
-
-                  <RadialButton
-                    // onClick={handleClick}
-                    type='button'
-                    cursor='not-allowed'
-                    width={height <= 560 ? '100px' : '120px'}
-                  >
-                    Let’s Forge!
+                    Close
                   </RadialButton>
                 </ButtonsContainer>
               </WarningContainer>
