@@ -157,7 +157,7 @@ const DisabledButton = styled.button`
   font-size: ${(props) => props.fontSize || BASEFONTSIZE};
   font-family: 'ABCWhyteInktrapVariable';
   font-weight: ${(props) => props.weight || '400'};
-  color: gray};
+  color: gray;
   cursor: not-allowed;
   ${'' /* margin-top: 25px; */}
   padding-bottom: ${(props) => props.paddingBottom || '0px'};
