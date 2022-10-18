@@ -4,19 +4,18 @@ import Head from 'next/head'
 import { useAccount, useNetwork, useContractRead } from 'wagmi'
 import contractInterface from '../constants/contract-abi.json'
 import { CONTRACT_ADDRESS } from '../constants/constants'
-import { MintController } from '../components/Mint/MintController'
+import MintController from '../components/Mint/MintController'
 import PreReveal from '../components/Mint/PreReveal'
 import ViewportMessage from '../components/ViewportMessage'
 import MintEligibilityMessage from '../components/Mint/MintEligibilityMessage'
 import Text from '../components/Shared/Text'
 import { COLORS } from '../constants/constants'
 
-export default function Mint({ windowSize, nftId = 0 }) {
+export default function MintNft1({ windowSize, nftId = 0 }) {
   // const [userAccount, setUserAccount] = useState(0)
 
   const [totalSupply, setTotalSupply] = useState(0)
   const [totalMinted, setTotalMinted] = useState(0)
-  console.log('🚀 ~ file: mint.js ~ line 19 ~ Mint ~ totalMinted', totalMinted)
   const [alreadyMinted, setAlreadyMinted] = useState(false)
   const [saleType, setSaleType] = useState('pending')
   const [maxMintablePublic, setMaxMintablePublic] = useState(0)
