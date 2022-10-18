@@ -17,8 +17,8 @@ export default function ForgeNav(props) {
     <>
       {width > 767 && height > 551 && (
         <>
-          {/* Show Forge Button on every page EXCEPT Mint */}
-          {route !== '/mint' && (
+          {/* Show Forge Button on every page EXCEPT Mint pages */}
+          {route !== ('/1' || '/2' || '/3' || '/4' || '/5') && (
             <nav>
               <ForgeContainer>
                 {route === '/forge' ? (

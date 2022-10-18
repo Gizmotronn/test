@@ -1,22 +1,17 @@
 import { useEffect, useState, useRef } from 'react'
 import styled from '@emotion/styled'
 import Head from 'next/head'
-import { useAccount, useNetwork, useContractRead } from 'wagmi'
+import { useContractRead } from 'wagmi'
 import contractInterface from '../../constants/contract-abi.json'
 import { CONTRACT_ADDRESS } from '../../constants/constants'
-import MintController from '../../components/Mint/MintController'
-import PreReveal from '../../components/Mint/PreReveal'
-import ViewportMessage from '../../components/ViewportMessage'
+import MintAvailability from './MintAvailability'
+import MintCounter from './MintCounter'
+import MintButton from './MintButton'
 import MintEligibilityMessage from '../../components/Mint/MintEligibilityMessage'
 import Text from '../../components/Shared/Text'
 import { COLORS } from '../../constants/constants'
 
-export default function Mint({ windowSize, nftId = 0 }) {
-  // const [userAccount, setUserAccount] = useState(0)
-
-  const [totalSupply, setTotalSupply] = useState(0)
-  const [totalMinted, setTotalMinted] = useState(0)
-  console.log('🚀 ~ file: mint.js ~ line 19 ~ Mint ~ totalMinted', totalMinted)
+const Mint = ({ isConnected, address, chain, viewportWidth, viewportHeight, nftId, messagePosition }) => {
   const [alreadyMinted, setAlreadyMinted] = useState(false)
   const [saleType, setSaleType] = useState('pending')
   const [maxMintablePublic, setMaxMintablePublic] = useState(0)
@@ -25,19 +20,13 @@ export default function Mint({ windowSize, nftId = 0 }) {
   const [isWhiteListed2, setIsWhiteListed2] = useState(false)
   const [whiteListed2Amount, setWhiteListed2Amount] = useState(0)
   const [showEligibilityMessage, setShowEligibilityMessage] = useState(false)
-  // 👇 Size the Mint Message
-  const fountainRef = useRef()
-  const [x, setX] = useState(0)
+  const [quantity, setQuantity] = useState()
 
-  // 👇 Get the position of the Fountain container to use for the Mint Message
-  const getPosition = () => {
-    const x = fountainRef.current ? fountainRef.current.offsetLeft : 200
-    setX(x)
+  // 👇 Set Mint Quantity Selected by the User and pass to Mint Button
+  const setMintQuantity = (amount) => {
+    // console.log('set quant')
+    setQuantity(amount)
   }
-
-  // 👇 Get Window Size for Viewport Message
-  const { width, height } = windowSize
-
   // 👇 Set the Already Minted NFT Message
   const AlreadyMintedMessage = () => {
     return (
@@ -61,35 +50,11 @@ export default function Mint({ windowSize, nftId = 0 }) {
     setShowEligibilityMessage(props)
   }
 
-  // 👇 Check USER AUTHENTICATED
-  const { isConnected, address } = useAccount()
-
-  // 👇 Get Network details for links to Etherscan and OpenSea
-  const { chain } = useNetwork()
-
   // 👇 CONTRACT CONFIG
   const contractConfig = {
     addressOrName: CONTRACT_ADDRESS,
     contractInterface: contractInterface.abi,
   }
-
-  // 👇 Get TOTAL SUPPLY
-
-  const { data: totalSupplyData } = useContractRead({
-    ...contractConfig,
-    functionName: 'totalSupply',
-    args: [nftId],
-    // watch: true,
-  })
-
-  // 👇 Get TOTAL MINTED
-
-  const { data: totalMintedData } = useContractRead({
-    ...contractConfig,
-    functionName: 'mintedCounterTokenId',
-    args: [nftId],
-    // watch: true,
-  })
 
   // 👇 Check USER does NOT ALREADY OWN the NFT
   const { data: hasNftData } = useContractRead({
@@ -190,29 +155,6 @@ export default function Mint({ windowSize, nftId = 0 }) {
   }
 
   useEffect(() => {
-    if (!isConnected) {
-      return
-    }
-
-    // if (isConnected) {
-    //   setUserAccount(address)
-    // }
-
-    // if (userAccount !== address) {
-    //   console.log('reset')
-    //   setUserAccount(address)
-    // }
-
-    getPosition() // 👈 Set the Fountain container position on mount
-
-    // 👇 Get Count and Total Available
-    if (totalSupplyData) {
-      setTotalSupply(totalSupplyData.toNumber())
-    }
-    if (totalMintedData) {
-      setTotalMinted(totalMintedData.toNumber())
-    }
-
     // 👇 Then check if user has already minted an NFT and throw Message and stop them proceeding if they have
     if (hasNftData) {
       setAlreadyMinted(hasNftData)
@@ -247,8 +189,6 @@ export default function Mint({ windowSize, nftId = 0 }) {
   }, [
     isConnected,
     address,
-    totalSupplyData,
-    totalMintedData,
     hasNftData,
     publicSaleData,
     publicMaxMintableCountData,
@@ -260,13 +200,6 @@ export default function Mint({ windowSize, nftId = 0 }) {
     whitelisted2_amountData,
   ])
 
-  // 👇 Recalculate X and Y when browser window is re-sized
-  useEffect(() => {
-    if (width > 767 && height > 551) {
-      window.addEventListener('resize', getPosition)
-    }
-  }, [width, height])
-
   return (
     <>
       <Head>
@@ -274,86 +207,67 @@ export default function Mint({ windowSize, nftId = 0 }) {
         <meta name='Mint BricktOrigins NFTs' content='BricktOrigins' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Container>
-        {width > 767 && height > 551 ? (
-          <>
-            <MintContainer>
-              <MintController
-                isConnected={isConnected}
-                alreadyMinted={alreadyMinted}
-                maxMintable={nftMintLimit()}
-                saleTypeEligible={saleTypeIs()}
-                chain={chain}
-                totalSupply={totalSupply}
-                totalMinted={totalMinted}
-                contractConfig={contractConfig}
-                nftId={nftId}
-                viewportWidth={width}
-                viewportHeight={height}
-                x={x}
-              />
-            </MintContainer>
 
-            <PreRevealContainer ref={fountainRef}>
-              <PreReveal />
-            </PreRevealContainer>
-            {isConnected && alreadyMinted && (
-              <MintEligibilityMessage
-                showMessage={true}
-                message={AlreadyMintedMessage}
-                modalOpen={handleCloseModal}
-                viewportWidth={width}
-                viewportHeight={height}
-                x={x}
-              />
-            )}
-            {isConnected && !isWhiteListed1 && !isWhiteListed2 && (
-              <MintEligibilityMessage
-                showMessage={true}
-                message={WhitelistMessage}
-                modalOpen={handleCloseModal}
-                viewportWidth={width}
-                viewportHeight={height}
-                x={x}
-              />
-            )}
-          </>
-        ) : (
-          <ViewportMessage windowSize={windowSize} viewportWidth={width} viewportHeight={height} />
+      <>
+        <MintRow>
+          <MintAvailability contractConfig={contractConfig} nftId={nftId} />
+        </MintRow>
+        <MintRow>
+          <MintCounter
+            isConnected={isConnected} // 👈 disable buttons if not connected
+            saleTypeEligible={saleTypeIs()} // 👈 only active when pre-sales or public sale is active
+            maxMintable={nftMintLimit()} // 👈 max a user can mint
+            setMintQuantity={setMintQuantity} // 👈 send user selected amount to Mint Button
+          />
+        </MintRow>
+        <MintRow>
+          <MintButton
+            isConnected={isConnected} // 👈 disable if not connected
+            saleTypeEligible={saleTypeIs()} // 👈 only active when pre-sales or public sale is active
+            alreadyMinted={alreadyMinted} // 👈 disable if user already minted an NFT
+            chain={chain} // 👈 for links to Etherscan and OpenSea on success
+            contractConfig={contractConfig}
+            nftId={nftId}
+            nftQantity={quantity} // 👈 passed from the Mint Counter component
+            x={messagePosition} // 👈 for Mint Message position
+            viewportWidth={viewportWidth} // 👈 for Mint Message responsive styling
+            viewportHeight={viewportHeight} // 👈 for Mint Message responsive styling
+          />
+        </MintRow>
+
+        {isConnected && alreadyMinted && (
+          <MintEligibilityMessage
+            showMessage={true}
+            message={AlreadyMintedMessage}
+            modalOpen={handleCloseModal}
+            viewportWidth={viewportWidth}
+            viewportHeight={viewportHeight}
+            x={messagePosition}
+          />
         )}
-      </Container>
+        {isConnected && !isWhiteListed1 && !isWhiteListed2 && (
+          <MintEligibilityMessage
+            showMessage={true}
+            message={WhitelistMessage}
+            modalOpen={handleCloseModal}
+            viewportWidth={viewportWidth}
+            viewportHeight={viewportHeight}
+            x={messagePosition}
+          />
+        )}
+      </>
     </>
   )
 }
 
-const Container = styled.div`
-  height: 100%;
-  display: flex;
-  background: inherit;
-  position: relative;
-`
+export default Mint
 
-// 👇 Set MINT Container to 50% of viewport and as a 'Column'
-// ❕ Using 'width' instead of 'flex' to fix issue with MintGlobe flickering when scaling based on Fountain size
-const MintContainer = styled.div`
+// 👇 Set a 'Row'
+const MintRow = styled.div`
+  width: 100%;
+  max-height: calc(33.66% - 7.5px);
   display: flex;
-  flex-direction: column;
-  width: 50%;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  background: inherit;
-`
-
-// 👇 Set PRE-REVEAL to 50% of viewport and as a 'Column'
-// ❕ Using 'width' instead of 'flex' to fix issue with MinGlobe flickering when scaling based on Fountain size
-const PreRevealContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  ${'' /* height: 100%; */}
-  justify-content: center;
-  align-items: flex-start;
-  background: inherit;
-  padding: 15px 15px 15px 7.5px;
-  ${'' /* position: relative; */}
+  justify-content: flex-end;
 `

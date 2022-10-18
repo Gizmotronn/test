@@ -21,7 +21,7 @@ export default function MintController({
   const [quantity, setQuantity] = useState()
 
   const setMintQuantity = (amount) => {
-    console.log('set quant')
+    // console.log('set quant')
     setQuantity(amount)
   }
 
