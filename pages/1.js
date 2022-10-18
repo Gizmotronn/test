@@ -8,12 +8,15 @@ import ViewportMessage from '../components/ViewportMessage'
 
 const MintNft1 = ({ route, windowSize }) => {
   // 👇 Position of the Fountain container
-  const fountainRef = useRef()
+
+  const ref = useRef()
+  console.log('🚀 ~ file: 1.js ~ line 13 ~ MintNft1 ~ ref', ref)
+
   const [x, setX] = useState(0)
 
   // 👇 Get the position of the Fountain container to use for the Mint Message
   const getPosition = () => {
-    const x = fountainRef.current ? fountainRef.current.offsetLeft : 200
+    const x = ref.current ? ref.current.offsetLeft : null
     setX(x)
   }
 
@@ -30,8 +33,11 @@ const MintNft1 = ({ route, windowSize }) => {
   const { chain } = useNetwork()
 
   useEffect(() => {
+    // const getRef = ref.current
+    // console.log('🚀 ~ file: 1.js ~ line 38 ~ useEffect ~ getRef', getRef)
+
     getPosition() // 👈 Set the Fountain container position on mount
-  }, [address])
+  }, [])
 
   // 👇 Recalculate X and Y when browser window is re-sized
   useEffect(() => {
@@ -47,6 +53,7 @@ const MintNft1 = ({ route, windowSize }) => {
         <meta name='Mint BricktOrigins NFT #1' content='BricktOrigins' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
+
       <Container>
         {width > 767 && height > 551 ? (
           <>
@@ -62,7 +69,7 @@ const MintNft1 = ({ route, windowSize }) => {
               />
             </MintContainer>
 
-            <PreRevealContainer ref={fountainRef}>
+            <PreRevealContainer ref={ref}>
               <PreReveal />
             </PreRevealContainer>
           </>
