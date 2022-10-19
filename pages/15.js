@@ -10,7 +10,6 @@ const MintNft1 = ({ route, windowSize }) => {
   // 👇 Position of the Fountain container
 
   const ref = useRef()
-  console.log('🚀 ~ file: 1.js ~ line 13 ~ MintNft1 ~ ref', ref)
 
   const [x, setX] = useState(0)
 
