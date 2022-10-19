@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import styled from '@emotion/styled'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import { useAccount, useNetwork } from 'wagmi'
 import Mint from '../components/Mint'
 import PreReveal from '../components/Mint/PreReveal'
@@ -9,7 +10,7 @@ import { id } from 'ethers/lib/utils'
 
 // ======= 👀 ❗ This is the dynamic route ❗ 👀 =========
 
-const MintNft = ({ route, windowSize }) => {
+const MintNft = ({ windowSize }) => {
   // 👇 Position of the Fountain container
 
   const ref = useRef()
@@ -22,8 +23,19 @@ const MintNft = ({ route, windowSize }) => {
     setX(x)
   }
 
+  const router = useRouter()
+  console.log('🚀 ~ file: _app.js ~ line 36 ~ MyApp ~ router', router)
+  const { id } = router.query // 👈 need to use 'query' for dynamic routes
+  console.log('🚀 ~ file: _app.js ~ line 38 ~ MyApp ~ id', id)
+
   // 👇 Set the NFT ID
-  const nftId = parseInt(route.substring(1, 2) - 1)
+  // const nft = id
+  // console.log('🚀 ~ file: [id].js ~ line 33 ~ MintNft ~ nft', nft)
+
+  const nftId = parseInt(id - 1)
+  console.log('🚀 ~ file: [id].js ~ line 36 ~ MintNft ~ nftId', nftId)
+
+  // const nftId = parseInt(nft.substring(1, 2) - 1)
 
   // 👇 Get Window Size for Viewport Message
   const { width, height } = windowSize
@@ -83,27 +95,27 @@ const MintNft = ({ route, windowSize }) => {
   )
 }
 
-export async function getStaticProps({ params }) {
-  const nftId = parseInt(route.substring(1, 2) - 1)
-  return {
-    props: {
-      nftId,
-    },
-  }
-}
+// export async function getStaticProps({ params }) {
+//   const nftId = parseInt(route.substring(1, 2) - 1)
+//   return {
+//     props: {
+//       nftId,
+//     },
+//   }
+// }
 
 // 👇 Prepare the paths to build
-export const getStaticPaths = async () => {
-  const nftIds = [0, 1, 2, 3, 4]
-  const paths = nftIds.map((id) => ({
-    params: { id: id.toString() },
-  }))
+// export const getStaticPaths = async () => {
+//   const nftIds = [0, 1, 2, 3, 4]
+//   const paths = nftIds.map((id) => ({
+//     params: { id: id.toString() },
+//   }))
 
-  return {
-    paths,
-    fallback: false, // 👈 throw 404 when ID is anything but the above
-  }
-}
+//   return {
+//     paths,
+//     fallback: false, // 👈 throw 404 when ID is anything but the above
+//   }
+// }
 
 export default MintNft
 

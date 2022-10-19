@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
         <AudioProvider>
           <IntroModal showModal={true} route={appRoute} />
           <Layout windowSize={size}>
-            <Component {...pageProps} windowSize={size} route={appRoute} />
+            <Component {...pageProps} windowSize={size} />
           </Layout>
         </AudioProvider>
       </RainbowKitProvider>
