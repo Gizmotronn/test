@@ -23,17 +23,10 @@ const MintNft = ({ windowSize }) => {
     setX(x)
   }
 
+  // 👇 Set the NFT ID based off the route
   const router = useRouter()
-  console.log('🚀 ~ file: _app.js ~ line 36 ~ MyApp ~ router', router)
   const { id } = router.query // 👈 need to use 'query' for dynamic routes
-  console.log('🚀 ~ file: _app.js ~ line 38 ~ MyApp ~ id', id)
-
-  // 👇 Set the NFT ID
-  // const nft = id
-  // console.log('🚀 ~ file: [id].js ~ line 33 ~ MintNft ~ nft', nft)
-
   const nftId = parseInt(id - 1)
-  console.log('🚀 ~ file: [id].js ~ line 36 ~ MintNft ~ nftId', nftId)
 
   // const nftId = parseInt(nft.substring(1, 2) - 1)
 
