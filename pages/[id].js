@@ -7,10 +7,13 @@ import Mint from '../components/Mint'
 import PreReveal from '../components/Mint/PreReveal'
 import ViewportMessage from '../components/ViewportMessage'
 import { id } from 'ethers/lib/utils'
+import { nfts1155 } from '../data/nfts1155'
 
 // ======= 👀 ❗ This is the dynamic route ❗ 👀 =========
 
-const MintNft = ({ windowSize }) => {
+const MintNft = ({ windowSize, nftData }) => {
+  console.log('🚀 ~ file: [id].js ~ line 15 ~ MintNft ~ nftData', nftData)
+
   // 👇 Position of the Fountain container
 
   const ref = useRef()
@@ -88,27 +91,28 @@ const MintNft = ({ windowSize }) => {
   )
 }
 
-// export async function getStaticProps({ params }) {
-//   const nftId = parseInt(route.substring(1, 2) - 1)
-//   return {
-//     props: {
-//       nftId,
-//     },
-//   }
-// }
+// 👇 Get our Static Props at build time
+export async function getStaticProps({ params }) {
+  const nft = nfts1155.filter((nft) => nft.id.toString() === params.id)
+  return {
+    props: {
+      nftData: nft[0],
+    },
+  }
+}
 
 // 👇 Prepare the paths to build
-// export const getStaticPaths = async () => {
-//   const nftIds = [0, 1, 2, 3, 4]
-//   const paths = nftIds.map((id) => ({
-//     params: { id: id.toString() },
-//   }))
+export const getStaticPaths = async () => {
+  const nfts = nfts1155
+  const paths = nfts.map((nft) => ({
+    params: { id: nft.id.toString() },
+  }))
 
-//   return {
-//     paths,
-//     fallback: false, // 👈 throw 404 when ID is anything but the above
-//   }
-// }
+  return {
+    paths,
+    fallback: false, // 👈 throw 404 when ID is anything but the above
+  }
+}
 
 export default MintNft
 
