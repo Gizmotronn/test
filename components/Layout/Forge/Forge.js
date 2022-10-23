@@ -10,7 +10,6 @@ export default function ForgeNav(props) {
   const [forge, setForge] = useState(false)
 
   const { route, windowSize } = props
-  console.log('🚀 ~ file: Forge.js ~ line 13 ~ ForgeNav ~ route', route)
 
   const { width, height } = windowSize
 

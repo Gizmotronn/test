@@ -22,7 +22,7 @@ const BrowserMessage = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 522px;
+  ${'' /* min-width: 522px; */}
   min-height: 206px;
   background-color: ${COLORS.background};
   margin: auto;

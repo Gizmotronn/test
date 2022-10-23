@@ -24,7 +24,6 @@ const Mint = ({ isConnected, address, chain, viewportWidth, viewportHeight, nftI
 
   // 👇 Set Mint Quantity Selected by the User and pass to Mint Button
   const setMintQuantity = (amount) => {
-    // console.log('set quant')
     setQuantity(amount)
   }
   // 👇 Set the Already Minted NFT Message

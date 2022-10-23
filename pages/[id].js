@@ -12,8 +12,6 @@ import { nfts1155 } from '../data/nfts1155'
 // ======= 👀 ❗ This is the dynamic route ❗ 👀 =========
 
 const MintNft = ({ windowSize, nftData }) => {
-  console.log('🚀 ~ file: [id].js ~ line 15 ~ MintNft ~ nftData', nftData)
-
   // 👇 Position of the Fountain container
 
   const ref = useRef()
