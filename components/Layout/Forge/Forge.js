@@ -10,6 +10,7 @@ export default function ForgeNav(props) {
   const [forge, setForge] = useState(false)
 
   const { route, windowSize } = props
+  console.log('🚀 ~ file: Forge.js ~ line 13 ~ ForgeNav ~ route', route)
 
   const { width, height } = windowSize
 
@@ -18,7 +19,7 @@ export default function ForgeNav(props) {
       {width > 767 && height > 551 && (
         <>
           {/* Show Forge Button on every page EXCEPT Mint pages */}
-          {route !== ('/1' || '/2' || '/3' || '/4' || '/5') && (
+          {(route === '/' || route === '/forge') && (
             <nav>
               <ForgeContainer>
                 {route === '/forge' ? (

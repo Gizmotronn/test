@@ -31,7 +31,7 @@ const Mint = ({ isConnected, address, chain, viewportWidth, viewportHeight, nftI
   const AlreadyMintedMessage = () => {
     return (
       <>
-        <Text color={COLORS.background}>You have already minted an NFT.</Text>
+        <Text color={COLORS.background}>Minting unavailable as you already own this NFT.</Text>
       </>
     )
   }
@@ -40,7 +40,7 @@ const Mint = ({ isConnected, address, chain, viewportWidth, viewportHeight, nftI
   const WhitelistMessage = () => {
     return (
       <>
-        <Text color={COLORS.background}>You are not on the whitelist.</Text>
+        <Text color={COLORS.background}>Minting unavailable as wallet address is not on WL.</Text>
       </>
     )
   }
