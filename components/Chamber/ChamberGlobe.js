@@ -5,8 +5,6 @@ import { CHAMBERGLOBE } from '../../constants/constants'
 import Text from '../Shared/Text'
 
 const ChamberGlobe = () => {
-  const hasMinted = false
-
   return (
     <a
       href='https://opensea.io/collection/bricktopians-by-law-degree'

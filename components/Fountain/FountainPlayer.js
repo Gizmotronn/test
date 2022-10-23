@@ -33,7 +33,6 @@ const Wrapper = styled.video`
   max-width: 100%;
   clip-path: circle(50%);
   border-radius: 50%;
-  ${'' /* border: 3px solid yellow; */}
   background: inherit;
   z-index: 400;
 `
